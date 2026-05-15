@@ -1,0 +1,20 @@
+---
+import CastingPage from "@components/CastingPage.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { locales, normalizeLocale, translations } from "@data/i18n";
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+const t = translations[locale];
+---
+
+<BaseLayout title={t.casting.title} description={t.casting.description} locale={locale} canonicalPath={`/${locale}/casting/`}>
+  <SiteHeader locale={locale} section="casting" />
+  <CastingPage locale={locale} />
+  <SiteFooter locale={locale} />
+</BaseLayout>

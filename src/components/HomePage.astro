@@ -1,0 +1,276 @@
+---
+import InstagramCard from "@components/InstagramCard.astro";
+import CurrentCampaign from "@components/CurrentCampaign.astro";
+import LanguageStageCanvas from "@components/LanguageStageCanvas.astro";
+import MediaPlaceholder from "@components/MediaPlaceholder.astro";
+import ModePanel from "@components/ModePanel.astro";
+import { heroBackdrops } from "@data/heroBackdrops";
+import { getLocalizedInstagramPosts, localizedPath, translations, type Locale } from "@data/i18n";
+import { localeVisuals } from "@data/localeVisuals";
+import { withBase } from "@data/paths";
+import { contentPlan, profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const t = translations[locale];
+const visual = localeVisuals[locale];
+const heroBackdrop = heroBackdrops[locale];
+const localizedPosts = getLocalizedInstagramPosts(locale);
+const byId = (ids: string[]) => localizedPosts.filter((post) => ids.includes(post.id));
+
+const featuredPosts = byId([
+  "nemocnica-tvjoj",
+  "theatre-day",
+  "vocal-concert",
+  "hosting-st-nicholas",
+  "voice-training",
+  "little-women-stage"
+]);
+const actingPosts = byId(["nemocnica-tvjoj", "theatre-day", "acting-emotions", "little-women-stage"]);
+const musicPosts = byId(["vocal-concert"]);
+const hostingPosts = byId(["hosting-st-nicholas"]);
+const voicePosts = byId(["voice-training"]);
+const briefLabels: Record<Locale, { visual: string; content: string; loop: string }> = {
+  en: { visual: "Visual direction", content: "Hero content to shoot", loop: "Cinematic language loop" },
+  sk: { visual: "Vizuálny smer", content: "Hero obsah na natočenie", loop: "Slovenský filmový loop" },
+  pl: { visual: "Kierunek wizualny", content: "Hero materiały do nagrania", loop: "Polski filmowy loop" },
+  it: { visual: "Direzione visiva", content: "Contenuti hero da girare", loop: "Loop cinematografico italiano" },
+  uk: { visual: "Візуальний напрям", content: "Hero-контент для зйомки", loop: "Український film loop" },
+  ru: { visual: "Визуальное направление", content: "Hero-контент для съёмки", loop: "Русский cinematic loop" }
+};
+const brief = briefLabels[locale];
+---
+
+<main>
+  <section class:list={["hero", "has-video", `hero-${visual.theme}`]}>
+    <div class="hero-video-backdrop" data-backdrop-label={heroBackdrop.label} aria-hidden="true">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src={heroBackdrop.src} type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">{t.hero.eyebrow}</p>
+      <h1>{profile.name}</h1>
+      <p class="hero-line">{t.hero.headline}</p>
+      <p class="hero-text">{t.hero.subheadline}</p>
+      <div class="hero-actions" aria-label="Primary actions">
+        <a class="button primary" href="#acting">{t.hero.showreel}</a>
+        <a class="button secondary" href="#voice">{t.hero.voice}</a>
+        <a class="button secondary" href={localizedPath(locale, "casting/")}>{t.hero.casting}</a>
+        <a class="button secondary" href={withBase("/downloads/taisija-boyko-cv-draft.txt")} download>{t.hero.cv}</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Profile summary">
+      <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="1080" height="1080" />
+      <div>
+        <p class="card-kicker">{t.hero.cardLabel}</p>
+        <h2>{t.hero.cardTitle}</h2>
+        <p>{profile.education}</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="quick-strip" aria-label="Key profile points">
+    {t.quick.map((item) => <span>{item}</span>)}
+  </section>
+
+  <section class:list={["section", "home-visual-brief", `brief-${visual.theme}`]} aria-label={brief.visual}>
+    <div class="visual-brief-copy">
+      <p class="eyebrow">{brief.visual}</p>
+      <h2>{visual.title}</h2>
+      <p>{visual.body}</p>
+    </div>
+    <div class="visual-brief-stage">
+      <div class="visual-symbol" aria-hidden="true"></div>
+      <p class="eyebrow">{brief.loop}</p>
+      <h3>{visual.backdrop}</h3>
+    </div>
+    <div class="visual-brief-list" aria-label={brief.content}>
+      {
+        visual.media.map((item) => (
+          <article>
+            <span></span>
+            <p>{item}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <CurrentCampaign locale={locale} />
+
+  <ModePanel locale={locale} />
+
+  <section class="section selected-work" aria-label={t.selected.eyebrow}>
+    <div class="section-heading">
+      <p class="eyebrow">{t.selected.eyebrow}</p>
+      <h2>{t.selected.title}</h2>
+      <p>{t.selected.body}</p>
+    </div>
+    <div class="instagram-grid featured">
+      {featuredPosts.map((post) => <InstagramCard {...post} />)}
+    </div>
+  </section>
+
+  <section class="section reel-library" id="reels">
+    <div class="section-heading">
+      <p class="eyebrow">{t.reels.eyebrow}</p>
+      <h2>{t.reels.title}</h2>
+      <p>{t.reels.body}</p>
+    </div>
+    <div class="reel-grid">
+      {
+        t.reels.items.map(([title, body], index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section two-column" id="acting">
+    <div>
+      <p class="eyebrow">{t.acting.eyebrow}</p>
+      <h2>{t.acting.title}</h2>
+    </div>
+    <div>
+      <p>{t.acting.body}</p>
+      <MediaPlaceholder title="Acting showreel" category="video placeholder" note={t.acting.placeholder} />
+      <div class="instagram-grid compact-cards">
+        {actingPosts.map((post) => <InstagramCard {...post} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band" id="voice">
+    <div class="section-heading">
+      <p class="eyebrow">{t.voice.eyebrow}</p>
+      <h2>{t.voice.title}</h2>
+      <p>{t.voice.body}</p>
+    </div>
+    <div class="media-grid">
+      {voicePosts.map((post) => <InstagramCard {...post} />)}
+      <MediaPlaceholder title="Language sample set" category="voice" note={t.voice.sampleSet} tone="dark" />
+    </div>
+  </section>
+
+  <section class="section" id="languages">
+    <div class="section-heading compact">
+      <p class="eyebrow">{t.languages.eyebrow}</p>
+      <h2>{t.languages.title}</h2>
+    </div>
+    <div class="language-grid">
+      {
+        t.languageRows.map(([name, level, uses]) => (
+          <article>
+            <h3>{name}</h3>
+            <p>{level}</p>
+            <span>{uses}</span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section market-focus">
+    <div class="section-heading">
+      <p class="eyebrow">{t.market.eyebrow}</p>
+      <h2>{t.market.title}</h2>
+    </div>
+    <div class="market-grid">
+      {
+        t.market.cards.map(([title, body]) => (
+          <article>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <LanguageStageCanvas eyebrow={t.canvas.eyebrow} title={t.canvas.title} body={t.canvas.body} rows={t.languageRows} />
+
+  <section class="section split-media" id="music">
+    <div class="section-heading">
+      <p class="eyebrow">{t.music.eyebrow}</p>
+      <h2>{t.music.title}</h2>
+      <p>{t.music.body}</p>
+    </div>
+    <div class="media-grid">
+      {musicPosts.map((post) => <InstagramCard {...post} />)}
+      <MediaPlaceholder title="Piano sample" category="music" note={t.music.piano} />
+    </div>
+  </section>
+
+  <section class="section two-column" id="hosting">
+    <div>
+      <p class="eyebrow">{t.hosting.eyebrow}</p>
+      <h2>{t.hosting.title}</h2>
+    </div>
+    <div class="stack">
+      <p>{t.hosting.body}</p>
+      <MediaPlaceholder title="Hosting reel" category="events" note={t.hosting.placeholder} />
+      <div class="instagram-grid single">
+        {hostingPosts.map((post) => <InstagramCard {...post} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-heading compact">
+      <p class="eyebrow">{t.skills.eyebrow}</p>
+      <h2>{t.skills.title}</h2>
+    </div>
+    <div class="skill-grid">
+      {
+        t.skillGroups.map(([title, body]) => (
+          <article>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section content-plan" id="content-plan">
+    <div class="section-heading">
+      <p class="eyebrow">{t.plan.eyebrow}</p>
+      <h2>{t.plan.title}</h2>
+      <p>{t.plan.body}</p>
+    </div>
+    <div class="plan-grid">
+      {
+        contentPlan.map((item) => (
+          <article>
+            <p class="eyebrow">{item.where}</p>
+            <h3>{item.title}</h3>
+            <p>{item.needed}</p>
+            <span>{item.suggestedFiles}</span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section contact-band" id="contact">
+    <div>
+      <p class="eyebrow">{t.contact.eyebrow}</p>
+      <h2>{t.contact.title}</h2>
+    </div>
+    <div class="contact-card">
+      <a class="contact-link" href={`mailto:${profile.email}`}>{profile.email}</a>
+      <a class="contact-link" href={profile.instagram} target="_blank" rel="noreferrer">
+        Instagram {profile.handle}
+      </a>
+      <a class="button primary" href={localizedPath(locale, "casting/")}>{t.contact.casting}</a>
+    </div>
+  </section>
+</main>

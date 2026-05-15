@@ -1,0 +1,21 @@
+---
+import StageExperience from "@components/StageExperience.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { locales, normalizeLocale } from "@data/i18n";
+import { stageCopy } from "@data/stage";
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+const copy = stageCopy[locale];
+---
+
+<BaseLayout title={copy.title} description={copy.description} locale={locale} canonicalPath={`/${locale}/stage/`}>
+  <SiteHeader locale={locale} section="stage" />
+  <StageExperience locale={locale} />
+  <SiteFooter locale={locale} />
+</BaseLayout>

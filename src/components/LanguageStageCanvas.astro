@@ -1,0 +1,144 @@
+---
+type Props = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  rows: readonly (readonly [string, string, string])[];
+};
+
+const { eyebrow, title, body, rows } = Astro.props;
+const canvasData = rows.map(([name, level, uses]) => ({ name, level, uses }));
+---
+
+<section class="section language-stage" id="language-stage" aria-labelledby="language-stage-title">
+  <div class="section-heading">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 id="language-stage-title">{title}</h2>
+    <p>{body}</p>
+  </div>
+  <div class="canvas-shell">
+    <canvas
+      data-language-canvas
+      data-languages={JSON.stringify(canvasData)}
+      aria-hidden="true"
+    ></canvas>
+    <div class="canvas-language-list" aria-label={title}>
+      {
+        rows.map(([name, level, uses]) => (
+          <article>
+            <h3>{name}</h3>
+            <p>{level}</p>
+            <span>{uses}</span>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const canvases = document.querySelectorAll("[data-language-canvas]");
+
+  canvases.forEach((canvas) => {
+    if (!(canvas instanceof HTMLCanvasElement)) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const raw = canvas.dataset.languages ?? "[]";
+    const languages = JSON.parse(raw);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let pointer = { x: 0.62, y: 0.4 };
+    let frame = 0;
+    let raf = 0;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function draw() {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      frame += prefersReducedMotion ? 0 : 0.012;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#171412";
+      ctx.fillRect(0, 0, width, height);
+
+      const gradient = ctx.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, "rgba(143, 36, 60, 0.38)");
+      gradient.addColorStop(0.48, "rgba(185, 133, 59, 0.16)");
+      gradient.addColorStop(1, "rgba(40, 109, 103, 0.32)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 7; i += 1) {
+        const y = 50 + i * ((height - 100) / 6);
+        ctx.strokeStyle = `rgba(255, 253, 248, ${0.08 + i * 0.01})`;
+        ctx.beginPath();
+        ctx.moveTo(34, y);
+        ctx.lineTo(width - 34, y);
+        ctx.stroke();
+      }
+
+      languages.forEach((language, index) => {
+        const y = 58 + index * ((height - 116) / Math.max(languages.length - 1, 1));
+        const sway = Math.sin(frame + index * 0.8) * 18;
+        const startX = 42;
+        const endX = width - 48;
+        const controlX = width * pointer.x + sway;
+        const controlY = y + (pointer.y - 0.5) * 72;
+        const accent = index % 3 === 0 ? "#b9853b" : index % 3 === 1 ? "#8f243c" : "#2f8f86";
+
+        ctx.strokeStyle = accent;
+        ctx.globalAlpha = 0.42;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(startX, y);
+        ctx.bezierCurveTo(controlX, controlY, controlX + 60, controlY, endX, y);
+        ctx.stroke();
+
+        ctx.globalAlpha = 0.9;
+        ctx.fillStyle = "rgba(255, 253, 248, 0.9)";
+        ctx.font = "700 12px Inter, system-ui, sans-serif";
+        ctx.fillText(language.name, 54, y - 8);
+        ctx.font = "11px Inter, system-ui, sans-serif";
+        ctx.fillStyle = "rgba(255, 253, 248, 0.6)";
+        ctx.fillText(language.uses, Math.min(width * 0.52, 360), y - 8);
+      });
+
+      ctx.globalAlpha = 1;
+
+      if (!prefersReducedMotion) {
+        raf = window.requestAnimationFrame(draw);
+      }
+    }
+
+    resize();
+    draw();
+
+    canvas.addEventListener("pointermove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      pointer = {
+        x: (event.clientX - rect.left) / rect.width,
+        y: (event.clientY - rect.top) / rect.height
+      };
+      if (prefersReducedMotion) draw();
+    });
+
+    window.addEventListener("resize", () => {
+      resize();
+      draw();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) window.cancelAnimationFrame(raf);
+      if (!document.hidden && !prefersReducedMotion) draw();
+    });
+  });
+</script>

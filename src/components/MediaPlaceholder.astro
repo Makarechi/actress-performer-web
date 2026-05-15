@@ -1,0 +1,21 @@
+---
+type Props = {
+  title: string;
+  category: string;
+  note: string;
+  tone?: "dark" | "light";
+};
+
+const { title, category, note, tone = "light" } = Astro.props;
+---
+
+<article class:list={["media-placeholder", tone]}>
+  <div class="media-mark" aria-hidden="true">
+    <span></span>
+  </div>
+  <div>
+    <p class="eyebrow">{category}</p>
+    <h3>{title}</h3>
+    <p>{note}</p>
+  </div>
+</article>

@@ -1,0 +1,22 @@
+---
+import { profile } from "@data/profile";
+import { translations, type Locale } from "@data/i18n";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
+const t = translations[locale];
+---
+
+<footer class="site-footer">
+  <div>
+    <strong>{profile.name}</strong>
+    <p>{t.hero.headline}</p>
+  </div>
+  <div class="footer-links">
+    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    <a href={profile.instagram} target="_blank" rel="noreferrer">Instagram</a>
+  </div>
+</footer>

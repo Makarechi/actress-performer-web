@@ -1,0 +1,178 @@
+---
+import InstagramCard from "@components/InstagramCard.astro";
+import MediaPlaceholder from "@components/MediaPlaceholder.astro";
+import { getLocalizedInstagramPosts, translations, type Locale } from "@data/i18n";
+import { withBase } from "@data/paths";
+import { contentPlan, profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const t = translations[locale];
+const factRows = {
+  en: [
+    ["Profession", "Film and theatre actress / performer"],
+    ["Base", "Bratislava / Central Europe"],
+    ["Training", profile.education],
+    ["Work formats", "Film, theatre, series, advertising, dubbing, events"],
+    ["Contact", profile.email]
+  ],
+  sk: [
+    ["Profesia", "Filmová a divadelná herečka / performerka"],
+    ["Základňa", "Bratislava / stredná Európa"],
+    ["Vzdelanie", profile.education],
+    ["Formáty práce", "Film, divadlo, seriály, reklama, dabing, eventy"],
+    ["Kontakt", profile.email]
+  ],
+  pl: [
+    ["Zawód", "Aktorka filmowa i teatralna / performerka"],
+    ["Baza", "Bratysława / Europa Środkowa"],
+    ["Edukacja", profile.education],
+    ["Formaty pracy", "Film, teatr, seriale, reklama, dubbing, wydarzenia"],
+    ["Kontakt", profile.email]
+  ],
+  it: [
+    ["Professione", "Attrice di cinema e teatro / performer"],
+    ["Base", "Bratislava / Europa centrale"],
+    ["Formazione", profile.education],
+    ["Formati", "Film, teatro, serie, pubblicità, doppiaggio, eventi"],
+    ["Contatto", profile.email]
+  ],
+  uk: [
+    ["Професія", "Кіно- та театральна акторка / performer"],
+    ["База", "Братислава / Центральна Європа"],
+    ["Освіта", profile.education],
+    ["Формати роботи", "Кіно, театр, серіали, реклама, дубляж, події"],
+    ["Контакт", profile.email]
+  ],
+  ru: [
+    ["Профессия", "Актриса кино и театра / performer"],
+    ["База", "Братислава / Центральная Европа"],
+    ["Образование", profile.education],
+    ["Форматы работы", "Кино, театр, сериалы, реклама, дубляж, мероприятия"],
+    ["Контакт", profile.email]
+  ]
+}[locale];
+const localizedPosts = getLocalizedInstagramPosts(locale);
+const castingReferences = localizedPosts.filter((post) =>
+  ["nemocnica-tvjoj", "theatre-day", "vocal-concert", "hosting-st-nicholas", "voice-training", "little-women-stage"].includes(post.id)
+);
+---
+
+<main class="casting-page">
+  <section class="casting-hero">
+    <div class="casting-photo">
+      <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="1080" height="1080" />
+    </div>
+    <div>
+      <p class="eyebrow">{t.casting.eyebrow}</p>
+      <h1>{profile.name}</h1>
+      <p>{t.casting.intro}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={`mailto:${profile.email}`}>{t.casting.contact}</a>
+        <a class="button secondary" href={withBase("/downloads/taisija-boyko-cv-draft.txt")} download>{t.casting.download}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="casting-layout">
+    <aside class="fact-panel">
+      <h2>{t.casting.facts}</h2>
+        <dl>
+          {
+          factRows.map(([label, value]) => (
+            <>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </aside>
+
+    <div class="casting-main">
+      <section>
+        <h2>{t.casting.selected}</h2>
+        <div class="instagram-grid casting-grid">
+          {castingReferences.map((post) => <InstagramCard {...post} />)}
+        </div>
+      </section>
+
+      <section>
+        <h2>{t.casting.showreel}</h2>
+        <MediaPlaceholder
+          title="Acting showreel"
+          category="required media"
+          note={t.acting.placeholder}
+        />
+      </section>
+
+      <section>
+        <h2>{t.casting.languages}</h2>
+        <div class="compact-list">
+          {
+            t.languageRows.map(([name, level, uses]) => (
+              <p>
+                <strong>{name}</strong> — {level} — {uses}
+              </p>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <h2>{t.casting.voice}</h2>
+        <MediaPlaceholder
+          title="Voice samples"
+          category="required media"
+          note={t.voice.sampleSet}
+        />
+      </section>
+
+      <section>
+        <h2>{t.casting.skills}</h2>
+        <div class="skill-grid compact">
+          {
+            t.skillGroups.map(([title, body]) => (
+              <article>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <h2>{t.casting.credits}</h2>
+        <div class="credits-table" role="table" aria-label={t.casting.credits}>
+          <div role="row">
+            {t.casting.table.map((header) => <strong role="columnheader">{header}</strong>)}
+          </div>
+          {
+            t.casting.rows.map((row) => (
+              <div role="row">
+                {row.map((cell) => <span role="cell">{cell}</span>)}
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <h2>{t.casting.missing}</h2>
+        <div class="compact-list">
+          {
+            contentPlan.slice(0, 7).map((item) => (
+              <p>
+                <strong>{item.title}</strong> — {item.needed}
+              </p>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </section>
+</main>

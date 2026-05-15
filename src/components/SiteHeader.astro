@@ -1,0 +1,67 @@
+---
+import { profile } from "@data/profile";
+import { localeNames, locales, localizedPath, translations, type Locale } from "@data/i18n";
+import { stageLabels } from "@data/stage";
+import { workLabels } from "@data/work";
+
+type Props = {
+  locale?: Locale;
+  section?: "" | "casting" | "stage" | "work";
+};
+
+const { locale = "en", section = "" } = Astro.props;
+const t = translations[locale];
+const currentSuffix = section ? `${section}/` : "";
+const navItems = [
+  [t.nav.acting, `${localizedPath(locale)}#acting`],
+  [t.nav.voice, `${localizedPath(locale)}#voice`],
+  [t.nav.languages, `${localizedPath(locale)}#languages`],
+  [t.nav.music, `${localizedPath(locale)}#music`],
+  [t.nav.hosting, `${localizedPath(locale)}#hosting`],
+  [workLabels[locale], localizedPath(locale, "work/")],
+  [stageLabels[locale], localizedPath(locale, "stage/")],
+  [t.nav.casting, localizedPath(locale, "casting/")],
+  [t.nav.plan, `${localizedPath(locale)}#content-plan`],
+  [t.nav.contact, `${localizedPath(locale)}#contact`]
+] as const;
+---
+
+<header class="site-header">
+  <a class="brand" href={localizedPath(locale)} aria-label={`${profile.name} home`}>
+    <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="40" height="40" />
+    <span>{profile.name}</span>
+  </a>
+  <div class="header-actions">
+    <nav aria-label="Primary navigation">
+      {
+        navItems.map(([label, href]) => (
+          <a href={href}>{label}</a>
+        ))
+      }
+    </nav>
+    <label class="locale-select">
+      <span class="sr-only">{t.selectLanguage}</span>
+      <select data-locale-switcher aria-label={t.selectLanguage}>
+        {
+          locales.map((code) => (
+            <option value={localizedPath(code, currentSuffix)} data-locale={code} selected={code === locale}>
+              {localeNames[code]}
+            </option>
+          ))
+        }
+      </select>
+    </label>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll("[data-locale-switcher]").forEach((select) => {
+    select.addEventListener("change", (event) => {
+      const target = event.currentTarget;
+      if (!(target instanceof HTMLSelectElement)) return;
+      const locale = target.selectedOptions[0]?.dataset.locale;
+      if (locale) window.localStorage.setItem("preferredLocale", locale);
+      window.location.href = target.value;
+    });
+  });
+</script>

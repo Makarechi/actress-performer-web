@@ -1,0 +1,34 @@
+---
+import { localizedPath, type Locale } from "@data/i18n";
+import { campaignCopy } from "@data/work";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const copy = campaignCopy[locale];
+---
+
+<section class="section campaign-strip" aria-label={copy.eyebrow}>
+  <div class="campaign-main">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h2>{copy.title}</h2>
+    <p>{copy.body}</p>
+    <div class="campaign-actions" aria-label="Current campaign actions">
+      <a class="button primary" href={localizedPath(locale, "work/")}>{copy.primary}</a>
+      <a class="button secondary" href={localizedPath(locale, "stage/")}>{copy.secondary}</a>
+      <a class="button secondary" href={localizedPath(locale, "casting/")}>{copy.tertiary}</a>
+    </div>
+  </div>
+  <div class="campaign-card-grid">
+    {
+      copy.cards.map(([title, body]) => (
+        <article>
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

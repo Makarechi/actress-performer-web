@@ -1,0 +1,21 @@
+---
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import WorkPage from "@components/WorkPage.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { locales, normalizeLocale } from "@data/i18n";
+import { workPageCopy } from "@data/work";
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+const copy = workPageCopy[locale];
+---
+
+<BaseLayout title={copy.title} description={copy.description} locale={locale} canonicalPath={`/${locale}/work/`}>
+  <SiteHeader locale={locale} section="work" />
+  <WorkPage locale={locale} />
+  <SiteFooter locale={locale} />
+</BaseLayout>

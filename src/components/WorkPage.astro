@@ -1,0 +1,174 @@
+---
+import InstagramCard from "@components/InstagramCard.astro";
+import MediaPlaceholder from "@components/MediaPlaceholder.astro";
+import { getLocalizedInstagramPosts, localizedPath, type Locale } from "@data/i18n";
+import { localeVisuals } from "@data/localeVisuals";
+import { profile } from "@data/profile";
+import { workCategories, workPageCopy } from "@data/work";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const copy = workPageCopy[locale];
+const visual = localeVisuals[locale];
+const localizedPosts = getLocalizedInstagramPosts(locale);
+const getPosts = (ids: readonly string[]) => localizedPosts.filter((post) => ids.includes(post.id));
+const workSections = workCategories.map((category) => ({
+  ...category,
+  posts: getPosts(category.postIds)
+}));
+const mediaToAdd: Record<Locale, string> = {
+  en: "media to add",
+  sk: "materiály na doplnenie",
+  pl: "media do dodania",
+  it: "media da aggiungere",
+  uk: "матеріали для додавання",
+  ru: "материалы для добавления"
+};
+const plannedAssetLabel: Record<Locale, string> = {
+  en: "planned work asset",
+  sk: "plánovaný materiál",
+  pl: "planowany materiał",
+  it: "materiale pianificato",
+  uk: "запланований матеріал",
+  ru: "запланированный материал"
+};
+
+const packetCopy: Record<
+  Locale,
+  {
+    eyebrow: string;
+    title: string;
+    body: string;
+    items: string[];
+  }
+> = {
+  en: {
+    eyebrow: "Press / booking packet",
+    title: "A practical package for agents, producers and event clients.",
+    body:
+      "This area is planned for the downloadable materials that make the site work like an official artist hub.",
+    items: ["Updated CV PDF", "Press kit with approved photos", "Showreel links", "Voice and music samples"]
+  },
+  sk: {
+    eyebrow: "Press / booking packet",
+    title: "Praktický balík pre agentúry, producentov a event klientov.",
+    body:
+      "Tento priestor je pripravený pre materiály, aby stránka fungovala ako oficiálny artist hub.",
+    items: ["Aktuálne CV PDF", "Press kit so schválenými fotkami", "Showreel linky", "Hlasové a hudobné ukážky"]
+  },
+  pl: {
+    eyebrow: "Press / booking packet",
+    title: "Praktyczny pakiet dla agentów, producentów i klientów eventowych.",
+    body:
+      "To miejsce jest zaplanowane na materiały, które zamienią stronę w oficjalny hub artystki.",
+    items: ["Aktualne CV PDF", "Press kit ze zdjęciami", "Linki do showreel", "Próbki głosu i muzyki"]
+  },
+  it: {
+    eyebrow: "Press / booking packet",
+    title: "Un pacchetto pratico per agenti, produzioni e clienti eventi.",
+    body:
+      "Questo spazio è pensato per i materiali scaricabili che fanno funzionare il sito come official artist hub.",
+    items: ["CV PDF aggiornato", "Press kit con foto approvate", "Link showreel", "Sample voce e musica"]
+  },
+  uk: {
+    eyebrow: "Press / booking packet",
+    title: "Практичний пакет для агентів, продюсерів і event-клієнтів.",
+    body:
+      "Цей блок запланований для матеріалів, які перетворюють сайт на офіційний artist hub.",
+    items: ["Оновлений CV PDF", "Press kit з approved photos", "Showreel links", "Voice and music samples"]
+  },
+  ru: {
+    eyebrow: "Press / booking packet",
+    title: "Практический пакет для агентов, продюсеров и event-клиентов.",
+    body:
+      "Этот блок запланирован под материалы, которые превращают сайт в официальный артистический хаб.",
+    items: ["Актуальный CV PDF", "Press kit с утверждёнными фото", "Ссылки на showreel", "Voice и music samples"]
+  }
+};
+const packet = packetCopy[locale];
+const signatureLabels: Record<Locale, { backdrop: string; content: string }> = {
+  en: { backdrop: "Hero backdrop", content: "Content to prepare" },
+  sk: { backdrop: "Hero pozadie", content: "Obsah na prípravu" },
+  pl: { backdrop: "Tło hero", content: "Materiały do przygotowania" },
+  it: { backdrop: "Sfondo hero", content: "Contenuti da preparare" },
+  uk: { backdrop: "Hero backdrop", content: "Матеріали для підготовки" },
+  ru: { backdrop: "Фон первого экрана", content: "Контент для подготовки" }
+};
+const signature = signatureLabels[locale];
+---
+
+<main class="work-page">
+  <section class="work-hero">
+    <div>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1>{copy.heading}</h1>
+      <p>{copy.body}</p>
+    </div>
+    <div class="work-hero-actions" aria-label="Selected work actions">
+      <a class="button primary" href={`mailto:${profile.email}`}>{copy.contact}</a>
+      <a class="button secondary" href={localizedPath(locale, "casting/")}>{copy.casting}</a>
+    </div>
+  </section>
+
+  <section class:list={["section", "locale-signature", `signature-${visual.theme}`]}>
+    <div class="section-heading">
+      <p class="eyebrow">{visual.eyebrow}</p>
+      <h2>{visual.title}</h2>
+      <p>{visual.body}</p>
+    </div>
+    <div class="signature-layout">
+      <article class="signature-backdrop-card">
+        <p class="eyebrow">{signature.backdrop}</p>
+        <h3>{visual.backdrop}</h3>
+      </article>
+      <div class="signature-media-list" aria-label={signature.content}>
+        {
+          visual.media.map((item) => (
+            <article>
+              <span></span>
+              <p>{item}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="work-categories" aria-label={copy.eyebrow}>
+    {
+      workSections.map((category) => (
+        <article class="work-category" id={category.id}>
+          <div class="work-category-head">
+            <p class="eyebrow">{category.id}</p>
+            <h2>{category.title[locale]}</h2>
+            <p>{category.summary[locale]}</p>
+          </div>
+          <div class="work-category-body">
+            <div class="instagram-grid compact-cards">
+              {category.posts.map((post) => <InstagramCard {...post} />)}
+            </div>
+            <MediaPlaceholder
+              title={`${category.title[locale]} · ${mediaToAdd[locale]}`}
+              category={plannedAssetLabel[locale]}
+              note={category.needed[locale]}
+            />
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="section booking-packet">
+    <div class="section-heading">
+      <p class="eyebrow">{packet.eyebrow}</p>
+      <h2>{packet.title}</h2>
+      <p>{packet.body}</p>
+    </div>
+    <div class="packet-grid">
+      {packet.items.map((item) => <span>{item}</span>)}
+    </div>
+  </section>
+</main>

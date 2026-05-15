@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+import { localeNames, locales, type Locale } from "@data/i18n";
+import { localeVisuals } from "@data/localeVisuals";
+import { withBase } from "@data/paths";
+import { profile } from "@data/profile";
+
+type Props = {
+  title: string;
+  description: string;
+  locale?: Locale;
+  canonicalPath?: string;
+};
+
+const { title, description, locale = "en", canonicalPath = "/" } = Astro.props;
+const siteUrl = Astro.site ?? new URL("https://taisijaboyko.com");
+const canonical = new URL(withBase(canonicalPath), siteUrl).toString();
+const visual = localeVisuals[locale];
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: "Multilingual actress and performer",
+  email: profile.email,
+  url: canonical,
+  sameAs: [profile.instagram],
+  knowsLanguage: profile.languages.map((language) => language.name),
+  alumniOf: profile.education
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {
+      locales.map((code) => (
+        <link rel="alternate" hreflang={code} href={new URL(withBase(canonicalPath.replace(/^\/(en|sk|pl|it|uk|ru)\//, `/${code}/`)), siteUrl).toString()} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(withBase("/en/"), siteUrl).toString()} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={withBase("/images/taisija-boyko-profile.jpg")} />
+    <meta name="theme-color" content="#f6f1ea" />
+    <meta name="available-languages" content={Object.values(localeNames).join(", ")} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body data-locale={locale} data-visual-theme={visual.theme}>
+    <slot />
+  </body>
+</html>

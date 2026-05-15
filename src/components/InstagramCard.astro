@@ -1,0 +1,23 @@
+---
+type Props = {
+  title: string;
+  category: string;
+  image: string;
+  href: string;
+  alt: string;
+  note: string;
+};
+
+const { title, category, image, href, alt, note } = Astro.props;
+---
+
+<article class="instagram-card">
+  <a href={href} target="_blank" rel="noreferrer" aria-label={`Open ${title} on Instagram`}>
+    <img src={image} alt={alt} loading="lazy" />
+    <div>
+      <p class="eyebrow">{category}</p>
+      <h3>{title}</h3>
+      <p>{note}</p>
+    </div>
+  </a>
+</article>
