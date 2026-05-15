@@ -47,7 +47,7 @@ const brief = briefLabels[locale];
 <main>
   <section class:list={["hero", "has-video", `hero-${visual.theme}`]}>
     <div class="hero-video-backdrop" data-backdrop-label={heroBackdrop.label} aria-hidden="true">
-      <video autoplay muted loop playsinline preload="auto">
+      <video data-hero-video autoplay muted loop playsinline preload="auto">
         <source src={heroBackdrop.src} type="video/mp4" />
       </video>
     </div>
@@ -274,3 +274,26 @@ const brief = briefLabels[locale];
     </div>
   </section>
 </main>
+
+<script>
+  document.querySelectorAll("[data-hero-video]").forEach((video) => {
+    if (!(video instanceof HTMLVideoElement)) return;
+
+    const playVideo = () => {
+      video.muted = true;
+      video.play().catch(() => {
+        video.controls = false;
+      });
+    };
+
+    if (video.readyState >= 2) {
+      playVideo();
+    } else {
+      video.addEventListener("canplay", playVideo, { once: true });
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && video.paused) playVideo();
+    });
+  });
+</script>
