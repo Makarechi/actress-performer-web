@@ -3,5 +3,5 @@
 dist/
 node_modules/
 qa/screenshots/
+qa/video/
 /*.mp4
-

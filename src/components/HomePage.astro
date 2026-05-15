@@ -9,6 +9,7 @@ import { getLocalizedInstagramPosts, localizedPath, translations, type Locale } 
 import { localeVisuals } from "@data/localeVisuals";
 import { withBase } from "@data/paths";
 import { contentPlan, profile } from "@data/profile";
+import { aerialGymnasticsMedia } from "@data/specialMedia";
 
 type Props = {
   locale: Locale;
@@ -42,6 +43,66 @@ const briefLabels: Record<Locale, { visual: string; content: string; loop: strin
   ru: { visual: "Визуальное направление", content: "Hero-контент для съёмки", loop: "Русский cinematic loop" }
 };
 const brief = briefLabels[locale];
+const aerialCopy: Record<
+  Locale,
+  {
+    eyebrow: string;
+    title: string;
+    body: string;
+    meta: string;
+    full: string;
+  }
+> = {
+  en: {
+    eyebrow: "Special skill",
+    title: "Aerial gymnastics as camera-ready movement.",
+    body:
+      "A dedicated aerial silks clip now supports casting for physical theatre, commercials, fantasy, music videos and roles that need disciplined body control.",
+    meta: "42-second highlight from the original training video.",
+    full: "Open full 4-minute version"
+  },
+  sk: {
+    eyebrow: "Špeciálna schopnosť",
+    title: "Vzdušná gymnastika ako pohyb pripravený pre kameru.",
+    body:
+      "Ukážka na šáloch dopĺňa casting pre fyzické divadlo, reklamu, klipy, fantasy projekty a roly, kde je dôležitá kontrola tela.",
+    meta: "42-sekundový highlight z pôvodného tréningového videa.",
+    full: "Otvoriť plnú 4-minútovú verziu"
+  },
+  pl: {
+    eyebrow: "Umiejętność specjalna",
+    title: "Gimnastyka powietrzna jako ruch gotowy do kamery.",
+    body:
+      "Krótki materiał na szarfach wzmacnia casting do teatru fizycznego, reklamy, klipów muzycznych, fantasy i ról wymagających kontroli ciała.",
+    meta: "42-sekundowy highlight z oryginalnego nagrania treningowego.",
+    full: "Otwórz pełną 4-minutową wersję"
+  },
+  it: {
+    eyebrow: "Skill speciale",
+    title: "Danza aerea come movimento pronto per la camera.",
+    body:
+      "La clip sui tessuti aerei supporta casting per teatro fisico, pubblicità, videoclip, fantasy e ruoli che richiedono controllo corporeo.",
+    meta: "Highlight di 42 secondi dal video originale di training.",
+    full: "Apri la versione completa di 4 minuti"
+  },
+  uk: {
+    eyebrow: "Спеціальна навичка",
+    title: "Повітряна гімнастика як рух, готовий для камери.",
+    body:
+      "Короткий фрагмент на полотнах підсилює casting для physical theatre, реклами, кліпів, fantasy-проєктів і ролей, де важливий контроль тіла.",
+    meta: "42-секундний highlight з оригінального тренувального відео.",
+    full: "Відкрити повну 4-хвилинну версію"
+  },
+  ru: {
+    eyebrow: "Специальный навык",
+    title: "Воздушная гимнастика как движение, готовое для камеры.",
+    body:
+      "Короткий фрагмент на полотнах усиливает кастинг для physical theatre, рекламы, клипов, fantasy-проектов и ролей, где важны линия, контроль тела и пластика.",
+    meta: "42-секундный highlight из оригинального тренировочного видео.",
+    full: "Открыть полную 4-минутную версию"
+  }
+};
+const aerial = aerialCopy[locale];
 ---
 
 <main>
@@ -237,6 +298,25 @@ const brief = briefLabels[locale];
           </article>
         ))
       }
+    </div>
+  </section>
+
+  <section class="section aerial-feature" id="aerial">
+    <div class="aerial-video-frame">
+      <video controls muted playsinline preload="metadata" poster={aerialGymnasticsMedia.poster}>
+        <source src={aerialGymnasticsMedia.highlight} type="video/mp4" />
+      </video>
+    </div>
+    <div class="aerial-feature-copy">
+      <p class="eyebrow">{aerial.eyebrow}</p>
+      <h2>{aerial.title}</h2>
+      <p>{aerial.body}</p>
+      <div class="aerial-actions">
+        <span>{aerial.meta}</span>
+        <a class="button secondary" href={aerialGymnasticsMedia.full} target="_blank" rel="noreferrer">
+          {aerial.full}
+        </a>
+      </div>
     </div>
   </section>
 
