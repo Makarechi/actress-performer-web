@@ -10,6 +10,7 @@ import { localeVisuals } from "@data/localeVisuals";
 import { withBase } from "@data/paths";
 import { contentPlan, profile } from "@data/profile";
 import { aerialGymnasticsMedia } from "@data/specialMedia";
+import { testimonialFeatures } from "@data/testimonials";
 
 type Props = {
   locale: Locale;
@@ -43,6 +44,7 @@ const briefLabels: Record<Locale, { visual: string; content: string; loop: strin
   ru: { visual: "Визуальное направление", content: "Hero-контент для съёмки", loop: "Русский cinematic loop" }
 };
 const brief = briefLabels[locale];
+const testimonial = testimonialFeatures[locale];
 const aerialCopy: Record<
   Locale,
   {
@@ -283,6 +285,61 @@ const aerial = aerialCopy[locale];
       </div>
     </div>
   </section>
+
+  {
+    testimonial && (
+      <section class="section testimonial-feature" id="testimonials">
+        <div class="testimonial-media">
+          <img src={testimonial.image} alt={testimonial.imageAlt} loading="lazy" width="948" height="946" />
+          <div class="testimonial-media-caption">
+            <span>{testimonial.person}</span>
+            <p>{testimonial.role}</p>
+          </div>
+        </div>
+        <div class="testimonial-copy">
+          <p class="eyebrow">{testimonial.eyebrow}</p>
+          <h2>{testimonial.title}</h2>
+          <p>{testimonial.intro}</p>
+          {
+            testimonial.video && (
+              <article class="testimonial-video-card">
+                <video controls playsinline preload="metadata" poster={testimonial.video.poster}>
+                  <source src={testimonial.video.src} type="video/mp4" />
+                </video>
+                <div>
+                  <p class="eyebrow">{testimonial.video.label}</p>
+                  <p>{testimonial.video.caption}</p>
+                </div>
+              </article>
+            )
+          }
+          <article class="testimonial-quote-card">
+            <p class="eyebrow">{testimonial.quoteLabel}</p>
+            <blockquote>{testimonial.quote}</blockquote>
+            <footer>
+              <strong>{testimonial.person}</strong>
+              <span>{testimonial.role}</span>
+            </footer>
+          </article>
+          <div class="testimonial-source">
+            <a href={testimonial.sourceHref} target="_blank" rel="noreferrer">
+              {testimonial.sourceLabel}
+            </a>
+            <p>{testimonial.sourceNote}</p>
+            <span>{testimonial.approvalNote}</span>
+          </div>
+          <div class="testimonial-next">
+            <p class="eyebrow">{testimonial.nextLabel}</p>
+            <ul>
+              {testimonial.nextItems.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <section class="section" id="skills">
     <div class="section-heading compact">

@@ -2,6 +2,7 @@
 import { profile } from "@data/profile";
 import { localeNames, locales, localizedPath, translations, type Locale } from "@data/i18n";
 import { stageLabels } from "@data/stage";
+import { testimonialFeatures } from "@data/testimonials";
 import { workLabels } from "@data/work";
 
 type Props = {
@@ -12,18 +13,20 @@ type Props = {
 const { locale = "en", section = "" } = Astro.props;
 const t = translations[locale];
 const currentSuffix = section ? `${section}/` : "";
-const navItems = [
+const testimonialFeature = testimonialFeatures[locale];
+const navItems: [string, string][] = [
   [t.nav.acting, `${localizedPath(locale)}#acting`],
   [t.nav.voice, `${localizedPath(locale)}#voice`],
   [t.nav.languages, `${localizedPath(locale)}#languages`],
   [t.nav.music, `${localizedPath(locale)}#music`],
   [t.nav.hosting, `${localizedPath(locale)}#hosting`],
+  ...(testimonialFeature ? [[testimonialFeature.navLabel, `${localizedPath(locale)}#testimonials`] as [string, string]] : []),
   [workLabels[locale], localizedPath(locale, "work/")],
   [stageLabels[locale], localizedPath(locale, "stage/")],
   [t.nav.casting, localizedPath(locale, "casting/")],
   [t.nav.plan, `${localizedPath(locale)}#content-plan`],
   [t.nav.contact, `${localizedPath(locale)}#contact`]
-] as const;
+];
 ---
 
 <header class="site-header">
