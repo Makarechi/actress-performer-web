@@ -288,21 +288,25 @@ const aerial = aerialCopy[locale];
 
   {
     testimonial && (
-      <section class="section testimonial-feature" id="testimonials">
-        <div class="testimonial-media">
-          <img src={testimonial.image} alt={testimonial.imageAlt} loading="lazy" width="948" height="946" />
-          <div class="testimonial-media-caption">
-            <span>{testimonial.person}</span>
-            <p>{testimonial.role}</p>
-          </div>
-        </div>
-        <div class="testimonial-copy">
+      <section class="section testimonial-feature" id="testimonials" data-testimonial-stage>
+        <canvas class="testimonial-canvas" data-testimonial-canvas aria-hidden="true"></canvas>
+        <div class="testimonial-stage-head">
           <p class="eyebrow">{testimonial.eyebrow}</p>
           <h2>{testimonial.title}</h2>
           <p>{testimonial.intro}</p>
+        </div>
+        <div class="testimonial-stage-grid">
+          <div class="testimonial-media" data-testimonial-layer>
+            <img src={testimonial.image} alt={testimonial.imageAlt} loading="lazy" width="948" height="946" />
+            <div class="testimonial-media-caption">
+              <span>{testimonial.person}</span>
+              <p>{testimonial.role}</p>
+            </div>
+          </div>
+          <div class="testimonial-proof-stack">
           {
             testimonial.video && (
-              <article class="testimonial-video-card">
+              <article class="testimonial-video-card" data-testimonial-layer>
                 <video controls playsinline preload="metadata" poster={testimonial.video.poster}>
                   <source src={testimonial.video.src} type="video/mp4" />
                 </video>
@@ -313,7 +317,7 @@ const aerial = aerialCopy[locale];
               </article>
             )
           }
-          <article class="testimonial-quote-card">
+          <article class="testimonial-quote-card" data-testimonial-layer>
             <p class="eyebrow">{testimonial.quoteLabel}</p>
             <blockquote>{testimonial.quote}</blockquote>
             <footer>
@@ -328,13 +332,6 @@ const aerial = aerialCopy[locale];
             <p>{testimonial.sourceNote}</p>
             <span>{testimonial.approvalNote}</span>
           </div>
-          <div class="testimonial-next">
-            <p class="eyebrow">{testimonial.nextLabel}</p>
-            <ul>
-              {testimonial.nextItems.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
@@ -432,5 +429,83 @@ const aerial = aerialCopy[locale];
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden && video.paused) playVideo();
     });
+  });
+</script>
+
+<script>
+  const testimonialStages = document.querySelectorAll("[data-testimonial-stage]");
+
+  testimonialStages.forEach((stage) => {
+    if (!(stage instanceof HTMLElement)) return;
+
+    const canvas = stage.querySelector("[data-testimonial-canvas]");
+    const ctx = canvas instanceof HTMLCanvasElement ? canvas.getContext("2d") : null;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const pointer = { x: 0.62, y: 0.34 };
+    let frame = 0;
+    let animation = 0;
+
+    const setPointer = (clientX: number, clientY: number) => {
+      const rect = stage.getBoundingClientRect();
+      pointer.x = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      pointer.y = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+      stage.style.setProperty("--mx", `${(pointer.x * 100).toFixed(2)}%`);
+      stage.style.setProperty("--my", `${(pointer.y * 100).toFixed(2)}%`);
+    };
+
+    const resize = () => {
+      if (!canvas || !(canvas instanceof HTMLCanvasElement) || !ctx) return;
+      const rect = stage.getBoundingClientRect();
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.max(1, Math.floor(rect.width * ratio));
+      canvas.height = Math.max(1, Math.floor(rect.height * ratio));
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    };
+
+    const draw = () => {
+      if (!canvas || !(canvas instanceof HTMLCanvasElement) || !ctx) return;
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      frame += reducedMotion ? 0 : 0.012;
+      ctx.clearRect(0, 0, width, height);
+
+      const centerX = width * pointer.x;
+      const centerY = height * pointer.y;
+
+      for (let i = 0; i < 12; i += 1) {
+        const y = height * (0.12 + i * 0.07);
+        const wave = Math.sin(frame * 1.8 + i * 0.72) * 42;
+        ctx.beginPath();
+        ctx.moveTo(-60, y);
+        ctx.bezierCurveTo(width * 0.24, y + wave, centerX, centerY + wave * 0.5, width + 60, y - wave);
+        ctx.strokeStyle = i % 3 === 0 ? "rgba(207, 155, 40, 0.34)" : "rgba(126, 167, 220, 0.18)";
+        ctx.lineWidth = i % 3 === 0 ? 1.4 : 0.8;
+        ctx.stroke();
+      }
+
+      for (let i = 0; i < 46; i += 1) {
+        const phase = frame + i * 1.37;
+        const x = ((Math.sin(phase * 0.61) + 1) / 2) * width;
+        const y = ((Math.cos(phase * 0.43) + 1) / 2) * height;
+        const radius = 1.1 + ((i % 5) * 0.28);
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = i % 4 === 0 ? "rgba(255, 218, 122, 0.62)" : "rgba(255, 253, 248, 0.24)";
+        ctx.fill();
+      }
+
+      if (!reducedMotion) animation = window.requestAnimationFrame(draw);
+    };
+
+    stage.addEventListener("pointermove", (event) => setPointer(event.clientX, event.clientY));
+    window.addEventListener("resize", () => {
+      resize();
+      draw();
+    });
+
+    resize();
+    draw();
   });
 </script>
