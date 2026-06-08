@@ -2,6 +2,7 @@
 .astro/
 dist/
 node_modules/
+wasm-frontend/target/
 qa/screenshots/
 qa/video/
 /*.mp4

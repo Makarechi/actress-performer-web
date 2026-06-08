@@ -1,7 +1,5 @@
 ---
-import StageExperience from "@components/StageExperience.astro";
-import SiteFooter from "@components/SiteFooter.astro";
-import SiteHeader from "@components/SiteHeader.astro";
+import WasmApp from "@components/WasmApp.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { locales, normalizeLocale } from "@data/i18n";
 import { stageCopy } from "@data/stage";
@@ -15,7 +13,5 @@ const copy = stageCopy[locale];
 ---
 
 <BaseLayout title={copy.title} description={copy.description} locale={locale} canonicalPath={`/${locale}/stage/`}>
-  <SiteHeader locale={locale} section="stage" />
-  <StageExperience locale={locale} />
-  <SiteFooter locale={locale} />
+  <WasmApp page="stage" locale={locale} section="stage" />
 </BaseLayout>

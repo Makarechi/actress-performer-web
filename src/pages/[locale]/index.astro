@@ -1,7 +1,5 @@
 ---
-import HomePage from "@components/HomePage.astro";
-import SiteFooter from "@components/SiteFooter.astro";
-import SiteHeader from "@components/SiteHeader.astro";
+import WasmApp from "@components/WasmApp.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { locales, normalizeLocale, translations } from "@data/i18n";
 
@@ -14,7 +12,5 @@ const t = translations[locale];
 ---
 
 <BaseLayout title={t.siteTitle} description={t.siteDescription} locale={locale} canonicalPath={`/${locale}/`}>
-  <SiteHeader locale={locale} />
-  <HomePage locale={locale} />
-  <SiteFooter locale={locale} />
+  <WasmApp page="home" locale={locale} />
 </BaseLayout>

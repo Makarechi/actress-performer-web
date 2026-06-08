@@ -1,0 +1,36 @@
+---
+import { createAppPayload, type AppPage } from "../wasm/payload";
+import type { Locale } from "@data/i18n";
+import { withBase } from "@data/paths";
+
+type Props = {
+  page: AppPage;
+  locale: Locale;
+  section?: "" | "casting" | "stage" | "work";
+};
+
+const { page, locale, section = "" } = Astro.props;
+const payload = createAppPayload(locale, page, section);
+const payloadJson = JSON.stringify(payload).replace(/</g, "\\u003c");
+const wasmEntrypoint = withBase("/wasm/actress_frontend.js");
+---
+
+<div data-wasm-app-root></div>
+<script type="application/json" data-wasm-app-payload set:html={payloadJson} />
+<script type="module" define:vars={{ wasmEntrypoint }}>
+  const root = document.querySelector("[data-wasm-app-root]");
+  const payloadNode = document.querySelector("[data-wasm-app-payload]");
+
+  if (root && payloadNode?.textContent) {
+    const payload = JSON.parse(payloadNode.textContent);
+    const wasm = await import(wasmEntrypoint);
+    await wasm.default();
+    wasm.render_app(root, payload);
+  }
+</script>
+<noscript>
+  <main class="language-gate">
+    <h1>{payload.profile.name}</h1>
+    <p>JavaScript is required to load this WebAssembly site.</p>
+  </main>
+</noscript>

@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "wasm": "PATH=\"$HOME/.cargo/bin:$PATH\" wasm-pack build wasm-frontend --target web --out-dir ../public/wasm --out-name actress_frontend",
+    "predev": "npm run wasm",
     "dev": "astro dev",
+    "prebuild": "npm run wasm",
     "build": "astro build",
     "preview": "astro preview"
   },
@@ -12,5 +15,7 @@
     "astro": "^6.3.3",
     "typescript": "^5.9.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "wasm-pack": "^0.15.0"
+  }
 }

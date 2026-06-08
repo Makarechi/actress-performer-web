@@ -1,7 +1,5 @@
 ---
-import SiteFooter from "@components/SiteFooter.astro";
-import SiteHeader from "@components/SiteHeader.astro";
-import WorkPage from "@components/WorkPage.astro";
+import WasmApp from "@components/WasmApp.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { locales, normalizeLocale } from "@data/i18n";
 import { workPageCopy } from "@data/work";
@@ -15,7 +13,5 @@ const copy = workPageCopy[locale];
 ---
 
 <BaseLayout title={copy.title} description={copy.description} locale={locale} canonicalPath={`/${locale}/work/`}>
-  <SiteHeader locale={locale} section="work" />
-  <WorkPage locale={locale} />
-  <SiteFooter locale={locale} />
+  <WasmApp page="work" locale={locale} section="work" />
 </BaseLayout>
