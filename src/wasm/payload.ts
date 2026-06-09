@@ -252,6 +252,274 @@ const stageStaticLabels: Record<Locale, { heroBackdrop: string; creativePlan: st
   }
 };
 
+const masterclassCopy: Record<
+  Locale,
+  {
+    nav: string;
+    eyebrow: string;
+    title: string;
+    body: string;
+    individual: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      name: string;
+      contact: string;
+      focus: string;
+      wishes: string;
+      namePlaceholder: string;
+      contactPlaceholder: string;
+      wishesPlaceholder: string;
+      focusOptions: string[];
+      submit: string;
+      note: string;
+      subject: string;
+    };
+    group: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      status: string;
+      eventTitle: string;
+      dateLabel: string;
+      dateText: string;
+      details: string[];
+      cta: string;
+      subject: string;
+      emailBody: string;
+    };
+  }
+> = {
+  en: {
+    nav: "Masterclasses",
+    eyebrow: "Masterclasses",
+    title: "Individual coaching and group workshops with different rhythms.",
+    body:
+      "One-to-one work is built around a specific personal goal. Group workshops work like announced events with a date, theme and registration window.",
+    individual: {
+      eyebrow: "Individual",
+      title: "One-to-one acting, voice and stage presence work.",
+      body:
+        "For audition prep, monologues, camera confidence, voice, speech, music-facing performance or a concrete role.",
+      name: "Name",
+      contact: "Contact",
+      focus: "Focus",
+      wishes: "Wishes",
+      namePlaceholder: "How should I address you?",
+      contactPlaceholder: "Email / Telegram / phone",
+      wishesPlaceholder: "Goal, level, language, preferred format or timing",
+      focusOptions: ["Audition / monologue", "Voice and speech", "Stage presence", "Music / vocal", "Other"],
+      submit: "Send request",
+      note: "The request opens as an email draft with your details.",
+      subject: "Individual masterclass request"
+    },
+    group: {
+      eyebrow: "Group",
+      title: "Group masterclass for a forming group.",
+      body:
+        "A practical group format: you leave a request, then the date, place and details are agreed once the group is formed.",
+      status: "Group forming",
+      eventTitle: "Acting and voice presence",
+      dateLabel: "Group start",
+      dateText: "Date agreed with participants",
+      details: ["Small group", "Practical exercises", "Voice, movement and attention", "Bratislava / online by agreement"],
+      cta: "Join the group",
+      subject: "Group masterclass registration",
+      emailBody: "I would like to join the group masterclass. Please send me the date options, format and price."
+    }
+  },
+  sk: {
+    nav: "Masterclassy",
+    eyebrow: "Masterclassy",
+    title: "Individuálne hodiny a skupinové workshopy s odlišným rytmom.",
+    body:
+      "Individuálny formát ide podľa konkrétneho cieľa človeka. Skupinový workshop funguje ako oznámené podujatie s dátumom, témou a registráciou.",
+    individual: {
+      eyebrow: "Individuálne",
+      title: "Herectvo, hlas a javisková prítomnosť jeden na jedného.",
+      body:
+        "Na prípravu castingu, monológu, kamery, hlasu, reči, hudobného vystúpenia alebo konkrétnej roly.",
+      name: "Meno",
+      contact: "Kontakt",
+      focus: "Zameranie",
+      wishes: "Priania",
+      namePlaceholder: "Ako vás mám osloviť?",
+      contactPlaceholder: "Email / Telegram / telefón",
+      wishesPlaceholder: "Cieľ, úroveň, jazyk, formát alebo termín",
+      focusOptions: ["Casting / monológ", "Hlas a reč", "Javisková prítomnosť", "Hudba / vokál", "Iné"],
+      submit: "Poslať záujem",
+      note: "Žiadosť sa otvorí ako email s vašimi údajmi.",
+      subject: "Individuálny masterclass"
+    },
+    group: {
+      eyebrow: "Skupina",
+      title: "Skupinový masterclass ako samostatné podujatie.",
+      body:
+        "Praktický skupinový formát: pošlete záujem a po vytvorení skupiny sa dohodne dátum, miesto a detaily.",
+      status: "Skupina sa tvorí",
+      eventTitle: "Herecká a hlasová prítomnosť",
+      dateLabel: "Štart skupiny",
+      dateText: "Termín podľa dohody s účastníkmi",
+      details: ["Malá skupina", "Praktické cvičenia", "Hlas, pohyb a pozornosť", "Bratislava / online podľa dohody"],
+      cta: "Prihlásiť sa do skupiny",
+      subject: "Prihláška na skupinový masterclass",
+      emailBody: "Chcem sa prihlásiť na skupinový masterclass. Pošlite mi prosím možnosti termínu, formát a cenu."
+    }
+  },
+  pl: {
+    nav: "Masterclassy",
+    eyebrow: "Masterclassy",
+    title: "Praca indywidualna i grupowe warsztaty jako dwa różne formaty.",
+    body:
+      "Format indywidualny idzie za konkretnym celem osoby. Grupowy warsztat działa jak wydarzenie z datą, tematem i zapisami.",
+    individual: {
+      eyebrow: "Indywidualnie",
+      title: "Aktorstwo, głos i obecność sceniczna jeden na jeden.",
+      body:
+        "Do przygotowania castingu, monologu, pracy z kamerą, głosu, mowy, występu muzycznego albo konkretnej roli.",
+      name: "Imię",
+      contact: "Kontakt",
+      focus: "Temat",
+      wishes: "Uwagi",
+      namePlaceholder: "Jak się do Ciebie zwracać?",
+      contactPlaceholder: "Email / Telegram / telefon",
+      wishesPlaceholder: "Cel, poziom, język, format albo termin",
+      focusOptions: ["Casting / monolog", "Głos i mowa", "Obecność sceniczna", "Muzyka / wokal", "Inne"],
+      submit: "Wyślij zgłoszenie",
+      note: "Zgłoszenie otworzy się jako gotowy szkic maila.",
+      subject: "Indywidualny masterclass"
+    },
+    group: {
+      eyebrow: "Grupa",
+      title: "Grupowy masterclass jako osobne wydarzenie.",
+      body:
+        "Praktyczny format grupowy: zostawiasz zgłoszenie, a po zebraniu grupy ustalany jest termin, miejsce i szczegóły.",
+      status: "Grupa się tworzy",
+      eventTitle: "Obecność aktorska i głosowa",
+      dateLabel: "Start grupy",
+      dateText: "Termin ustalany z uczestnikami",
+      details: ["Mała grupa", "Ćwiczenia praktyczne", "Głos, ruch i uwaga", "Bratysława / online do ustalenia"],
+      cta: "Zapisz się do grupy",
+      subject: "Zgłoszenie na grupowy masterclass",
+      emailBody: "Chcę zapisać się na grupowy masterclass. Proszę o przesłanie terminów, formatu i ceny."
+    }
+  },
+  it: {
+    nav: "Masterclass",
+    eyebrow: "Masterclass",
+    title: "Coaching individuale e workshop di gruppo con due ritmi diversi.",
+    body:
+      "Il lavoro individuale segue un obiettivo personale concreto. Il gruppo funziona come evento annunciato con data, tema e iscrizione.",
+    individual: {
+      eyebrow: "Individuale",
+      title: "Recitazione, voce e presenza scenica uno a uno.",
+      body:
+        "Per casting, monologhi, camera confidence, voce, dizione, performance musicale o un ruolo concreto.",
+      name: "Nome",
+      contact: "Contatto",
+      focus: "Focus",
+      wishes: "Richieste",
+      namePlaceholder: "Come vuoi essere chiamata/o?",
+      contactPlaceholder: "Email / Telegram / telefono",
+      wishesPlaceholder: "Obiettivo, livello, lingua, formato o orario",
+      focusOptions: ["Casting / monologo", "Voce e dizione", "Presenza scenica", "Musica / vocale", "Altro"],
+      submit: "Invia richiesta",
+      note: "La richiesta si apre come bozza email con i tuoi dati.",
+      subject: "Richiesta masterclass individuale"
+    },
+    group: {
+      eyebrow: "Gruppo",
+      title: "Masterclass di gruppo come evento programmato.",
+      body:
+        "Un formato di gruppo pratico: invii la richiesta e, quando il gruppo è formato, si concordano data, luogo e dettagli.",
+      status: "Gruppo in formazione",
+      eventTitle: "Presenza attoriale e vocale",
+      dateLabel: "Avvio gruppo",
+      dateText: "Data concordata con i partecipanti",
+      details: ["Piccolo gruppo", "Esercizi pratici", "Voce, movimento e attenzione", "Bratislava / online su accordo"],
+      cta: "Iscrivimi al gruppo",
+      subject: "Iscrizione masterclass di gruppo",
+      emailBody: "Vorrei iscrivermi alla masterclass di gruppo. Mandatemi per favore opzioni di data, formato e prezzo."
+    }
+  },
+  uk: {
+    nav: "Майстер-класи",
+    eyebrow: "Майстер-класи",
+    title: "Індивідуальна робота і групові зустрічі — два різні формати.",
+    body:
+      "Індивідуальний формат будується навколо конкретної мети людини. Груповий майстер-клас працює як подія з датою, темою і набором учасників.",
+    individual: {
+      eyebrow: "Індивідуально",
+      title: "Акторство, голос і сценічна присутність один на один.",
+      body:
+        "Для підготовки до кастингу, монологу, камери, голосу, мовлення, музичного виступу або конкретної ролі.",
+      name: "Ім'я",
+      contact: "Контакт",
+      focus: "Фокус",
+      wishes: "Побажання",
+      namePlaceholder: "Як до вас звертатися?",
+      contactPlaceholder: "Email / Telegram / телефон",
+      wishesPlaceholder: "Мета, рівень, мова, формат або зручний час",
+      focusOptions: ["Кастинг / монолог", "Голос і мовлення", "Сценічна присутність", "Музика / вокал", "Інше"],
+      submit: "Надіслати заявку",
+      note: "Заявка відкриється як лист із вашими даними.",
+      subject: "Індивідуальний майстер-клас"
+    },
+    group: {
+      eyebrow: "Група",
+      title: "Груповий майстер-клас як окрема подія.",
+      body:
+        "Практичний груповий формат: ви залишаєте заявку, а після формування групи узгоджуються дата, місце і деталі.",
+      status: "Група формується",
+      eventTitle: "Акторська і голосова присутність",
+      dateLabel: "Старт групи",
+      dateText: "Дата узгоджується з учасниками",
+      details: ["Невелика група", "Практичні вправи", "Голос, рух і увага", "Братислава / онлайн за домовленістю"],
+      cta: "Записатися в групу",
+      subject: "Запис на груповий майстер-клас",
+      emailBody: "Хочу записатися на груповий майстер-клас. Надішліть, будь ласка, варіанти дати, формат і вартість."
+    }
+  },
+  ru: {
+    nav: "Мастер-классы",
+    eyebrow: "Мастер-классы",
+    title: "Индивидуальная работа и групповые встречи — два разных формата.",
+    body:
+      "Индивидуальный формат строится вокруг конкретной цели человека. Групповой мастер-класс работает как событие с датой, темой и набором участников.",
+    individual: {
+      eyebrow: "Индивидуально",
+      title: "Актерство, голос и сценическое присутствие один на один.",
+      body:
+        "Для подготовки к кастингу, монологу, камере, голосу, речи, музыкальному выступлению или конкретной роли.",
+      name: "Имя",
+      contact: "Контакт",
+      focus: "Что хочется разобрать",
+      wishes: "Пожелания",
+      namePlaceholder: "Как к вам обращаться?",
+      contactPlaceholder: "Email / Telegram / телефон",
+      wishesPlaceholder: "Цель, уровень, язык, формат или удобное время",
+      focusOptions: ["Кастинг / монолог", "Голос и речь", "Сценическое присутствие", "Музыка / вокал", "Другое"],
+      submit: "Отправить заявку",
+      note: "Заявка откроется как письмо с вашими данными.",
+      subject: "Индивидуальный мастер-класс"
+    },
+    group: {
+      eyebrow: "Группа",
+      title: "Групповой мастер-класс как отдельное событие.",
+      body:
+        "Это рабочий групповой формат: вы оставляете заявку, а после набора группы согласуются дата, место и детали.",
+      status: "Формируется группа",
+      eventTitle: "Актерское и голосовое присутствие",
+      dateLabel: "Старт группы",
+      dateText: "Дата согласуется с участниками",
+      details: ["Небольшая группа", "Практические упражнения", "Голос, движение и внимание", "Братислава / онлайн по договоренности"],
+      cta: "Записаться в группу",
+      subject: "Запись на групповой мастер-класс",
+      emailBody: "Хочу записаться на групповой мастер-класс. Пришлите, пожалуйста, варианты даты, формат и стоимость."
+    }
+  }
+};
+
 const postIds = {
   featured: ["nemocnica-tvjoj", "theatre-day", "vocal-concert", "hosting-st-nicholas", "voice-training", "little-women-stage"],
   acting: ["nemocnica-tvjoj", "theatre-day", "acting-emotions", "little-women-stage"],
@@ -274,6 +542,7 @@ export function createAppPayload(locale: Locale, page: AppPage, section: HeaderS
     [t.nav.languages, `${localizedPath(locale)}#languages`],
     [t.nav.music, `${localizedPath(locale)}#music`],
     [t.nav.hosting, `${localizedPath(locale)}#hosting`],
+    [masterclassCopy[locale].nav, `${localizedPath(locale)}#masterclasses`],
     ...(testimonial ? [[testimonial.navLabel, `${localizedPath(locale)}#testimonials`] as [string, string]] : []),
     [workLabels[locale], localizedPath(locale, "work/")],
     [stageLabels[locale], localizedPath(locale, "stage/")],
@@ -310,6 +579,7 @@ export function createAppPayload(locale: Locale, page: AppPage, section: HeaderS
     t,
     visual: localeVisuals[locale],
     heroBackdrop: heroBackdrops[locale],
+    masterclasses: masterclassCopy[locale],
     campaign: campaignCopy[locale],
     stage: stageCopy[locale],
     work: workPageCopy[locale],

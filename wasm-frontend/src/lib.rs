@@ -5,8 +5,9 @@ use std::rc::Rc;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::{
-    CanvasRenderingContext2d, Element, Event, HtmlCanvasElement, HtmlElement, HtmlOptionElement,
-    HtmlSelectElement, HtmlVideoElement, PointerEvent, Window,
+    CanvasRenderingContext2d, Element, Event, HtmlCanvasElement, HtmlElement, HtmlInputElement,
+    HtmlOptionElement, HtmlSelectElement, HtmlTextAreaElement, HtmlVideoElement, PointerEvent,
+    Window,
 };
 
 #[derive(Clone, Default, Deserialize)]
@@ -53,6 +54,7 @@ pub fn render_app(root: Element, payload: JsValue) -> Result<(), JsValue> {
         wire_language_canvases(&root);
         wire_stage_canvases(&root);
         wire_testimonial_canvases(&root);
+        wire_masterclass_forms(&root);
     }
 
     Ok(())
@@ -189,6 +191,7 @@ fn render_home(html: &mut String, payload: &Value) {
     render_visual_brief(html, payload);
     render_campaign(html, payload);
     render_mode_panel(html, payload);
+    render_masterclasses(html, payload);
 
     html.push_str("<section class=\"section selected-work\" aria-label=\"");
     attr(html, &str_at(payload, &["t", "selected", "eyebrow"]));
@@ -426,6 +429,97 @@ fn render_mode_panel(html: &mut String, payload: &Value) {
         "",
     );
     html.push_str("</div></section>");
+}
+
+fn render_masterclasses(html: &mut String, payload: &Value) {
+    let Some(masterclasses) = value_at(payload, &["masterclasses"]) else {
+        return;
+    };
+    let individual = masterclasses.get("individual").unwrap_or(&Value::Null);
+    let group = masterclasses.get("group").unwrap_or(&Value::Null);
+    let email = str_at(payload, &["profile", "email"]);
+    let group_href = mailto_link(
+        &email,
+        &field_str(group, "subject"),
+        &field_str(group, "emailBody"),
+    );
+
+    html.push_str("<section class=\"section masterclass-section\" id=\"masterclasses\">");
+    section_heading(
+        html,
+        &field_str(masterclasses, "eyebrow"),
+        &field_str(masterclasses, "title"),
+        &field_str(masterclasses, "body"),
+        false,
+    );
+    html.push_str("<div class=\"masterclass-layout\"><article class=\"masterclass-card masterclass-individual\"><p class=\"eyebrow\">");
+    text(html, &field_str(individual, "eyebrow"));
+    html.push_str("</p><h3>");
+    text(html, &field_str(individual, "title"));
+    html.push_str("</h3><p>");
+    text(html, &field_str(individual, "body"));
+    html.push_str("</p><form class=\"masterclass-form\" data-masterclass-form data-mailto=\"");
+    attr(html, &email);
+    html.push_str("\" data-subject=\"");
+    attr(html, &field_str(individual, "subject"));
+    html.push_str("\" data-label-name=\"");
+    attr(html, &field_str(individual, "name"));
+    html.push_str("\" data-label-contact=\"");
+    attr(html, &field_str(individual, "contact"));
+    html.push_str("\" data-label-focus=\"");
+    attr(html, &field_str(individual, "focus"));
+    html.push_str("\" data-label-wishes=\"");
+    attr(html, &field_str(individual, "wishes"));
+    html.push_str("\"><div class=\"masterclass-form-grid\"><label><span>");
+    text(html, &field_str(individual, "name"));
+    html.push_str("</span><input type=\"text\" name=\"name\" autocomplete=\"name\" required placeholder=\"");
+    attr(html, &field_str(individual, "namePlaceholder"));
+    html.push_str("\" /></label><label><span>");
+    text(html, &field_str(individual, "contact"));
+    html.push_str("</span><input type=\"text\" name=\"contact\" autocomplete=\"email\" required placeholder=\"");
+    attr(html, &field_str(individual, "contactPlaceholder"));
+    html.push_str("\" /></label><label class=\"field-full\"><span>");
+    text(html, &field_str(individual, "focus"));
+    html.push_str("</span><select name=\"focus\">");
+    for option in array_at(individual, &["focusOptions"]) {
+        let label = value_str(option);
+        html.push_str("<option value=\"");
+        attr(html, &label);
+        html.push_str("\">");
+        text(html, &label);
+        html.push_str("</option>");
+    }
+    html.push_str("</select></label><label class=\"field-full\"><span>");
+    text(html, &field_str(individual, "wishes"));
+    html.push_str("</span><textarea name=\"wishes\" placeholder=\"");
+    attr(html, &field_str(individual, "wishesPlaceholder"));
+    html.push_str("\"></textarea></label></div><button class=\"button primary\" type=\"submit\">");
+    text(html, &field_str(individual, "submit"));
+    html.push_str("</button></form><p class=\"masterclass-note\">");
+    text(html, &field_str(individual, "note"));
+    html.push_str("</p></article><article class=\"masterclass-card masterclass-group\"><span class=\"masterclass-status\">");
+    text(html, &field_str(group, "status"));
+    html.push_str("</span><p class=\"eyebrow\">");
+    text(html, &field_str(group, "eyebrow"));
+    html.push_str("</p><h3>");
+    text(html, &field_str(group, "title"));
+    html.push_str("</h3><p>");
+    text(html, &field_str(group, "body"));
+    html.push_str("</p><div class=\"masterclass-event\"><h4>");
+    text(html, &field_str(group, "eventTitle"));
+    html.push_str("</h4><p class=\"masterclass-date\"><span>");
+    text(html, &field_str(group, "dateLabel"));
+    html.push_str("</span><strong>");
+    text(html, &field_str(group, "dateText"));
+    html.push_str("</strong></p><ul class=\"masterclass-details\">");
+    for detail in array_at(group, &["details"]) {
+        html.push_str("<li>");
+        text(html, &value_str(detail));
+        html.push_str("</li>");
+    }
+    html.push_str("</ul></div>");
+    button(html, "secondary", &group_href, &field_str(group, "cta"), "");
+    html.push_str("</article></div></section>");
 }
 
 fn render_language_stage(html: &mut String, payload: &Value) {
@@ -1033,6 +1127,21 @@ fn button(html: &mut String, class_name: &str, href: &str, label: &str, attrs: &
     html.push_str("</a>");
 }
 
+fn mailto_link(email: &str, subject: &str, body: &str) -> String {
+    format!(
+        "mailto:{}?subject={}&body={}",
+        email,
+        url_component(subject),
+        url_component(body)
+    )
+}
+
+fn url_component(value: &str) -> String {
+    js_sys::encode_uri_component(value)
+        .as_string()
+        .unwrap_or_else(|| value.to_string())
+}
+
 fn wire_locale_switchers(root: &Element) {
     let Ok(selects) = root.query_selector_all("[data-locale-switcher]") else {
         return;
@@ -1143,6 +1252,82 @@ fn wire_testimonial_canvases(root: &Element) {
             start_testimonial_canvas(stage);
         }
     }
+}
+
+fn wire_masterclass_forms(root: &Element) {
+    let Ok(forms) = root.query_selector_all("[data-masterclass-form]") else {
+        return;
+    };
+
+    for index in 0..forms.length() {
+        let Some(node) = forms.item(index) else {
+            continue;
+        };
+        let Ok(form) = node.dyn_into::<Element>() else {
+            continue;
+        };
+
+        let form_for_submit = form.clone();
+        let closure = Closure::<dyn FnMut(Event)>::wrap(Box::new(move |event: Event| {
+            event.prevent_default();
+
+            let email = element_attr(&form_for_submit, "data-mailto");
+            let subject = element_attr(&form_for_submit, "data-subject");
+            let lines = [
+                (
+                    element_attr(&form_for_submit, "data-label-name"),
+                    field_value(&form_for_submit, "name"),
+                ),
+                (
+                    element_attr(&form_for_submit, "data-label-contact"),
+                    field_value(&form_for_submit, "contact"),
+                ),
+                (
+                    element_attr(&form_for_submit, "data-label-focus"),
+                    field_value(&form_for_submit, "focus"),
+                ),
+                (
+                    element_attr(&form_for_submit, "data-label-wishes"),
+                    field_value(&form_for_submit, "wishes"),
+                ),
+            ];
+            let body = lines
+                .iter()
+                .map(|(label, value)| format!("{}: {}", label, value.trim()))
+                .collect::<Vec<_>>()
+                .join("\n");
+
+            if let Some(window) = window() {
+                let _ = window.location().set_href(&mailto_link(&email, &subject, &body));
+            }
+        }));
+
+        let _ = form.add_event_listener_with_callback("submit", closure.as_ref().unchecked_ref());
+        closure.forget();
+    }
+}
+
+fn field_value(form: &Element, name: &str) -> String {
+    let selector = format!("[name=\"{}\"]", name);
+    let Some(node) = form.query_selector(&selector).ok().flatten() else {
+        return String::new();
+    };
+
+    if let Some(input) = node.dyn_ref::<HtmlInputElement>() {
+        return input.value();
+    }
+    if let Some(select) = node.dyn_ref::<HtmlSelectElement>() {
+        return select.value();
+    }
+    if let Some(textarea) = node.dyn_ref::<HtmlTextAreaElement>() {
+        return textarea.value();
+    }
+
+    String::new()
+}
+
+fn element_attr(element: &Element, name: &str) -> String {
+    element.get_attribute(name).unwrap_or_default()
 }
 
 fn start_language_canvas(canvas: HtmlCanvasElement) {

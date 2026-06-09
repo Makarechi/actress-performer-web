@@ -20,6 +20,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -35,6 +36,7 @@ body {
     linear-gradient(135deg, rgba(143, 36, 60, 0.06), transparent 42%);
   --signature-gradient: linear-gradient(135deg, rgba(143, 36, 60, 0.08), rgba(40, 109, 103, 0.08));
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-size: 16px;
@@ -892,6 +894,170 @@ body[data-visual-theme] #skills .section-heading {
 
 .mode-panel {
   background: rgba(255, 250, 243, 0.46);
+}
+
+.masterclass-section {
+  background: var(--theme-section);
+}
+
+.masterclass-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.masterclass-card {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  border: 1px solid var(--theme-line);
+  border-radius: 8px;
+  background: var(--theme-card);
+  padding: clamp(18px, 3vw, 28px);
+  backdrop-filter: blur(8px);
+}
+
+.masterclass-individual {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 243, 0.9), rgba(255, 250, 243, 0.66)),
+    var(--theme-card);
+}
+
+.masterclass-group {
+  background:
+    linear-gradient(145deg, rgba(23, 20, 18, 0.04), rgba(255, 250, 243, 0.7)),
+    var(--theme-card);
+}
+
+.masterclass-card h3 {
+  max-width: 13ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+.masterclass-card p:not(.eyebrow),
+.masterclass-note {
+  color: var(--muted);
+}
+
+.masterclass-form {
+  display: grid;
+  gap: 14px;
+}
+
+.masterclass-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.masterclass-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.masterclass-form input,
+.masterclass-form select,
+.masterclass-form textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 243, 0.82);
+  color: var(--ink);
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.masterclass-form textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.masterclass-form input:focus,
+.masterclass-form select:focus,
+.masterclass-form textarea:focus {
+  border-color: var(--wine);
+  outline: 2px solid rgba(143, 36, 60, 0.18);
+  outline-offset: 1px;
+}
+
+.masterclass-form .field-full {
+  grid-column: 1 / -1;
+}
+
+.masterclass-form .button {
+  width: fit-content;
+}
+
+.masterclass-note {
+  font-size: 0.9rem;
+}
+
+.masterclass-status {
+  width: fit-content;
+  border: 1px solid var(--theme-line);
+  border-radius: 999px;
+  background: rgba(255, 250, 243, 0.7);
+  padding: 8px 12px;
+  color: var(--wine);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.masterclass-event {
+  display: grid;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.masterclass-event h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.masterclass-date {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0;
+}
+
+.masterclass-date strong {
+  color: var(--ink);
+}
+
+.masterclass-details {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.masterclass-details li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 10px;
+  color: var(--muted);
+}
+
+.masterclass-details li::before {
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--wine);
+  content: "";
 }
 
 .stage-experience {
@@ -1967,6 +2133,7 @@ dd {
   .work-hero,
   .work-category,
   .signature-layout,
+  .masterclass-layout,
   .testimonial-feature,
   .aerial-feature,
   .casting-layout,
@@ -2058,6 +2225,10 @@ dd {
     padding-top: 42px;
   }
 
+  .hero-video-backdrop video {
+    transform: none;
+  }
+
   .hero.has-video .hero-card {
     grid-template-columns: 82px minmax(0, 1fr);
     padding: 14px;
@@ -2072,7 +2243,7 @@ dd {
   }
 
   .testimonial-media::before {
-    inset: 12px -8px -12px 8px;
+    inset: 12px 0 -12px 8px;
   }
 
   .testimonial-media {
@@ -2109,12 +2280,22 @@ dd {
     font-size: clamp(4rem, 22vw, 6.8rem);
   }
 
+  body[data-visual-theme] #acting > div:first-child,
+  body[data-visual-theme] #music .section-heading,
+  body[data-visual-theme] #skills .section-heading {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .media-grid,
   .instagram-grid,
   .instagram-grid.compact-cards,
   .visual-media-list,
   .signature-media-list,
   .visual-brief-list,
+  .masterclass-form-grid,
   .reel-grid,
   .market-grid,
   .mode-grid,
@@ -2129,6 +2310,10 @@ dd {
 
   .media-placeholder {
     grid-template-columns: 1fr;
+  }
+
+  .masterclass-form .button {
+    width: 100%;
   }
 
   .canvas-shell {
