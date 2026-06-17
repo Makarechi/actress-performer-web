@@ -10,7 +10,7 @@ import {
 import { localeVisuals } from "@data/localeVisuals";
 import { withBase } from "@data/paths";
 import { contentPlan, profile } from "@data/profile";
-import { aerialGymnasticsMedia } from "@data/specialMedia";
+import { aerialGymnasticsMedia, ukrainianVocalPerformanceMedia } from "@data/specialMedia";
 import { stageCopy, stageLabels } from "@data/stage";
 import { testimonialFeatures } from "@data/testimonials";
 import { campaignCopy, workCategories, workLabels, workPageCopy } from "@data/work";
@@ -149,6 +149,26 @@ const plannedAssetLabel: Record<Locale, string> = {
   it: "materiale pianificato",
   uk: "запланований матеріал",
   ru: "запланированный материал"
+};
+
+const vocalPerformanceCopy: Partial<
+  Record<
+    Locale,
+    {
+      eyebrow: string;
+      title: string;
+      body: string;
+      meta: string;
+    }
+  >
+> = {
+  uk: {
+    eyebrow: "Вокальний performance",
+    title: "«Вишивана дівчина»: вокал, бандура, фортепіано.",
+    body:
+      "Живий український вокальний фрагмент: Таїсія виконує «Вишивану дівчину» разом із відомою бандуристкою, а на фортепіано акомпанує концертмейстерка з Харкова.",
+    meta: "45 секунд · live vocal performance"
+  }
 };
 
 const packetCopy: Record<
@@ -535,6 +555,7 @@ export function createAppPayload(locale: Locale, page: AppPage, section: HeaderS
   const localizedPosts = getLocalizedInstagramPosts(locale);
   const byId = (ids: readonly string[]) => localizedPosts.filter((post) => ids.includes(post.id));
   const testimonial = testimonialFeatures[locale] ?? null;
+  const vocalPerformance = vocalPerformanceCopy[locale] ?? null;
 
   const navItems = [
     [t.nav.acting, `${localizedPath(locale)}#acting`],
@@ -608,6 +629,12 @@ export function createAppPayload(locale: Locale, page: AppPage, section: HeaderS
       stageStatic: stageStaticLabels[locale]
     },
     testimonial,
+    vocalPerformance: vocalPerformance
+      ? {
+          copy: vocalPerformance,
+          media: ukrainianVocalPerformanceMedia
+        }
+      : null,
     aerial: {
       copy: aerialCopy[locale],
       media: aerialGymnasticsMedia

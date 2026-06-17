@@ -288,6 +288,7 @@ fn render_home(html: &mut String, payload: &Value) {
         false,
     );
     html.push_str("<div class=\"media-grid\">");
+    render_vocal_performance(html, payload);
     for post in array_at(payload, &["posts", "music"]) {
         render_instagram_card(html, post);
     }
@@ -1007,6 +1008,37 @@ fn render_instagram_card(html: &mut String, post: &Value) {
     html.push_str("</h3><p>");
     text(html, &field_str(post, "note"));
     html.push_str("</p></div></a></article>");
+}
+
+fn render_vocal_performance(html: &mut String, payload: &Value) {
+    let Some(feature) = value_at(payload, &["vocalPerformance"]) else {
+        return;
+    };
+    if feature.is_null() {
+        return;
+    }
+    let Some(copy) = feature.get("copy") else {
+        return;
+    };
+    let Some(media) = feature.get("media") else {
+        return;
+    };
+
+    html.push_str("<article class=\"vocal-performance-card\" aria-label=\"");
+    attr(html, &field_str(copy, "title"));
+    html.push_str("\"><video controls playsinline preload=\"metadata\" poster=\"");
+    attr(html, &field_str(media, "poster"));
+    html.push_str("\"><source src=\"");
+    attr(html, &field_str(media, "src"));
+    html.push_str("\" type=\"video/mp4\" /></video><div><p class=\"eyebrow\">");
+    text(html, &field_str(copy, "eyebrow"));
+    html.push_str("</p><h3>");
+    text(html, &field_str(copy, "title"));
+    html.push_str("</h3><p>");
+    text(html, &field_str(copy, "body"));
+    html.push_str("</p><span>");
+    text(html, &field_str(copy, "meta"));
+    html.push_str("</span></div></article>");
 }
 
 fn render_media_placeholder(html: &mut String, title: &str, category: &str, note: &str, tone: &str) {
