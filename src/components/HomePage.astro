@@ -3,6 +3,7 @@ import ContactSection from "@components/ContactSection.astro";
 import SiteFooter from "@components/SiteFooter.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import { getCommercialLocale, mailtoHref, services, siteCopy } from "@data/commercial";
+import { heroBackdrops } from "@data/heroBackdrops";
 import { instagramPosts } from "@data/instagram";
 import type { Locale } from "@data/i18n";
 import { withBase } from "@data/paths";
@@ -15,6 +16,7 @@ type Props = {
 const { locale } = Astro.props;
 const commercialLocale = getCommercialLocale(locale);
 const copy = siteCopy[commercialLocale];
+const heroBackdrop = heroBackdrops[locale];
 const localizedCommercialPath = (path: string) => withBase(`/${commercialLocale}${path}`);
 const localizedPath = (path: string) => withBase(`/${locale}${path}`);
 const hirePath = (path: string) => (path === "/casting/" ? localizedPath(path) : localizedCommercialPath(path));
@@ -28,7 +30,12 @@ const referencePosts = instagramPosts.filter((post) =>
 <SiteHeader locale={locale} active="home" />
 
 <main>
-  <section class="hero commercial-hero">
+  <section class="hero commercial-hero has-video">
+    <div class="hero-video-backdrop" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" tabindex="-1">
+        <source src={heroBackdrop.src} type="video/mp4" />
+      </video>
+    </div>
     <div class="hero-copy">
       <p class="eyebrow">{copy.hero.eyebrow}</p>
       <h1>{profile.name}</h1>
