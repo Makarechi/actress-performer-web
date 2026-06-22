@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { localeNames, locales, type Locale } from "@data/i18n";
+import { localeNames, publicLocales, type Locale } from "@data/i18n";
 import { localeVisuals } from "@data/localeVisuals";
 import { withBase } from "@data/paths";
 import { profile } from "@data/profile";
@@ -23,7 +23,7 @@ const {
   canonicalPath = "/",
   image = "/images/social/taisija-boyko-og.jpg",
   robots,
-  alternateLocales = locales,
+  alternateLocales = publicLocales,
   schema = []
 } = Astro.props;
 const siteUrl = Astro.site ?? new URL("https://taisijaboyko.com");
@@ -71,7 +71,7 @@ const schemas = [jsonLd, ...extraSchemas].filter((item) => Object.keys(item).len
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="theme-color" content="#f6f1ea" />
-    <meta name="available-languages" content={Object.values(localeNames).join(", ")} />
+    <meta name="available-languages" content={alternateLocales.map((code) => localeNames[code]).join(", ")} />
     {schemas.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
   </head>
   <body data-locale={locale} data-visual-theme={visual.theme}>

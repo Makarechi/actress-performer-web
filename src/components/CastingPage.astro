@@ -2,6 +2,7 @@
 import SiteFooter from "@components/SiteFooter.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import { getCommercialLocale, mailtoHref, siteCopy } from "@data/commercial";
+import { castingCredits } from "@data/credits";
 import { getLocalizedInstagramPosts, translations, type Locale } from "@data/i18n";
 import { withBase } from "@data/paths";
 import { contentPlan, profile } from "@data/profile";
@@ -12,13 +13,23 @@ type Props = {
 
 const { locale } = Astro.props;
 const t = translations[locale];
-const commercialCopy = siteCopy[getCommercialLocale(locale)];
+const commercialLocale = getCommercialLocale(locale);
+const commercialCopy = siteCopy[commercialLocale];
 const selectedPosts = getLocalizedInstagramPosts(locale).filter((post) =>
   ["nemocnica-tvjoj", "theatre-day", "little-women-stage", "voice-training"].includes(post.id)
 );
 const castingRequest = commercialCopy.contact.topics[0];
 const voiceRequest = commercialCopy.contact.topics[1];
 const cvPath = withBase("/downloads/taisija-boyko-cv-draft.txt");
+const creditsTitle = commercialLocale === "sk" ? "Verejné credits a referencie" : "Public credits and references";
+const creditsIntro =
+  commercialLocale === "sk"
+    ? "Overené verejné materiály, ktoré sú už dostupné online. Presný rok, rola a produkčné údaje ešte patria do finálneho CV PDF."
+    : "Verified public materials already available online. Exact year, role and production details should still go into the final CV PDF.";
+const creditHeaders =
+  commercialLocale === "sk"
+    ? ["Materiál", "Typ", "Zameranie", "Odkaz"]
+    : ["Material", "Type", "Focus", "Reference"];
 ---
 
 <SiteHeader locale={locale} active="casting" />
@@ -125,14 +136,18 @@ const cvPath = withBase("/downloads/taisija-boyko-cv-draft.txt");
       </section>
 
       <section>
-        <h2>{t.casting.credits}</h2>
-        <div class="credits-table" role="table" aria-label={t.casting.credits}>
+        <h2>{creditsTitle}</h2>
+        <p class="section-note">{creditsIntro}</p>
+        <div class="credits-table" role="table" aria-label={creditsTitle}>
           <div role="row">
-            {t.casting.table.map((header) => <strong role="columnheader">{header}</strong>)}
+            {creditHeaders.map((header) => <strong role="columnheader">{header}</strong>)}
           </div>
-          {t.casting.rows.map((row) => (
+          {castingCredits.map((credit) => (
             <div role="row">
-              {row.map((cell) => <span role="cell">{cell}</span>)}
+              <span role="cell">{credit.title}</span>
+              <span role="cell">{credit.type}</span>
+              <span role="cell">{credit.focus}</span>
+              <span role="cell"><a href={credit.href} target="_blank" rel="noreferrer">Instagram</a></span>
             </div>
           ))}
         </div>

@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
-import { locales } from "@data/i18n";
+import { publicLocales } from "@data/i18n";
 import { commercialLocales, services } from "@data/commercial";
 import { withBase } from "@data/paths";
 
-const pages = locales.flatMap((locale) => [
+const pages = publicLocales.flatMap((locale) => [
   `/${locale}/`,
   `/${locale}/work/`,
   `/${locale}/stage/`,

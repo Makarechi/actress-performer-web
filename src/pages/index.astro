@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import { withBase } from "@data/paths";
 import { profile } from "@data/profile";
-import { localeNames, locales } from "@data/i18n";
+import { localeNames, publicLocales } from "@data/i18n";
 ---
 
 <!doctype html>
@@ -19,7 +19,7 @@ import { localeNames, locales } from "@data/i18n";
       <h1>{profile.name}</h1>
       <p>Choose a language</p>
       <div>
-        {locales.map((locale) => <a href={withBase(`/${locale}/`)}>{localeNames[locale]}</a>)}
+        {publicLocales.map((locale) => <a href={withBase(`/${locale}/`)}>{localeNames[locale]}</a>)}
       </div>
     </main>
   </body>

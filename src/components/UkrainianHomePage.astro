@@ -1,0 +1,89 @@
+---
+import { heroBackdrops } from "@data/heroBackdrops";
+import { withBase } from "@data/paths";
+import { profile } from "@data/profile";
+
+const audioSrc = withBase("/audio/taisija-boyko-oy-u-poli-uk.m4a");
+const backdrop = heroBackdrops.uk;
+---
+
+<main class="ukrainian-audio-page">
+  <header class="ukrainian-audio-header">
+    <a class="brand" href={withBase("/uk/")} aria-label={`${profile.name} українська версія`}>
+      <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="40" height="40" />
+      <span>{profile.name}</span>
+    </a>
+    <nav aria-label="Українська навігація">
+      <a href={withBase("/uk/casting/")}>Кастинг</a>
+      <a href={withBase("/uk/stage/")}>Сцена</a>
+      <a href={withBase("/en/contact/")}>Контакт</a>
+      <a href={withBase("/en/")}>English</a>
+    </nav>
+  </header>
+
+  <section class="ukrainian-audio-hero">
+    <div class="ukrainian-video-backdrop" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" tabindex="-1">
+        <source src={backdrop.src} type="video/mp4" />
+      </video>
+      <div class="ukrainian-wheat-field"></div>
+    </div>
+
+    <div class="ukrainian-audio-copy">
+      <p class="eyebrow">Українська пісня · vocal sample</p>
+      <h1>Ой у полі</h1>
+      <p class="hero-line">Голос, поле, вітер і жива українська сценічна памʼять.</p>
+      <p class="hero-text">
+        Новий аудіофрагмент для української версії профілю: камерний вокальний матеріал, який підтримує
+        casting, live performance, культурні події та музичну лінію Таісії.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#ukrainian-song">Слухати аудіо</a>
+        <a class="button secondary" href={withBase("/uk/casting/")}>Кастинг-профіль</a>
+      </div>
+    </div>
+
+    <aside class="ukrainian-audio-card" id="ukrainian-song">
+      <p class="card-kicker">Ukrainian vocal sample</p>
+      <h2>Ой у полі</h2>
+      <p>Аудіо для українського напряму: голос, народний мотив і сценічна атмосфера поля.</p>
+      <audio controls preload="metadata" src={audioSrc}>
+        <a href={audioSrc}>Слухати аудіо</a>
+      </audio>
+    </aside>
+  </section>
+
+  <section class="section ukrainian-audio-proof">
+    <div class="section-heading">
+      <p class="eyebrow">Для української версії</p>
+      <h2>Не просто плеєр, а окремий музичний вхід у профіль.</h2>
+      <p>
+        Цей матеріал працює як доказ голосу, мови й культурної присутності. Візуальна рамка тримає мотив
+        поля, вітру і пшениці, але не перетворює сторінку на фольклорну декорацію.
+      </p>
+    </div>
+    <div class="mode-grid">
+      <article>
+        <span>01</span>
+        <div>
+          <h3>Голос</h3>
+          <p>Живий вокальний тембр для музичних, театральних і культурних форматів.</p>
+        </div>
+      </article>
+      <article>
+        <span>02</span>
+        <div>
+          <h3>Українська мова</h3>
+          <p>Окремий акцент для українських проєктів, поезії, пісні та live-виступів.</p>
+        </div>
+      </article>
+      <article>
+        <span>03</span>
+        <div>
+          <h3>Події</h3>
+          <p>Матеріал можна використовувати як proof для культурних вечорів і community events.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>

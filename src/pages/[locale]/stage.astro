@@ -1,7 +1,7 @@
 ---
-import WasmApp from "@components/WasmApp.astro";
+import StagePage from "@components/StagePage.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { locales, normalizeLocale } from "@data/i18n";
+import { locales, normalizeLocale, publicLocales } from "@data/i18n";
 import { stageCopy } from "@data/stage";
 
 export function getStaticPaths() {
@@ -10,8 +10,15 @@ export function getStaticPaths() {
 
 const locale = normalizeLocale(Astro.params.locale);
 const copy = stageCopy[locale];
+const isPublicLocale = publicLocales.includes(locale);
 ---
 
-<BaseLayout title={copy.title} description={copy.description} locale={locale} canonicalPath={`/${locale}/stage/`}>
-  <WasmApp page="stage" locale={locale} section="stage" />
+<BaseLayout
+  title={copy.title}
+  description={copy.description}
+  locale={locale}
+  canonicalPath={`/${locale}/stage/`}
+  robots={isPublicLocale ? undefined : "noindex, follow"}
+>
+  <StagePage locale={locale} />
 </BaseLayout>

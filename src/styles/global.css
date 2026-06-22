@@ -1264,14 +1264,16 @@ body[data-visual-theme] #skills .section-heading {
 
 .stage-mode-map,
 .stage-moments,
-.locale-visual-plan {
+.locale-visual-plan,
+.stage-proof-section {
   background: var(--bg);
   color: var(--ink);
 }
 
 .stage-mode-map .section-heading p,
 .stage-moments .section-heading p,
-.locale-visual-plan .section-heading p {
+.locale-visual-plan .section-heading p,
+.stage-proof-section .section-heading p {
   color: var(--muted);
 }
 
@@ -1345,6 +1347,190 @@ body[data-visual-theme] #skills .section-heading {
 
 .visual-media-list p {
   color: var(--muted);
+}
+
+.stage-proof-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 420px) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.stage-media-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--theme-line);
+  border-radius: 8px;
+  background: var(--theme-card);
+}
+
+.stage-media-card video {
+  display: block;
+  width: 100%;
+  min-height: 280px;
+  max-height: 520px;
+  background: #080807;
+  object-fit: cover;
+}
+
+.stage-media-card div {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+}
+
+.stage-media-card p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.ukrainian-audio-page {
+  overflow: hidden;
+  background: #11141d;
+  color: var(--white);
+}
+
+.ukrainian-audio-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px clamp(18px, 4vw, 56px);
+  border-bottom: 1px solid rgba(255, 253, 248, 0.16);
+  background: rgba(12, 17, 28, 0.82);
+  backdrop-filter: blur(16px);
+}
+
+.ukrainian-audio-header nav {
+  color: rgba(255, 253, 248, 0.72);
+}
+
+.ukrainian-audio-header nav a:hover {
+  color: var(--white);
+}
+
+.ukrainian-audio-hero {
+  position: relative;
+  display: grid;
+  min-height: calc(100svh - 70px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+  gap: clamp(28px, 6vw, 88px);
+  align-items: end;
+  overflow: hidden;
+  padding: clamp(56px, 8vw, 120px) clamp(18px, 5vw, 72px) clamp(44px, 6vw, 82px);
+}
+
+.ukrainian-video-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ukrainian-video-backdrop video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.ukrainian-video-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 12, 24, 0.86), rgba(9, 20, 35, 0.58) 48%, rgba(14, 28, 40, 0.2)),
+    linear-gradient(0deg, rgba(9, 13, 20, 0.82), rgba(9, 13, 20, 0.12) 46%, rgba(9, 13, 20, 0.48)),
+    radial-gradient(circle at 76% 22%, rgba(207, 155, 40, 0.32), transparent 34%);
+}
+
+.ukrainian-wheat-field {
+  position: absolute;
+  right: -6%;
+  bottom: -4%;
+  left: -6%;
+  height: min(34vw, 280px);
+  opacity: 0.46;
+  transform-origin: bottom center;
+  animation: wheat-sway 6s ease-in-out infinite alternate;
+  background:
+    repeating-linear-gradient(102deg, transparent 0 18px, rgba(231, 188, 78, 0.42) 18px 21px, transparent 21px 42px),
+    repeating-linear-gradient(84deg, transparent 0 22px, rgba(255, 226, 128, 0.3) 22px 25px, transparent 25px 48px),
+    linear-gradient(0deg, rgba(113, 83, 26, 0.82), rgba(207, 155, 40, 0.16) 76%, transparent);
+  filter: blur(0.2px);
+}
+
+.ukrainian-audio-copy,
+.ukrainian-audio-card {
+  position: relative;
+  z-index: 1;
+}
+
+.ukrainian-audio-copy {
+  display: grid;
+  gap: 22px;
+  max-width: 840px;
+  text-shadow: 0 18px 52px rgba(0, 0, 0, 0.56);
+}
+
+.ukrainian-audio-copy h1 {
+  max-width: 9ch;
+  color: var(--white);
+}
+
+.ukrainian-audio-copy .eyebrow {
+  color: rgba(255, 218, 122, 0.92);
+}
+
+.ukrainian-audio-copy .hero-text {
+  color: rgba(255, 253, 248, 0.76);
+}
+
+.ukrainian-audio-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid rgba(255, 253, 248, 0.2);
+  border-radius: 8px;
+  background: rgba(12, 17, 28, 0.62);
+  padding: clamp(18px, 3vw, 26px);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(16px);
+}
+
+.ukrainian-audio-card h2 {
+  color: var(--white);
+  font-size: clamp(2.2rem, 4vw, 4.6rem);
+}
+
+.ukrainian-audio-card p:not(.card-kicker) {
+  color: rgba(255, 253, 248, 0.72);
+}
+
+.ukrainian-audio-card audio {
+  width: 100%;
+}
+
+.ukrainian-audio-proof {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 240, 0.92), rgba(237, 242, 238, 0.88)),
+    var(--theme-section);
+  color: var(--ink);
+}
+
+.ukrainian-audio-proof .section-heading p {
+  color: var(--muted);
+}
+
+@keyframes wheat-sway {
+  from {
+    transform: skewX(-2deg) translateX(-1.2%);
+  }
+
+  to {
+    transform: skewX(3deg) translateX(1.2%);
+  }
 }
 
 .instagram-grid {
@@ -2229,6 +2415,31 @@ body[data-visual-theme] #skills .section-heading {
   font-size: clamp(1.45rem, 3vw, 2.7rem);
 }
 
+.service-proof-section {
+  background: var(--theme-section);
+}
+
+.service-proof-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  border: 1px solid var(--theme-line);
+  border-radius: 8px;
+  background: var(--theme-card);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.service-proof-note h2 {
+  margin: 4px 0 8px;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+.service-proof-note p:not(.eyebrow) {
+  max-width: 760px;
+  color: var(--muted);
+}
+
 .check-list {
   display: grid;
   gap: 8px;
@@ -2313,6 +2524,7 @@ body[data-visual-theme] #skills .section-heading {
 
 .fact-panel,
 .casting-main section {
+  min-width: 0;
   border: 1px solid rgba(23, 20, 18, 0.12);
   border-radius: 8px;
   background: rgba(255, 250, 243, 0.72);
@@ -2355,6 +2567,7 @@ dd {
 .casting-main {
   display: grid;
   gap: 18px;
+  min-width: 0;
 }
 
 .compact-list {
@@ -2363,6 +2576,11 @@ dd {
 }
 
 .compact-list p {
+  color: var(--muted);
+}
+
+.section-note {
+  margin: -6px 0 14px;
   color: var(--muted);
 }
 
@@ -2402,6 +2620,7 @@ dd {
   .work-category,
   .signature-layout,
   .masterclass-layout,
+  .stage-proof-grid,
   .testimonial-feature,
   .aerial-feature,
   .casting-layout,
@@ -2448,6 +2667,15 @@ dd {
     grid-template-columns: 1fr;
   }
 
+  .ukrainian-audio-hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .ukrainian-audio-card {
+    max-width: 560px;
+  }
+
   .hero.has-video .hero-card {
     max-width: 620px;
     grid-template-columns: 96px minmax(0, 1fr);
@@ -2470,6 +2698,10 @@ dd {
   }
 
   .service-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-proof-note {
     grid-template-columns: 1fr;
   }
 }
@@ -2540,6 +2772,11 @@ dd {
     font-size: clamp(2.8rem, 14vw, 4.6rem);
   }
 
+  .ukrainian-audio-copy h1 {
+    max-width: 10.5ch;
+    font-size: clamp(4.5rem, 18vw, 5.4rem);
+  }
+
   .testimonial-media-caption {
     position: static;
     max-width: none;
@@ -2574,6 +2811,7 @@ dd {
   .instagram-grid,
   .instagram-grid.compact-cards,
   .media-slot-grid,
+  .stage-proof-grid,
   .contact-topic-grid,
   .visual-media-list,
   .signature-media-list,
@@ -2639,7 +2877,8 @@ dd {
   }
 
   .offer-card .button,
-  .service-card-actions .button {
+  .service-card-actions .button,
+  .service-proof-note .button {
     width: 100%;
   }
 }

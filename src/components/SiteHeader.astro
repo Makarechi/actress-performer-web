@@ -1,5 +1,5 @@
 ---
-import { localeNames, locales, type Locale } from "@data/i18n";
+import { localeNames, publicLocales, type Locale } from "@data/i18n";
 import { getCommercialLocale, siteCopy } from "@data/commercial";
 import { withBase } from "@data/paths";
 import { profile } from "@data/profile";
@@ -36,7 +36,7 @@ const navItems = [
       ))}
     </nav>
     <div class="locale-links" aria-label={copy.localeLabel}>
-      {locales.map((code) => (
+      {publicLocales.map((code) => (
         <a href={withBase(`/${code}/`)} aria-current={code === locale ? "true" : undefined}>
           {localeNames[code]}
         </a>

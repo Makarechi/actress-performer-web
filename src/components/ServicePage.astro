@@ -27,8 +27,7 @@ const labels = {
     after: "After the session",
     takeAway: "What you take away.",
     notFor: "Not for",
-    proof: "Proof slot",
-    planned: "Planned media",
+    planned: "Demo coming soon",
     faq: "FAQ",
     before: "Before booking"
   },
@@ -44,8 +43,7 @@ const labels = {
     after: "Po hodine",
     takeAway: "Čo si odnesiete.",
     notFor: "Nie je pre",
-    proof: "Proof slot",
-    planned: "Plánované médiá",
+    planned: "Demo v príprave",
     faq: "FAQ",
     before: "Pred rezerváciou"
   }
@@ -104,19 +102,14 @@ const labels = {
     </article>
   </section>
 
-  <section class="section dark-band">
-    <div class="section-heading">
-      <p class="eyebrow">{labels.proof}</p>
-      <h2>{service.proofTitle[commercialLocale]}</h2>
-      <p>{service.proofBody[commercialLocale]}</p>
-    </div>
-    <article class="media-placeholder dark">
-      <div class="media-mark" aria-hidden="true"><span></span></div>
+  <section class="section service-proof-section">
+    <article class="service-proof-note">
       <div>
-        <p class="card-kicker">{labels.planned}</p>
-        <h3>{service.proofTitle[commercialLocale]}</h3>
+        <p class="eyebrow">{labels.planned}</p>
+        <h2>{service.proofTitle[commercialLocale]}</h2>
         <p>{service.proofBody[commercialLocale]}</p>
       </div>
+      <a class="button primary" href={ctaHref}>{service.ctaLabel[commercialLocale]}</a>
     </article>
   </section>
 
