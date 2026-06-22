@@ -1,0 +1,167 @@
+---
+import ContactSection from "@components/ContactSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import { getCommercialLocale, mailtoHref, services, siteCopy } from "@data/commercial";
+import { instagramPosts } from "@data/instagram";
+import type { Locale } from "@data/i18n";
+import { withBase } from "@data/paths";
+import { profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale];
+const localizedCommercialPath = (path: string) => withBase(`/${commercialLocale}${path}`);
+const localizedPath = (path: string) => withBase(`/${locale}${path}`);
+const hirePath = (path: string) => (path === "/casting/" ? localizedPath(path) : localizedCommercialPath(path));
+const cvPath = withBase("/downloads/taisija-boyko-cv-draft.txt");
+const plannedMediaLabel = commercialLocale === "sk" ? "Plánované médiá" : "Planned media";
+const referencePosts = instagramPosts.filter((post) =>
+  ["nemocnica-tvjoj", "voice-training", "hosting-st-nicholas", "vocal-concert", "little-women-stage", "acting-emotions"].includes(post.id)
+);
+---
+
+<SiteHeader locale={locale} active="home" />
+
+<main>
+  <section class="hero commercial-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">{copy.hero.eyebrow}</p>
+      <h1>{profile.name}</h1>
+      <p class="hero-line">{copy.hero.headline}</p>
+      <p class="hero-text">{copy.hero.body}</p>
+      <p class="hero-proof">{copy.hero.proof}</p>
+      <div class="hero-actions" aria-label="Primary actions">
+        <a class="button primary" href="#hire">{copy.hero.hire}</a>
+        <a class="button secondary" href="#learn">{copy.hero.learn}</a>
+      </div>
+      <div class="secondary-action-row" aria-label="Secondary actions">
+        <a href={localizedPath("/casting/")}>{copy.hero.casting}</a>
+        <a href={localizedCommercialPath("/voice/")}>{copy.hero.voice}</a>
+        <a href={cvPath} download>{copy.hero.cv}</a>
+        <a href={localizedCommercialPath("/contact/")}>{copy.hero.contact}</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Profile summary">
+      <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="1080" height="1080" />
+      <div>
+        <p class="card-kicker">{profile.baseLocation}</p>
+        <h2>{profile.headline}</h2>
+        <p>{profile.education}</p>
+        <a class="contact-link compact-contact-link" href={`mailto:${profile.email}`}>{profile.email}</a>
+      </div>
+    </aside>
+  </section>
+
+  <section class="quick-strip" aria-label="Key proof points">
+    {copy.quickProof.map((item) => <span>{item}</span>)}
+  </section>
+
+  <section class="section" id="hire">
+    <div class="section-heading">
+      <p class="eyebrow">{copy.hire.eyebrow}</p>
+      <h2>{copy.hire.title}</h2>
+      <p>{copy.hire.body}</p>
+    </div>
+    <div class="offer-grid">
+      {copy.hire.cards.map(([title, body, cta, path]) => (
+        <article class="offer-card">
+          <h3>{title}</h3>
+          <p>{body}</p>
+          <a class="button secondary" href={hirePath(path)}>{cta}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section masterclass-section" id="learn">
+    <div class="section-heading">
+      <p class="eyebrow">{copy.learn.eyebrow}</p>
+      <h2>{copy.learn.title}</h2>
+      <p>{copy.learn.body}</p>
+      <a class="button primary" href={localizedCommercialPath("/services/")}>{copy.learn.cta}</a>
+    </div>
+    <div class="offer-grid service-offer-grid">
+      {services.map((service) => (
+        <article class="offer-card">
+          <p class="card-kicker">{service.duration[commercialLocale]}</p>
+          <h3>{service.shortTitle[commercialLocale]}</h3>
+          <p>{service.promise[commercialLocale]}</p>
+          <a class="button secondary" href={localizedCommercialPath(`/services/${service.slug}/`)}>
+            {service.ctaLabel[commercialLocale]}
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section dark-band" id="showreel">
+    <div class="section-heading">
+      <p class="eyebrow">{copy.showreel.eyebrow}</p>
+      <h2>{copy.showreel.title}</h2>
+      <p>{copy.showreel.body}</p>
+    </div>
+    <div class="media-slot-grid">
+      {copy.showreel.items.map(([title, body]) => (
+        <article class="media-placeholder dark">
+          <div class="media-mark" aria-hidden="true"><span></span></div>
+          <div>
+            <p class="card-kicker">{plannedMediaLabel}</p>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section split-media" id="voice">
+    <div class="section-heading compact">
+      <p class="eyebrow">{copy.voiceBlock.eyebrow}</p>
+      <h2>{copy.voiceBlock.title}</h2>
+      <p>{copy.voiceBlock.body}</p>
+      <a class="button primary" href={mailtoHref(copy.contact.topics[1][1], `Hello Taisija,\n\n${copy.contact.topics[1][2]}`)}>
+        {copy.voiceBlock.cta}
+      </a>
+    </div>
+    <div class="language-grid">
+      {profile.languages.slice(0, 6).map((language) => (
+        <article>
+          <h3>{language.name}</h3>
+          <p>{language.level}</p>
+          <span>{language.uses}</span>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="references">
+    <div class="section-heading">
+      <p class="eyebrow">{copy.references.eyebrow}</p>
+      <h2>{copy.references.title}</h2>
+      <p>{copy.references.body}</p>
+    </div>
+    <div class="instagram-grid compact-cards">
+      {referencePosts.map((post) => (
+        <article class="instagram-card">
+          <a href={post.href} target="_blank" rel="noreferrer">
+            <img src={post.image} alt={post.alt} loading="lazy" width="800" height="1000" />
+            <div>
+              <p class="eyebrow">{post.category}</p>
+              <h3>{post.title}</h3>
+              <p>{post.note}</p>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <ContactSection locale={locale} />
+</main>
+
+<SiteFooter locale={locale} />

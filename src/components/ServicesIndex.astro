@@ -1,0 +1,56 @@
+---
+import ContactSection from "@components/ContactSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import { getCommercialLocale, mailtoHref, services, siteCopy } from "@data/commercial";
+import type { Locale } from "@data/i18n";
+import { withBase } from "@data/paths";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale];
+---
+
+<SiteHeader locale={locale} active="services" />
+
+<main class="work-page">
+  <section class="work-hero service-hero">
+    <div>
+      <p class="eyebrow">{copy.servicesPage.eyebrow}</p>
+      <h1>{copy.servicesPage.title}</h1>
+      <p>{copy.servicesPage.body}</p>
+    </div>
+    <div class="work-hero-actions">
+      <a class="button primary" href="#services">{copy.learn.cta}</a>
+      <a class="button secondary" href={withBase(`/${commercialLocale}/contact/`)}>{copy.nav.contact}</a>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="offer-grid service-directory-grid">
+      {services.map((service) => (
+        <article class="offer-card service-card">
+          <p class="card-kicker">{service.duration[commercialLocale]}</p>
+          <h2>{service.shortTitle[commercialLocale]}</h2>
+          <p>{service.intro[commercialLocale]}</p>
+          <div class="service-card-actions">
+            <a class="button primary" href={withBase(`/${commercialLocale}/services/${service.slug}/`)}>
+              {service.ctaLabel[commercialLocale]}
+            </a>
+            <a class="button secondary" href={mailtoHref(service.emailSubject[commercialLocale], service.emailBody[commercialLocale])}>
+              Email
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <ContactSection locale={locale} />
+</main>
+
+<SiteFooter locale={locale} />

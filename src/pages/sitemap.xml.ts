@@ -1,5 +1,7 @@
 import type { APIRoute } from "astro";
 import { locales } from "@data/i18n";
+import { commercialLocales, services } from "@data/commercial";
+import { withBase } from "@data/paths";
 
 const pages = locales.flatMap((locale) => [
   `/${locale}/`,
@@ -8,12 +10,21 @@ const pages = locales.flatMap((locale) => [
   `/${locale}/casting/`
 ]);
 
+const commercialPages = commercialLocales.flatMap((locale) => [
+  `/${locale}/services/`,
+  `/${locale}/voice/`,
+  `/${locale}/events-hosting/`,
+  `/${locale}/press-kit/`,
+  `/${locale}/contact/`,
+  ...services.map((service) => `/${locale}/services/${service.slug}/`)
+]);
+
 export const GET: APIRoute = ({ site }) => {
   const base = site ?? new URL("https://taisijaboyko.com");
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages
-  .map((page) => `  <url><loc>${new URL(page, base).toString()}</loc></url>`)
+${[...pages, ...commercialPages]
+  .map((page) => `  <url><loc>${new URL(withBase(page), base).toString()}</loc></url>`)
   .join("\n")}
 </urlset>`;
 

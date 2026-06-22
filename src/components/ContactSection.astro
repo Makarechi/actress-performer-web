@@ -1,0 +1,33 @@
+---
+import type { Locale } from "@data/i18n";
+import { getCommercialLocale, mailtoHref, siteCopy } from "@data/commercial";
+import { profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+  asPage?: boolean;
+};
+
+const { locale, asPage = false } = Astro.props;
+const copy = siteCopy[getCommercialLocale(locale)];
+const Heading = asPage ? "h1" : "h2";
+---
+
+<section class="section contact-band" id="contact">
+  <div>
+    <p class="eyebrow">{copy.contact.eyebrow}</p>
+    <Heading>{copy.contact.title}</Heading>
+    <p>{copy.contact.body}</p>
+  </div>
+  <div class="contact-card contact-card-expanded">
+    <span class="card-kicker">{copy.contact.direct}</span>
+    <a class="contact-link" href={`mailto:${profile.email}`}>{profile.email}</a>
+    <div class="contact-topic-grid">
+      {copy.contact.topics.map(([label, subject, body]) => (
+        <a class="contact-topic" href={mailtoHref(subject, `Hello Taisija,\n\n${body}`)}>
+          <span>{label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

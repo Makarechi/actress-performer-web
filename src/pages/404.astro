@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import { withBase } from "@data/paths";
+---
+
+<BaseLayout title="Page not found — Taisija Boyko" description="The requested page was not found." canonicalPath="/404/" robots="noindex, follow">
+  <SiteHeader locale="en" />
+  <main class="language-gate not-found-page">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+    <p>The page may have moved. Open the main profile or casting profile.</p>
+    <div>
+      <a href={withBase("/en/")}>Home</a>
+      <a href={withBase("/en/casting/")}>Casting profile</a>
+    </div>
+  </main>
+  <SiteFooter locale="en" />
+</BaseLayout>

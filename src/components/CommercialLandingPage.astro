@@ -1,0 +1,165 @@
+---
+import ContactSection from "@components/ContactSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import { getCommercialLocale, mailtoHref, siteCopy } from "@data/commercial";
+import type { Locale } from "@data/i18n";
+import { contentPlan, profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+  kind: "voice" | "events" | "press-kit";
+};
+
+const { locale, kind } = Astro.props;
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale];
+const pageCopy =
+  kind === "voice" ? copy.voicePage : kind === "events" ? copy.eventsPage : copy.pressKitPage;
+const active = kind === "events" ? "events" : kind === "voice" ? "voice" : "services";
+const topic = kind === "voice" ? copy.contact.topics[1] : kind === "events" ? copy.contact.topics[2] : copy.contact.topics[6];
+const labels = {
+  en: {
+    voicePlan: "Voice sample plan",
+    voiceTitle: "Samples grouped by use case and language.",
+    languages: "Languages",
+    languagesTitle: "Six main working languages for voice requests.",
+    eventFormats: "Event formats",
+    eventTitle: "Clear use cases for event agencies and cultural teams.",
+    materials: "Materials to add",
+    materialsTitle: "Next assets are listed so the page does not look empty."
+  },
+  sk: {
+    voicePlan: "Plán hlasových ukážok",
+    voiceTitle: "Ukážky rozdelené podľa použitia a jazyka.",
+    languages: "Jazyky",
+    languagesTitle: "Šesť hlavných pracovných jazykov pre voice requesty.",
+    eventFormats: "Eventové formáty",
+    eventTitle: "Jasné použitia pre event agentúry a kultúrne tímy.",
+    materials: "Materiály na doplnenie",
+    materialsTitle: "Ďalšie assets sú uvedené priamo, aby stránka nepôsobila prázdno."
+  }
+}[commercialLocale];
+const voiceSlots = [
+  ["Commercial sample", "Short advertising read with clear tone and timing."],
+  ["Narration sample", "Warm and precise storytelling or documentary voice."],
+  ["Character sample", "A more playful or dramatic acting-led voice."],
+  ["Language slates", "Short samples in Slovak, Polish, Italian, Ukrainian, Russian and English."]
+];
+const eventFormats = [
+  ["Cultural events", "Festivals, community evenings, poetry, music and artistic programs."],
+  ["Corporate formats", "Stage announcements, introductions, audience interaction and multilingual flow."],
+  ["Community events", "Warm presenter presence for local and international audiences."],
+  ["Host + performance", "Optional vocal, piano or poetry fragment when it fits the event."]
+];
+---
+
+<SiteHeader locale={locale} active={active} />
+
+<main class="work-page">
+  <section class="work-hero service-hero">
+    <div>
+      <p class="eyebrow">{pageCopy.eyebrow}</p>
+      <h1>{pageCopy.title}</h1>
+      <p>{pageCopy.body}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={mailtoHref(topic[1], `Hello Taisija,\n\n${topic[2]}`)}>
+          {"cta" in pageCopy ? pageCopy.cta : copy.nav.contact}
+        </a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="1080" height="1080" />
+      <div>
+        <p class="card-kicker">{profile.baseLocation}</p>
+        <h2>{profile.name}</h2>
+        <p>{profile.headline}</p>
+      </div>
+    </aside>
+  </section>
+
+  {kind === "voice" && (
+    <>
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">{labels.voicePlan}</p>
+          <h2>{labels.voiceTitle}</h2>
+        </div>
+        <div class="offer-grid">
+          {voiceSlots.map(([title, body]) => (
+            <article class="offer-card">
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section class="section dark-band">
+        <div class="section-heading">
+          <p class="eyebrow">{labels.languages}</p>
+          <h2>{labels.languagesTitle}</h2>
+        </div>
+        <div class="language-grid">
+          {profile.languages.slice(0, 6).map((language) => (
+            <article>
+              <h3>{language.name}</h3>
+              <p>{language.level}</p>
+              <span>{language.uses}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  )}
+
+  {kind === "events" && (
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">{labels.eventFormats}</p>
+        <h2>{labels.eventTitle}</h2>
+      </div>
+      <div class="offer-grid">
+        {eventFormats.map(([title, body]) => (
+          <article class="offer-card">
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {kind === "press-kit" && (
+    <section class="section booking-packet">
+      <div class="section-heading">
+        <p class="eyebrow">{copy.pressKitPage.eyebrow}</p>
+        <h2>{copy.pressKitPage.title}</h2>
+        <p>{copy.pressKitPage.body}</p>
+      </div>
+      <div class="packet-grid">
+        {copy.pressKitPage.items.map((item) => <span>{item}</span>)}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">{labels.materials}</p>
+      <h2>{labels.materialsTitle}</h2>
+    </div>
+    <div class="plan-grid">
+      {contentPlan.slice(0, kind === "press-kit" ? 8 : 5).map((item) => (
+        <article>
+          <p class="eyebrow">{item.where}</p>
+          <h3>{item.title}</h3>
+          <p>{item.needed}</p>
+          <span>{item.suggestedFiles}</span>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <ContactSection locale={locale} />
+</main>
+
+<SiteFooter locale={locale} />

@@ -1,0 +1,153 @@
+---
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import { getCommercialLocale, mailtoHref, siteCopy } from "@data/commercial";
+import { getLocalizedInstagramPosts, translations, type Locale } from "@data/i18n";
+import { withBase } from "@data/paths";
+import { contentPlan, profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const t = translations[locale];
+const commercialCopy = siteCopy[getCommercialLocale(locale)];
+const selectedPosts = getLocalizedInstagramPosts(locale).filter((post) =>
+  ["nemocnica-tvjoj", "theatre-day", "little-women-stage", "voice-training"].includes(post.id)
+);
+const castingRequest = commercialCopy.contact.topics[0];
+const voiceRequest = commercialCopy.contact.topics[1];
+const cvPath = withBase("/downloads/taisija-boyko-cv-draft.txt");
+---
+
+<SiteHeader locale={locale} active="casting" />
+
+<main class="casting-page">
+  <section class="casting-hero">
+    <div class="casting-photo">
+      <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="1080" height="1080" />
+    </div>
+    <div>
+      <p class="eyebrow">{t.casting.eyebrow}</p>
+      <h1>{profile.name}</h1>
+      <p>{t.casting.intro}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={mailtoHref(castingRequest[1], `Hello Taisija,\n\n${castingRequest[2]}`)}>
+          {t.casting.contact}
+        </a>
+        <a class="button secondary" href={cvPath} download>{t.casting.download}</a>
+        <a class="button secondary" href="#voice">{t.casting.voice}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="casting-layout">
+    <aside class="fact-panel">
+      <h2>{t.casting.facts}</h2>
+      <dl>
+        <dt>Profession</dt>
+        <dd>{profile.headline}</dd>
+        <dt>Base</dt>
+        <dd>{profile.baseLocation}</dd>
+        <dt>Training</dt>
+        <dd>{profile.education}</dd>
+        <dt>Contact</dt>
+        <dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd>
+      </dl>
+    </aside>
+
+    <div class="casting-main">
+      <section>
+        <h2>{t.casting.selected}</h2>
+        <div class="instagram-grid compact-cards">
+          {selectedPosts.map((post) => (
+            <article class="instagram-card">
+              <a href={post.href} target="_blank" rel="noreferrer">
+                <img src={post.image} alt={post.alt} loading="lazy" width="800" height="1000" />
+                <div>
+                  <p class="eyebrow">{post.category}</p>
+                  <h3>{post.title}</h3>
+                  <p>{post.note}</p>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2>{t.casting.showreel}</h2>
+        <article class="media-placeholder">
+          <div class="media-mark" aria-hidden="true"><span></span></div>
+          <div>
+            <p class="card-kicker">Required media</p>
+            <h3>Acting showreel</h3>
+            <p>{t.acting.placeholder}</p>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2>{t.casting.languages}</h2>
+        <div class="compact-list">
+          {t.languageRows.map(([language, level, uses]) => (
+            <p><strong>{language}</strong> — {level} — {uses}</p>
+          ))}
+        </div>
+      </section>
+
+      <section id="voice">
+        <h2>{t.casting.voice}</h2>
+        <article class="media-placeholder">
+          <div class="media-mark" aria-hidden="true"><span></span></div>
+          <div>
+            <p class="card-kicker">Required media</p>
+            <h3>Voice samples</h3>
+            <p>{t.voice.sampleSet}</p>
+            <a class="button secondary" href={mailtoHref(voiceRequest[1], `Hello Taisija,\n\n${voiceRequest[2]}`)}>
+              {commercialCopy.voiceBlock.cta}
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2>{t.casting.skills}</h2>
+        <div class="skill-grid compact">
+          {t.skillGroups.map(([title, body]) => (
+            <article>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2>{t.casting.credits}</h2>
+        <div class="credits-table" role="table" aria-label={t.casting.credits}>
+          <div role="row">
+            {t.casting.table.map((header) => <strong role="columnheader">{header}</strong>)}
+          </div>
+          {t.casting.rows.map((row) => (
+            <div role="row">
+              {row.map((cell) => <span role="cell">{cell}</span>)}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2>{t.casting.missing}</h2>
+        <div class="compact-list">
+          {contentPlan.slice(0, 6).map((item) => (
+            <p><strong>{item.title}</strong> — {item.needed}</p>
+          ))}
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<SiteFooter locale={locale} />

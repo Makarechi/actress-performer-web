@@ -31,6 +31,12 @@ const wasmEntrypoint = withBase("/wasm/actress_frontend.js");
 <noscript>
   <main class="language-gate">
     <h1>{payload.profile.name}</h1>
-    <p>JavaScript is required to load this WebAssembly site.</p>
+    <p>{payload.profile.headline}</p>
+    <p>{payload.profile.baseLocation}</p>
+    <div>
+      <a href={payload.paths?.casting ?? withBase(`/${locale}/casting/`)}>Casting profile</a>
+      <a href={`mailto:${payload.profile.email}`}>{payload.profile.email}</a>
+      <a href={payload.profile.instagram}>Instagram</a>
+    </div>
   </main>
 </noscript>

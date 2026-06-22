@@ -1,0 +1,30 @@
+---
+import type { Locale } from "@data/i18n";
+import { getCommercialLocale, siteCopy } from "@data/commercial";
+import { withBase } from "@data/paths";
+import { profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale];
+const commercialRoot = `/${commercialLocale}`;
+---
+
+<footer class="site-footer">
+  <div>
+    <strong>{profile.name}</strong>
+    <p>{copy.footer.summary}</p>
+    <p>{copy.footer.privacy}</p>
+  </div>
+  <div class="footer-links">
+    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    <a href={profile.instagram} target="_blank" rel="noreferrer">Instagram</a>
+    <a href={withBase(`/${locale}/casting/`)}>{copy.nav.casting}</a>
+    <a href={withBase(`${commercialRoot}/services/`)}>{copy.nav.services}</a>
+    <a href={withBase(`${commercialRoot}/press-kit/`)}>Press kit</a>
+  </div>
+</footer>

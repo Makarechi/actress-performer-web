@@ -1,0 +1,19 @@
+---
+import CommercialLandingPage from "@components/CommercialLandingPage.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { commercialLocales, getCommercialLocale, siteCopy } from "@data/commercial";
+import { normalizeLocale, type Locale } from "@data/i18n";
+
+export function getStaticPaths() {
+  return commercialLocales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale].pressKitPage;
+const alternateLocales = commercialLocales as unknown as readonly Locale[];
+---
+
+<BaseLayout title={`${copy.title} — Taisija Boyko`} description={copy.body} locale={locale} canonicalPath={`/${commercialLocale}/press-kit/`} alternateLocales={alternateLocales}>
+  <CommercialLandingPage locale={locale} kind="press-kit" />
+</BaseLayout>

@@ -265,6 +265,34 @@ nav a:hover {
   color: var(--ink);
 }
 
+nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.locale-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+  max-width: 360px;
+}
+
+.locale-links a {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 4px 7px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.locale-links a[aria-current="true"] {
+  border-color: var(--theme-line);
+  background: rgba(255, 250, 243, 0.7);
+  color: var(--ink);
+}
+
 .locale-select select {
   min-height: 38px;
   border: 1px solid var(--line);
@@ -325,6 +353,20 @@ nav a:hover {
   border-bottom: 1px solid var(--theme-line);
   background: var(--theme-hero);
   padding: clamp(48px, 6vw, 88px) clamp(18px, 5vw, 72px) 36px;
+}
+
+.commercial-hero {
+  align-items: center;
+  padding-top: clamp(34px, 5vw, 64px);
+  padding-bottom: clamp(28px, 4vw, 48px);
+}
+
+.commercial-hero h1 {
+  font-size: clamp(4.1rem, 8vw, 8.2rem);
+}
+
+.commercial-hero .hero-line {
+  font-size: clamp(1.45rem, 2.5vw, 2.7rem);
 }
 
 .hero.has-video {
@@ -485,6 +527,16 @@ body[data-visual-theme="opera"] .hero-video-backdrop::after {
   font-size: 1.08rem;
 }
 
+.hero-proof {
+  width: fit-content;
+  max-width: 100%;
+  border-left: 5px solid var(--wine);
+  background: rgba(255, 250, 243, 0.66);
+  padding: 10px 14px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -564,6 +616,27 @@ body[data-visual-theme="opera"] .hero-video-backdrop::after {
 
 .hero-card p {
   color: var(--muted);
+}
+
+.secondary-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--wine);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.secondary-action-row a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.compact-contact-link {
+  margin-top: 8px;
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .quick-strip {
@@ -865,6 +938,63 @@ body[data-visual-theme="opera"] .hero-video-backdrop::after {
 .mode-grid p,
 .stage-moment-grid p {
   color: var(--muted);
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.offer-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 230px;
+  border: 1px solid var(--theme-line);
+  border-radius: 8px;
+  background: var(--theme-card);
+  padding: clamp(18px, 3vw, 24px);
+}
+
+.offer-card h2,
+.offer-card h3 {
+  max-width: 18ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.offer-card p:not(.card-kicker) {
+  color: var(--muted);
+}
+
+.offer-card .button {
+  width: fit-content;
+  align-self: end;
+}
+
+.service-offer-grid,
+.service-directory-grid {
+  align-items: stretch;
+}
+
+.service-card {
+  min-height: 290px;
+}
+
+.service-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-self: end;
+}
+
+.media-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 body[data-visual-theme] #acting,
@@ -1826,6 +1956,10 @@ body[data-visual-theme] #skills .section-heading {
   padding: 18px;
 }
 
+.contact-card-expanded {
+  gap: 16px;
+}
+
 .contact-link {
   display: block;
   border-bottom: 1px solid var(--line);
@@ -1833,6 +1967,28 @@ body[data-visual-theme] #skills .section-heading {
   overflow-wrap: anywhere;
   color: var(--teal);
   font-weight: 800;
+}
+
+.contact-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.contact-topic {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  border: 1px solid var(--theme-line);
+  border-radius: 8px;
+  background: rgba(255, 250, 243, 0.66);
+  padding: 10px 12px;
+  font-weight: 900;
+}
+
+.contact-page .contact-band {
+  min-height: calc(100svh - 166px);
+  align-content: center;
 }
 
 .site-footer {
@@ -2033,6 +2189,84 @@ body[data-visual-theme] #skills .section-heading {
   font-weight: 800;
 }
 
+.service-detail-page {
+  padding-bottom: 0;
+}
+
+.service-hero h1 {
+  max-width: 13ch;
+}
+
+.service-summary-panel {
+  display: grid;
+  gap: 18px;
+  align-self: stretch;
+  border: 1px solid var(--theme-line);
+  border-radius: 8px;
+  background: var(--theme-card);
+  padding: clamp(18px, 3vw, 26px);
+}
+
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.service-detail-grid article,
+.faq-grid article {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  border: 1px solid var(--theme-line);
+  border-radius: 8px;
+  background: var(--theme-card);
+  padding: clamp(18px, 3vw, 24px);
+}
+
+.service-detail-grid h2 {
+  max-width: 18ch;
+  font-size: clamp(1.45rem, 3vw, 2.7rem);
+}
+
+.check-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 10px;
+  color: var(--muted);
+}
+
+.check-list li::before {
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--wine);
+  content: "";
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.faq-grid p {
+  color: var(--muted);
+}
+
+.service-final-cta {
+  margin-top: 22px;
+}
+
 .casting-page {
   padding-bottom: 70px;
 }
@@ -2204,7 +2438,9 @@ dd {
   .reel-grid,
   .market-grid,
   .mode-grid,
-  .stage-moment-grid {
+  .stage-moment-grid,
+  .offer-grid,
+  .faq-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2231,6 +2467,17 @@ dd {
 
   .fact-panel {
     position: static;
+  }
+
+  .service-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 981px) {
+  .locale-links {
+    flex-wrap: nowrap;
+    max-width: none;
   }
 }
 
@@ -2326,6 +2573,8 @@ dd {
   .media-grid,
   .instagram-grid,
   .instagram-grid.compact-cards,
+  .media-slot-grid,
+  .contact-topic-grid,
   .visual-media-list,
   .signature-media-list,
   .visual-brief-list,
@@ -2334,6 +2583,8 @@ dd {
   .market-grid,
   .mode-grid,
   .stage-moment-grid,
+  .offer-grid,
+  .faq-grid,
   .skill-grid,
   .language-grid,
   .plan-grid,
@@ -2381,5 +2632,14 @@ dd {
 
   .site-footer {
     flex-direction: column;
+  }
+
+  .locale-links {
+    justify-content: flex-start;
+  }
+
+  .offer-card .button,
+  .service-card-actions .button {
+    width: 100%;
   }
 }

@@ -1,5 +1,5 @@
 ---
-import WasmApp from "@components/WasmApp.astro";
+import CastingPage from "@components/CastingPage.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { locales, normalizeLocale, translations } from "@data/i18n";
 
@@ -12,5 +12,5 @@ const t = translations[locale];
 ---
 
 <BaseLayout title={t.casting.title} description={t.casting.description} locale={locale} canonicalPath={`/${locale}/casting/`}>
-  <WasmApp page="casting" locale={locale} section="casting" />
+  <CastingPage locale={locale} />
 </BaseLayout>

@@ -1,0 +1,25 @@
+---
+import ServicesIndex from "@components/ServicesIndex.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { commercialLocales, getCommercialLocale, siteCopy } from "@data/commercial";
+import { normalizeLocale, type Locale } from "@data/i18n";
+
+export function getStaticPaths() {
+  return commercialLocales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale];
+const alternateLocales = commercialLocales as unknown as readonly Locale[];
+---
+
+<BaseLayout
+  title={`${copy.servicesPage.title} — Taisija Boyko`}
+  description={copy.servicesPage.body}
+  locale={locale}
+  canonicalPath={`/${commercialLocale}/services/`}
+  alternateLocales={alternateLocales}
+>
+  <ServicesIndex locale={locale} />
+</BaseLayout>

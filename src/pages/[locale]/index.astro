@@ -1,5 +1,6 @@
 ---
 import WasmApp from "@components/WasmApp.astro";
+import HomePage from "@components/HomePage.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { locales, normalizeLocale, translations } from "@data/i18n";
 
@@ -9,8 +10,9 @@ export function getStaticPaths() {
 
 const locale = normalizeLocale(Astro.params.locale);
 const t = translations[locale];
+const isCommercialLocale = locale === "en" || locale === "sk";
 ---
 
 <BaseLayout title={t.siteTitle} description={t.siteDescription} locale={locale} canonicalPath={`/${locale}/`}>
-  <WasmApp page="home" locale={locale} />
+  {isCommercialLocale ? <HomePage locale={locale} /> : <WasmApp page="home" locale={locale} />}
 </BaseLayout>

@@ -1,0 +1,48 @@
+---
+import ServicePage from "@components/ServicePage.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { commercialLocales, getService, type CommercialLocale } from "@data/commercial";
+import { normalizeLocale, type Locale } from "@data/i18n";
+import { withBase } from "@data/paths";
+import { profile } from "@data/profile";
+
+export function getStaticPaths() {
+  return commercialLocales.flatMap((locale) =>
+    ["individual-coaching", "public-speaking", "camera-confidence", "voice-and-diction", "group-masterclasses", "corporate-workshops"].map((slug) => ({
+      params: { locale, slug }
+    }))
+  );
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+const commercialLocale = (locale === "sk" ? "sk" : "en") as CommercialLocale;
+const service = getService(Astro.params.slug);
+if (!service) {
+  throw new Error(`Unknown service slug: ${Astro.params.slug}`);
+}
+const alternateLocales = commercialLocales as unknown as readonly Locale[];
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: service.title[commercialLocale],
+  provider: {
+    "@type": "Person",
+    name: profile.name,
+    email: profile.email
+  },
+  areaServed: "Bratislava / Central Europe / Online",
+  availableLanguage: profile.languages.map((language) => language.name),
+  url: new URL(withBase(`/${commercialLocale}/services/${service.slug}/`), Astro.site ?? "https://taisijaboyko.com").toString()
+};
+---
+
+<BaseLayout
+  title={service.seoTitle[commercialLocale]}
+  description={service.seoDescription[commercialLocale]}
+  locale={locale}
+  canonicalPath={`/${commercialLocale}/services/${service.slug}/`}
+  alternateLocales={alternateLocales}
+  schema={schema}
+>
+  <ServicePage locale={locale} service={service} />
+</BaseLayout>

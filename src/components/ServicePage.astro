@@ -1,0 +1,144 @@
+---
+import ContactSection from "@components/ContactSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import { getCommercialLocale, mailtoHref, type ServiceDefinition } from "@data/commercial";
+import type { Locale } from "@data/i18n";
+import { withBase } from "@data/paths";
+
+type Props = {
+  locale: Locale;
+  service: ServiceDefinition;
+};
+
+const { locale, service } = Astro.props;
+const commercialLocale = getCommercialLocale(locale);
+const ctaHref = mailtoHref(service.emailSubject[commercialLocale], service.emailBody[commercialLocale]);
+const labels = {
+  en: {
+    service: "Service",
+    allServices: "All services",
+    format: "Format",
+    duration: "Duration",
+    languages: "Languages",
+    forWhom: "For whom",
+    whatHappens: "What happens",
+    practical: "Practical work, not a lecture.",
+    after: "After the session",
+    takeAway: "What you take away.",
+    notFor: "Not for",
+    proof: "Proof slot",
+    planned: "Planned media",
+    faq: "FAQ",
+    before: "Before booking"
+  },
+  sk: {
+    service: "Služba",
+    allServices: "Všetky služby",
+    format: "Formát",
+    duration: "Dĺžka",
+    languages: "Jazyky",
+    forWhom: "Pre koho",
+    whatHappens: "Čo sa deje",
+    practical: "Praktická práca, nie prednáška.",
+    after: "Po hodine",
+    takeAway: "Čo si odnesiete.",
+    notFor: "Nie je pre",
+    proof: "Proof slot",
+    planned: "Plánované médiá",
+    faq: "FAQ",
+    before: "Pred rezerváciou"
+  }
+}[commercialLocale];
+---
+
+<SiteHeader locale={locale} active="services" />
+
+<main class="service-detail-page">
+  <section class="work-hero service-hero">
+    <div>
+      <p class="eyebrow">{labels.service}</p>
+      <h1>{service.title[commercialLocale]}</h1>
+      <p>{service.intro[commercialLocale]}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={ctaHref}>{service.ctaLabel[commercialLocale]}</a>
+        <a class="button secondary" href={withBase(`/${commercialLocale}/services/`)}>{labels.allServices}</a>
+      </div>
+    </div>
+    <aside class="service-summary-panel">
+      <p class="card-kicker">{service.promise[commercialLocale]}</p>
+      <dl>
+        <dt>{labels.format}</dt>
+        <dd>{service.format[commercialLocale]}</dd>
+        <dt>{labels.duration}</dt>
+        <dd>{service.duration[commercialLocale]}</dd>
+        <dt>{labels.languages}</dt>
+        <dd>{service.languages[commercialLocale]}</dd>
+      </dl>
+    </aside>
+  </section>
+
+  <section class="section service-detail-grid">
+    <article>
+      <p class="eyebrow">{labels.forWhom}</p>
+      <h2>{service.audience[commercialLocale]}</h2>
+      <p>{service.promise[commercialLocale]}</p>
+    </article>
+    <article>
+      <p class="eyebrow">{labels.whatHappens}</p>
+      <h2>{labels.practical}</h2>
+      <ul class="check-list">
+        {service.workOn[commercialLocale].map((item) => <li>{item}</li>)}
+      </ul>
+    </article>
+    <article>
+      <p class="eyebrow">{labels.after}</p>
+      <h2>{labels.takeAway}</h2>
+      <ul class="check-list">
+        {service.outcomes[commercialLocale].map((item) => <li>{item}</li>)}
+      </ul>
+    </article>
+    <article>
+      <p class="eyebrow">{labels.notFor}</p>
+      <h2>{service.notFor[commercialLocale]}</h2>
+    </article>
+  </section>
+
+  <section class="section dark-band">
+    <div class="section-heading">
+      <p class="eyebrow">{labels.proof}</p>
+      <h2>{service.proofTitle[commercialLocale]}</h2>
+      <p>{service.proofBody[commercialLocale]}</p>
+    </div>
+    <article class="media-placeholder dark">
+      <div class="media-mark" aria-hidden="true"><span></span></div>
+      <div>
+        <p class="card-kicker">{labels.planned}</p>
+        <h3>{service.proofTitle[commercialLocale]}</h3>
+        <p>{service.proofBody[commercialLocale]}</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section service-faq">
+    <div class="section-heading compact">
+      <p class="eyebrow">{labels.faq}</p>
+      <h2>{labels.before}</h2>
+    </div>
+    <div class="faq-grid">
+      {service.faq[commercialLocale].map((item) => (
+        <article>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </article>
+      ))}
+    </div>
+    <div class="service-final-cta">
+      <a class="button primary" href={ctaHref}>{service.ctaLabel[commercialLocale]}</a>
+    </div>
+  </section>
+
+  <ContactSection locale={locale} />
+</main>
+
+<SiteFooter locale={locale} />

@@ -1,0 +1,25 @@
+---
+import ContactSection from "@components/ContactSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { commercialLocales, getCommercialLocale, siteCopy } from "@data/commercial";
+import { normalizeLocale, type Locale } from "@data/i18n";
+
+export function getStaticPaths() {
+  return commercialLocales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale];
+const alternateLocales = commercialLocales as unknown as readonly Locale[];
+---
+
+<BaseLayout title={`${copy.contact.title} — Taisija Boyko`} description={copy.contact.body} locale={locale} canonicalPath={`/${commercialLocale}/contact/`} alternateLocales={alternateLocales}>
+  <SiteHeader locale={locale} active="contact" />
+  <main class="contact-page">
+    <ContactSection locale={locale} asPage />
+  </main>
+  <SiteFooter locale={locale} />
+</BaseLayout>

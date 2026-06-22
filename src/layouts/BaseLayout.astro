@@ -10,11 +10,25 @@ type Props = {
   description: string;
   locale?: Locale;
   canonicalPath?: string;
+  image?: string;
+  robots?: string;
+  alternateLocales?: readonly Locale[];
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 };
 
-const { title, description, locale = "en", canonicalPath = "/" } = Astro.props;
+const {
+  title,
+  description,
+  locale = "en",
+  canonicalPath = "/",
+  image = "/images/social/taisija-boyko-og.jpg",
+  robots,
+  alternateLocales = locales,
+  schema = []
+} = Astro.props;
 const siteUrl = Astro.site ?? new URL("https://taisijaboyko.com");
 const canonical = new URL(withBase(canonicalPath), siteUrl).toString();
+const socialImage = new URL(withBase(image), siteUrl).toString();
 const visual = localeVisuals[locale];
 const jsonLd = {
   "@context": "https://schema.org",
@@ -23,10 +37,13 @@ const jsonLd = {
   jobTitle: "Multilingual actress and performer",
   email: profile.email,
   url: canonical,
+  image: socialImage,
   sameAs: [profile.instagram],
   knowsLanguage: profile.languages.map((language) => language.name),
   alumniOf: profile.education
 };
+const extraSchemas = Array.isArray(schema) ? schema : [schema];
+const schemas = [jsonLd, ...extraSchemas].filter((item) => Object.keys(item).length > 0);
 ---
 
 <!doctype html>
@@ -36,9 +53,10 @@ const jsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonical} />
     {
-      locales.map((code) => (
+      alternateLocales.map((code) => (
         <link rel="alternate" hreflang={code} href={new URL(withBase(canonicalPath.replace(/^\/(en|sk|pl|it|uk|ru)\//, `/${code}/`)), siteUrl).toString()} />
       ))
     }
@@ -47,10 +65,14 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={withBase("/images/taisija-boyko-profile.jpg")} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <meta name="theme-color" content="#f6f1ea" />
     <meta name="available-languages" content={Object.values(localeNames).join(", ")} />
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {schemas.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
   </head>
   <body data-locale={locale} data-visual-theme={visual.theme}>
     <slot />

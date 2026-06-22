@@ -1,0 +1,46 @@
+---
+import { localeNames, locales, type Locale } from "@data/i18n";
+import { getCommercialLocale, siteCopy } from "@data/commercial";
+import { withBase } from "@data/paths";
+import { profile } from "@data/profile";
+
+type Props = {
+  locale: Locale;
+  active?: "home" | "services" | "casting" | "voice" | "events" | "stage" | "contact";
+};
+
+const { locale, active = "home" } = Astro.props;
+const commercialLocale = getCommercialLocale(locale);
+const copy = siteCopy[commercialLocale];
+const localizedCommercialPath = (path: string) => withBase(`/${commercialLocale}${path}`);
+const localizedPath = (path: string) => withBase(`/${locale}${path}`);
+const navItems = [
+  { key: "services", label: copy.nav.services, href: localizedCommercialPath("/services/") },
+  { key: "casting", label: copy.nav.casting, href: localizedPath("/casting/") },
+  { key: "voice", label: copy.nav.voice, href: localizedCommercialPath("/voice/") },
+  { key: "events", label: copy.nav.events, href: localizedCommercialPath("/events-hosting/") },
+  { key: "stage", label: copy.nav.stage, href: localizedPath("/stage/") },
+  { key: "contact", label: copy.nav.contact, href: localizedCommercialPath("/contact/") }
+] as const;
+---
+
+<header class="site-header">
+  <a class="brand" href={localizedPath("/")} aria-label={`${profile.name} ${copy.nav.home}`}>
+    <img src={profile.headshot} alt={`Portrait of ${profile.name}`} width="40" height="40" />
+    <span>{profile.name}</span>
+  </a>
+  <div class="header-actions">
+    <nav aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={active === item.key ? "page" : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <div class="locale-links" aria-label={copy.localeLabel}>
+      {locales.map((code) => (
+        <a href={withBase(`/${code}/`)} aria-current={code === locale ? "true" : undefined}>
+          {localeNames[code]}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>

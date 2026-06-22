@@ -1,8 +1,8 @@
 ---
 import "../styles/global.css";
-import WasmApp from "@components/WasmApp.astro";
 import { withBase } from "@data/paths";
 import { profile } from "@data/profile";
+import { localeNames, locales } from "@data/i18n";
 ---
 
 <!doctype html>
@@ -15,6 +15,12 @@ import { profile } from "@data/profile";
     <meta http-equiv="refresh" content={`2; url=${withBase("/en/")}`} />
   </head>
   <body>
-    <WasmApp page="gate" locale="en" />
+    <main class="language-gate">
+      <h1>{profile.name}</h1>
+      <p>Choose a language</p>
+      <div>
+        {locales.map((locale) => <a href={withBase(`/${locale}/`)}>{localeNames[locale]}</a>)}
+      </div>
+    </main>
   </body>
 </html>
