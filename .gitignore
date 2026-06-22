@@ -1,8 +1,12 @@
 .DS_Store
 .astro/
+.lighthouseci/
 dist/
 node_modules/
 wasm-frontend/target/
 qa/screenshots/
 qa/video/
+qa/lighthouse/
+qa/playwright-report/
+test-results/
 /*.mp4

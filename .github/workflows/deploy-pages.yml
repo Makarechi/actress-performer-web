@@ -36,7 +36,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: QA checks
+        run: npm run test:qa
+
+      - name: Build for GitHub Pages
         run: npm run build
         env:
           GITHUB_PAGES: "true"

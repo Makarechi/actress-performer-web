@@ -75,8 +75,20 @@ export const services: ServiceDefinition[] = [
     },
     duration: { en: "60 or 90 minutes", sk: "60 alebo 90 minút" },
     workOn: {
-      en: ["goal and material diagnosis", "voice, body and attention", "truthful action", "rehearsal structure", "next practice steps"],
-      sk: ["diagnostika cieľa a materiálu", "hlas, telo a pozornosť", "pravdivá akcia", "štruktúra skúšky", "ďalšie kroky na tréning"]
+      en: [
+        "goal and material diagnosis",
+        "voice, body and attention",
+        "truthful action",
+        "rehearsal structure",
+        "next practice steps"
+      ],
+      sk: [
+        "diagnostika cieľa a materiálu",
+        "hlas, telo a pozornosť",
+        "pravdivá akcia",
+        "štruktúra skúšky",
+        "ďalšie kroky na tréning"
+      ]
     },
     outcomes: {
       en: ["clearer performance choices", "a repeatable warm-up", "one practical homework task"],
@@ -99,7 +111,10 @@ export const services: ServiceDefinition[] = [
     },
     faq: {
       en: [
-        { question: "Do I need acting experience?", answer: "No. The session starts from your real goal and current level." },
+        {
+          question: "Do I need acting experience?",
+          answer: "No. The session starts from your real goal and current level."
+        },
         { question: "Can it be online?", answer: "Yes, if the goal works on camera, voice, speech or text." },
         { question: "Can we work in another language?", answer: "Yes, the working language is agreed before booking." }
       ],
@@ -144,8 +159,22 @@ export const services: ServiceDefinition[] = [
     },
     duration: { en: "90 minutes individual / 2-4 hours group", sk: "90 minút individuálne / 2-4 hodiny skupina" },
     workOn: {
-      en: ["breath and voice", "articulation", "tempo and pause", "audience contact", "structure of a short speech", "rehearsal under pressure"],
-      sk: ["dych a hlas", "artikulácia", "tempo a pauza", "kontakt s publikom", "štruktúra krátkeho prejavu", "skúška pod tlakom"]
+      en: [
+        "breath and voice",
+        "articulation",
+        "tempo and pause",
+        "audience contact",
+        "structure of a short speech",
+        "rehearsal under pressure"
+      ],
+      sk: [
+        "dych a hlas",
+        "artikulácia",
+        "tempo a pauza",
+        "kontakt s publikom",
+        "štruktúra krátkeho prejavu",
+        "skúška pod tlakom"
+      ]
     },
     outcomes: {
       en: ["a clearer speech structure", "voice warm-up", "one rehearsed segment", "specific next corrections"],
@@ -168,12 +197,18 @@ export const services: ServiceDefinition[] = [
     },
     faq: {
       en: [
-        { question: "Can I bring a real speech?", answer: "Yes. A real speech, pitch or presentation is the best material." },
+        {
+          question: "Can I bring a real speech?",
+          answer: "Yes. A real speech, pitch or presentation is the best material."
+        },
         { question: "Is this for teams?", answer: "Yes. The format can be adapted into a corporate workshop." },
         { question: "Is it only in English?", answer: "No. The working language is chosen before the session." }
       ],
       sk: [
-        { question: "Môžem priniesť vlastný prejav?", answer: "Áno. Reálny prejav, pitch alebo prezentácia sú najlepší materiál." },
+        {
+          question: "Môžem priniesť vlastný prejav?",
+          answer: "Áno. Reálny prejav, pitch alebo prezentácia sú najlepší materiál."
+        },
         { question: "Je to vhodné pre tímy?", answer: "Áno. Formát sa dá prispôsobiť pre firemný workshop." },
         { question: "Je to len po anglicky?", answer: "Nie. Jazyk práce sa dohodne vopred." }
       ]
@@ -213,8 +248,24 @@ export const services: ServiceDefinition[] = [
     },
     duration: { en: "60 or 90 minutes", sk: "60 alebo 90 minút" },
     workOn: {
-      en: ["body and breath before recording", "where to look", "natural speech", "pauses", "emotional presence", "simple framing", "one short recorded take"],
-      sk: ["telo a dych pred nahrávaním", "kam sa pozerať", "prirodzená reč", "pauzy", "emočná prítomnosť", "jednoduchý frame", "jeden krátky nahraný pokus"]
+      en: [
+        "body and breath before recording",
+        "where to look",
+        "natural speech",
+        "pauses",
+        "emotional presence",
+        "simple framing",
+        "one short recorded take"
+      ],
+      sk: [
+        "telo a dych pred nahrávaním",
+        "kam sa pozerať",
+        "prirodzená reč",
+        "pauzy",
+        "emočná prítomnosť",
+        "jednoduchý frame",
+        "jeden krátky nahraný pokus"
+      ]
     },
     outcomes: {
       en: ["less camera freeze", "clearer eye focus", "a repeatable pre-recording routine"],
@@ -277,10 +328,29 @@ export const services: ServiceDefinition[] = [
       en: "English, Slovak, Ukrainian, Russian, Polish or Italian by agreement.",
       sk: "Angličtina, slovenčina, ukrajinčina, ruština, poľština alebo taliančina podľa dohody."
     },
-    duration: { en: "60-minute diagnostics / 90-minute intensive", sk: "60-minútová diagnostika / 90-minútový intensive" },
+    duration: {
+      en: "60-minute diagnostics / 90-minute intensive",
+      sk: "60-minútová diagnostika / 90-minútový intensive"
+    },
     workOn: {
-      en: ["breathing support", "diaphragm awareness", "articulation", "resonance", "pace", "pauses", "language-specific expression"],
-      sk: ["dychová opora", "vedomie bránice", "artikulácia", "rezonancia", "tempo", "pauzy", "jazykovo špecifický výraz"]
+      en: [
+        "breathing support",
+        "diaphragm awareness",
+        "articulation",
+        "resonance",
+        "pace",
+        "pauses",
+        "language-specific expression"
+      ],
+      sk: [
+        "dychová opora",
+        "vedomie bránice",
+        "artikulácia",
+        "rezonancia",
+        "tempo",
+        "pauzy",
+        "jazykovo špecifický výraz"
+      ]
     },
     outcomes: {
       en: ["a voice warm-up", "clearer speech habits", "a practice plan for one text or language"],
@@ -304,7 +374,10 @@ export const services: ServiceDefinition[] = [
     faq: {
       en: [
         { question: "Can I bring my own text?", answer: "Yes. A real text makes the work more concrete." },
-        { question: "Is this for public speaking?", answer: "Yes, especially if voice, pace or articulation are the issue." },
+        {
+          question: "Is this for public speaking?",
+          answer: "Yes, especially if voice, pace or articulation are the issue."
+        },
         { question: "Can we compare recordings?", answer: "Only if you agree to record and keep the material private." }
       ],
       sk: [
@@ -346,7 +419,13 @@ export const services: ServiceDefinition[] = [
     duration: { en: "2-3 hours", sk: "2-3 hodiny" },
     workOn: {
       en: ["voice warm-up", "body release", "partner attention", "simple improvisation", "short performance exercise"],
-      sk: ["hlasová rozcvička", "uvoľnenie tela", "partnerská pozornosť", "jednoduchá improvizácia", "krátke performatívne cvičenie"]
+      sk: [
+        "hlasová rozcvička",
+        "uvoľnenie tela",
+        "partnerská pozornosť",
+        "jednoduchá improvizácia",
+        "krátke performatívne cvičenie"
+      ]
     },
     outcomes: {
       en: ["practical exercises", "shared feedback", "clearer confidence tools"],
@@ -369,7 +448,10 @@ export const services: ServiceDefinition[] = [
     },
     faq: {
       en: [
-        { question: "Is there a date?", answer: "The group is forming; date options are sent to interested participants." },
+        {
+          question: "Is there a date?",
+          answer: "The group is forming; date options are sent to interested participants."
+        },
         { question: "How many people?", answer: "The planned size is small, usually 6-12 people." },
         { question: "Can beginners join?", answer: "Yes, unless a specific event says otherwise." }
       ],
@@ -411,8 +493,20 @@ export const services: ServiceDefinition[] = [
     },
     duration: { en: "90 minutes / half-day / full-day", sk: "90 minút / pol dňa / celý deň" },
     workOn: {
-      en: ["voice and presence", "public speaking", "camera confidence", "improvisation for communication", "creative body awareness"],
-      sk: ["hlas a prítomnosť", "verejný prejav", "istota pred kamerou", "improvizácia pre komunikáciu", "kreatívne vnímanie tela"]
+      en: [
+        "voice and presence",
+        "public speaking",
+        "camera confidence",
+        "improvisation for communication",
+        "creative body awareness"
+      ],
+      sk: [
+        "hlas a prítomnosť",
+        "verejný prejav",
+        "istota pred kamerou",
+        "improvizácia pre komunikáciu",
+        "kreatívne vnímanie tela"
+      ]
     },
     outcomes: {
       en: ["workshop proposal", "practical exercises", "team-specific focus", "follow-up recommendations"],
@@ -483,11 +577,36 @@ export const siteCopy = {
       title: "One artist profile for casting, voice, events and live performance.",
       body: "For casting, voice work, commercials, cultural and corporate events, music-based performance and multilingual live formats.",
       cards: [
-        ["Acting", "Film, theatre, series and commercial acting with multilingual range and stage training.", "Open casting profile", "/casting/"],
-        ["Voice & dubbing", "Commercial, narration, character and dramatic voice samples across several languages.", "Request voice sample", "/voice/"],
-        ["Event hosting", "Presenter for cultural, artistic, community and corporate formats with multilingual delivery.", "Request event hosting", "/events-hosting/"],
-        ["Music / live performance", "Vocal, piano and live performance experience for artistic, cultural and event formats.", "Discuss performance", "/contact/"],
-        ["Special skills for camera", "Drawing, translation, aerial gymnastics and movement skills for stage, camera and creative productions.", "Open casting profile", "/casting/"]
+        [
+          "Acting",
+          "Film, theatre, series and commercial acting with multilingual range and stage training.",
+          "Open casting profile",
+          "/casting/"
+        ],
+        [
+          "Voice & dubbing",
+          "Commercial, narration, character and dramatic voice samples across several languages.",
+          "Request voice sample",
+          "/voice/"
+        ],
+        [
+          "Event hosting",
+          "Presenter for cultural, artistic, community and corporate formats with multilingual delivery.",
+          "Request event hosting",
+          "/events-hosting/"
+        ],
+        [
+          "Music / live performance",
+          "Vocal, piano and live performance experience for artistic, cultural and event formats.",
+          "Discuss performance",
+          "/contact/"
+        ],
+        [
+          "Special skills for camera",
+          "Drawing, translation, aerial gymnastics and movement skills for stage, camera and creative productions.",
+          "Open casting profile",
+          "/casting/"
+        ]
       ]
     },
     learn: {
@@ -501,10 +620,22 @@ export const siteCopy = {
       title: "Planned proof is named clearly until final reels are ready.",
       body: "The site now has professional slots for acting, voice, teaching, music, hosting and movement materials.",
       items: [
-        ["Acting showreel — coming soon", "Expected: a 60-90 second reel with selected theatre, screen, series and commercial fragments."],
-        ["Voice samples — in preparation", "Expected: commercial, narration, character and dramatic samples in Slovak, Polish, Italian, Ukrainian, Russian and English."],
-        ["Teaching demo — in preparation", "Expected: a short practical exercise showing voice, body, attention or camera confidence."],
-        ["Hosting reel — in preparation", "Expected: selected event fragments showing speech, audience contact and multilingual delivery."]
+        [
+          "Acting showreel — coming soon",
+          "Expected: a 60-90 second reel with selected theatre, screen, series and commercial fragments."
+        ],
+        [
+          "Voice samples — in preparation",
+          "Expected: commercial, narration, character and dramatic samples in Slovak, Polish, Italian, Ukrainian, Russian and English."
+        ],
+        [
+          "Teaching demo — in preparation",
+          "Expected: a short practical exercise showing voice, body, attention or camera confidence."
+        ],
+        [
+          "Hosting reel — in preparation",
+          "Expected: selected event fragments showing speech, audience contact and multilingual delivery."
+        ]
       ]
     },
     voiceBlock: {
@@ -524,12 +655,36 @@ export const siteCopy = {
       body: "For casting and voice work, include project type, language, location, dates and deadline. For coaching, include your goal, level, preferred language and online/offline format.",
       direct: "Direct email",
       topics: [
-        ["Casting", "Casting request for Taisija Boyko", "Project type:\nRole / usage:\nLanguage:\nLocation:\nDates:\nDeadline:\nNotes:"],
-        ["Voice / dubbing", "Voice or dubbing request for Taisija Boyko", "Project type:\nLanguage:\nUsage:\nDeadline:\nReference style:\nNotes:"],
-        ["Event hosting", "Event hosting request for Taisija Boyko", "Event type:\nDate:\nLocation:\nLanguages:\nAudience size:\nNotes:"],
-        ["Individual coaching", "Individual coaching request", "Goal:\nLevel:\nPreferred language:\nOnline or Bratislava:\nPreferred dates:"],
-        ["Group masterclass", "Group masterclass request", "Preferred language:\nOnline or Bratislava:\nNumber of people:\nPreferred dates:"],
-        ["Corporate workshop", "Corporate workshop proposal request", "Company:\nNumber of people:\nLanguage:\nGoal:\nPreferred date:\nLocation / online:"],
+        [
+          "Casting",
+          "Casting request for Taisija Boyko",
+          "Project type:\nRole / usage:\nLanguage:\nLocation:\nDates:\nDeadline:\nNotes:"
+        ],
+        [
+          "Voice / dubbing",
+          "Voice or dubbing request for Taisija Boyko",
+          "Project type:\nLanguage:\nUsage:\nDeadline:\nReference style:\nNotes:"
+        ],
+        [
+          "Event hosting",
+          "Event hosting request for Taisija Boyko",
+          "Event type:\nDate:\nLocation:\nLanguages:\nAudience size:\nNotes:"
+        ],
+        [
+          "Individual coaching",
+          "Individual coaching request",
+          "Goal:\nLevel:\nPreferred language:\nOnline or Bratislava:\nPreferred dates:"
+        ],
+        [
+          "Group masterclass",
+          "Group masterclass request",
+          "Preferred language:\nOnline or Bratislava:\nNumber of people:\nPreferred dates:"
+        ],
+        [
+          "Corporate workshop",
+          "Corporate workshop proposal request",
+          "Company:\nNumber of people:\nLanguage:\nGoal:\nPreferred date:\nLocation / online:"
+        ],
         ["Other", "Website enquiry for Taisija Boyko", "Request type:\nTimeline:\nNotes:"]
       ]
     },
@@ -554,7 +709,14 @@ export const siteCopy = {
       eyebrow: "Press kit",
       title: "Booking packet for agents, producers and event clients.",
       body: "This page organizes the materials that should become the official press and booking packet.",
-      items: ["Updated CV PDF", "Approved portraits", "Showreel links", "Voice and music samples", "Short and medium bio", "Contact details"]
+      items: [
+        "Updated CV PDF",
+        "Approved portraits",
+        "Showreel links",
+        "Voice and music samples",
+        "Short and medium bio",
+        "Contact details"
+      ]
     },
     footer: {
       summary: "Multilingual actress and performer based in Bratislava / Central Europe.",
@@ -590,11 +752,36 @@ export const siteCopy = {
       title: "Jeden profesionálny profil pre casting, hlas, eventy a live performance.",
       body: "Pre casting, voice work, reklamu, kultúrne a firemné eventy, hudobný performance a viacjazyčné live formáty.",
       cards: [
-        ["Herectvo", "Film, divadlo, seriály a reklama s viacjazyčným rozsahom a scénickou prípravou.", "Otvoriť casting profil", "/casting/"],
-        ["Hlas & dabing", "Reklamné, naratívne, charakterové a dramatické hlasové ukážky vo viacerých jazykoch.", "Vyžiadať hlasovú ukážku", "/voice/"],
-        ["Moderovanie eventov", "Moderátorka pre kultúrne, umelecké, komunitné a firemné formáty.", "Vyžiadať event hosting", "/events-hosting/"],
-        ["Hudba / live performance", "Vokál, klavír a live performance pre umelecké, kultúrne a eventové formáty.", "Prediskutovať performance", "/contact/"],
-        ["Special skills pre kameru", "Kresba, preklad, vzdušná gymnastika a pohybové skills pre scénu a kameru.", "Otvoriť casting profil", "/casting/"]
+        [
+          "Herectvo",
+          "Film, divadlo, seriály a reklama s viacjazyčným rozsahom a scénickou prípravou.",
+          "Otvoriť casting profil",
+          "/casting/"
+        ],
+        [
+          "Hlas & dabing",
+          "Reklamné, naratívne, charakterové a dramatické hlasové ukážky vo viacerých jazykoch.",
+          "Vyžiadať hlasovú ukážku",
+          "/voice/"
+        ],
+        [
+          "Moderovanie eventov",
+          "Moderátorka pre kultúrne, umelecké, komunitné a firemné formáty.",
+          "Vyžiadať event hosting",
+          "/events-hosting/"
+        ],
+        [
+          "Hudba / live performance",
+          "Vokál, klavír a live performance pre umelecké, kultúrne a eventové formáty.",
+          "Prediskutovať performance",
+          "/contact/"
+        ],
+        [
+          "Special skills pre kameru",
+          "Kresba, preklad, vzdušná gymnastika a pohybové skills pre scénu a kameru.",
+          "Otvoriť casting profil",
+          "/casting/"
+        ]
       ]
     },
     learn: {
@@ -609,9 +796,18 @@ export const siteCopy = {
       body: "Stránka má pripravené miesta pre herecké, hlasové, teaching, hudobné, eventové a pohybové materiály.",
       items: [
         ["Herecký showreel — pripravuje sa", "Sem patrí 60-90 sekundový reel s divadlom, filmom, seriálmi a reklamou."],
-        ["Hlasové ukážky — v príprave", "Sem patria krátke commercial, narration, character a dramatic ukážky vo viacerých jazykoch."],
-        ["Teaching demo — v príprave", "Sem patrí krátke praktické cvičenie s hlasom, telom, pozornosťou alebo kamerou."],
-        ["Hosting reel — v príprave", "Sem patria eventové fragmenty s rečou, kontaktom s publikom a viacjazyčným vedením."]
+        [
+          "Hlasové ukážky — v príprave",
+          "Sem patria krátke commercial, narration, character a dramatic ukážky vo viacerých jazykoch."
+        ],
+        [
+          "Teaching demo — v príprave",
+          "Sem patrí krátke praktické cvičenie s hlasom, telom, pozornosťou alebo kamerou."
+        ],
+        [
+          "Hosting reel — v príprave",
+          "Sem patria eventové fragmenty s rečou, kontaktom s publikom a viacjazyčným vedením."
+        ]
       ]
     },
     voiceBlock: {
@@ -631,12 +827,36 @@ export const siteCopy = {
       body: "Pri castingu a hlase uveďte typ projektu, jazyk, lokalitu, termíny a deadline. Pri coachingu uveďte cieľ, úroveň, jazyk a online/offline formát.",
       direct: "Priamy email",
       topics: [
-        ["Casting", "Casting request for Taisija Boyko", "Typ projektu:\nRola / použitie:\nJazyk:\nLokalita:\nTermíny:\nDeadline:\nPoznámky:"],
-        ["Voice / dubbing", "Voice or dubbing request for Taisija Boyko", "Typ projektu:\nJazyk:\nPoužitie:\nDeadline:\nReferenčný štýl:\nPoznámky:"],
-        ["Event hosting", "Event hosting request for Taisija Boyko", "Typ eventu:\nDátum:\nMiesto:\nJazyky:\nVeľkosť publika:\nPoznámky:"],
-        ["Individuálny coaching", "Individual coaching request", "Cieľ:\nÚroveň:\nPreferovaný jazyk:\nOnline alebo Bratislava:\nPreferované termíny:"],
-        ["Skupinový masterclass", "Group masterclass request", "Preferovaný jazyk:\nOnline alebo Bratislava:\nPočet ľudí:\nPreferované termíny:"],
-        ["Firemný workshop", "Corporate workshop proposal request", "Firma:\nPočet ľudí:\nJazyk:\nCieľ:\nPreferovaný termín:\nMiesto / online:"],
+        [
+          "Casting",
+          "Casting request for Taisija Boyko",
+          "Typ projektu:\nRola / použitie:\nJazyk:\nLokalita:\nTermíny:\nDeadline:\nPoznámky:"
+        ],
+        [
+          "Voice / dubbing",
+          "Voice or dubbing request for Taisija Boyko",
+          "Typ projektu:\nJazyk:\nPoužitie:\nDeadline:\nReferenčný štýl:\nPoznámky:"
+        ],
+        [
+          "Event hosting",
+          "Event hosting request for Taisija Boyko",
+          "Typ eventu:\nDátum:\nMiesto:\nJazyky:\nVeľkosť publika:\nPoznámky:"
+        ],
+        [
+          "Individuálny coaching",
+          "Individual coaching request",
+          "Cieľ:\nÚroveň:\nPreferovaný jazyk:\nOnline alebo Bratislava:\nPreferované termíny:"
+        ],
+        [
+          "Skupinový masterclass",
+          "Group masterclass request",
+          "Preferovaný jazyk:\nOnline alebo Bratislava:\nPočet ľudí:\nPreferované termíny:"
+        ],
+        [
+          "Firemný workshop",
+          "Corporate workshop proposal request",
+          "Firma:\nPočet ľudí:\nJazyk:\nCieľ:\nPreferovaný termín:\nMiesto / online:"
+        ],
         ["Iné", "Website enquiry for Taisija Boyko", "Typ požiadavky:\nTermín:\nPoznámky:"]
       ]
     },
@@ -661,7 +881,14 @@ export const siteCopy = {
       eyebrow: "Press kit",
       title: "Booking packet pre agentov, producentov a event klientov.",
       body: "Táto stránka organizuje materiály, ktoré majú tvoriť oficiálny press a booking packet.",
-      items: ["Aktuálny CV PDF", "Schválené portréty", "Showreel linky", "Hlasové a hudobné ukážky", "Krátke a stredné bio", "Kontaktné údaje"]
+      items: [
+        "Aktuálny CV PDF",
+        "Schválené portréty",
+        "Showreel linky",
+        "Hlasové a hudobné ukážky",
+        "Krátke a stredné bio",
+        "Kontaktné údaje"
+      ]
     },
     footer: {
       summary: "Viacjazyčná herečka a performerka so základňou v Bratislave / strednej Európe.",

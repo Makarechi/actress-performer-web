@@ -95,14 +95,12 @@ export const translations = {
     selected: {
       eyebrow: "Selected materials",
       title: "Real public work references from Instagram.",
-      body:
-        "These are live profile materials pulled from the current Instagram page and organized into a casting-friendly structure."
+      body: "These are live profile materials pulled from the current Instagram page and organized into a casting-friendly structure."
     },
     reels: {
       eyebrow: "Reel library",
       title: "Four short reels will sell the profile faster than one long page.",
-      body:
-        "The site now has clear places for the videos that matter most: acting, voice, music and events.",
+      body: "The site now has clear places for the videos that matter most: acting, voice, music and events.",
       items: [
         ["Acting showreel", "60-90 seconds with screen, stage, series and commercial fragments."],
         ["Voice reel", "Commercial, narration, character and dramatic samples across languages."],
@@ -113,18 +111,15 @@ export const translations = {
     acting: {
       eyebrow: "Acting",
       title: "Screen, stage, series and commercials.",
-      body:
-        "A multilingual actress and performer with experience in theatre, film, television series, commercials, dubbing and event hosting. She works across Slovak, Polish, Italian, Ukrainian, Russian and English, combining acting with voice, music, piano, vocal performance and movement skills.",
+      body: "A multilingual actress and performer with experience in theatre, film, television series, commercials, dubbing and event hosting. She works across Slovak, Polish, Italian, Ukrainian, Russian and English, combining acting with voice, music, piano, vocal performance and movement skills.",
       placeholder:
         "Expected here: a 60-90 second reel with selected theatre, film, series and advertising fragments. Until it is added, this block marks the exact material needed."
     },
     voice: {
       eyebrow: "Voice & dubbing",
       title: "A multilingual voice performer with acting background.",
-      body:
-        "Voice work is positioned as a commercial strength: dubbing, advertising, narration, character material and language samples.",
-      sampleSet:
-        "Expected: the same short text recorded in Slovak, Polish, Italian, Ukrainian, Russian and English."
+      body: "Voice work is positioned as a commercial strength: dubbing, advertising, narration, character material and language samples.",
+      sampleSet: "Expected: the same short text recorded in Slovak, Polish, Italian, Ukrainian, Russian and English."
     },
     languages: {
       eyebrow: "Languages",
@@ -134,29 +129,35 @@ export const translations = {
       eyebrow: "Local market focus",
       title: "The same performer can be presented differently in each market.",
       cards: [
-        ["International casting", "English-first materials should make her easy to send to agencies, producers and casting teams outside one local market."],
-        ["Central Europe base", "Bratislava is useful for Slovak, Czech-adjacent, Polish, Ukrainian and international productions."],
-        ["Voice and languages", "The language range is especially strong for dubbing, commercial voice work and cross-border events."]
+        [
+          "International casting",
+          "English-first materials should make her easy to send to agencies, producers and casting teams outside one local market."
+        ],
+        [
+          "Central Europe base",
+          "Bratislava is useful for Slovak, Czech-adjacent, Polish, Ukrainian and international productions."
+        ],
+        [
+          "Voice and languages",
+          "The language range is especially strong for dubbing, commercial voice work and cross-border events."
+        ]
       ]
     },
     canvas: {
       eyebrow: "Language stage",
       title: "One profile, several casting doors.",
-      body:
-        "This section turns the language range into a visual casting tool: acting, voice, hosting, singing and translation are separated by use case."
+      body: "This section turns the language range into a visual casting tool: acting, voice, hosting, singing and translation are separated by use case."
     },
     music: {
       eyebrow: "Music",
       title: "Vocal, piano and live performance.",
-      body:
-        "Music is part of the performer profile: useful for stage, camera work, character performance, live formats and commercial productions.",
+      body: "Music is part of the performer profile: useful for stage, camera work, character performance, live formats and commercial productions.",
       piano: "Expected: 30-90 seconds showing musicality and camera-safe performance."
     },
     hosting: {
       eyebrow: "Hosting & live events",
       title: "Presenter for cultural, corporate and artistic formats.",
-      body:
-        "Hosting is separated from acting because it speaks to another audience: event agencies, festivals, corporate clients and cultural projects.",
+      body: "Hosting is separated from acting because it speaks to another audience: event agencies, festivals, corporate clients and cultural projects.",
       placeholder:
         "Expected here: selected fragments from events, ideally showing audience contact and multilingual delivery."
     },
@@ -167,8 +168,7 @@ export const translations = {
     plan: {
       eyebrow: "Content to add before launch",
       title: "Planned media slots are marked clearly.",
-      body:
-        "Instagram gives useful proof points, but the finished site needs dedicated casting, voice, music and press materials. Add these assets later and the placeholders can be replaced one by one."
+      body: "Instagram gives useful proof points, but the finished site needs dedicated casting, voice, music and press materials. Add these assets later and the placeholders can be replaced one by one."
     },
     contact: {
       eyebrow: "Contact",
@@ -259,14 +259,12 @@ export const translations = {
     selected: {
       eyebrow: "Vybrané materiály",
       title: "Verejné ukážky práce z Instagramu.",
-      body:
-        "Materiály z aktuálneho profilu sú usporiadané tak, aby boli čitateľné pre casting, voice a event klientov."
+      body: "Materiály z aktuálneho profilu sú usporiadané tak, aby boli čitateľné pre casting, voice a event klientov."
     },
     reels: {
       eyebrow: "Knižnica reelov",
       title: "Štyri krátke reely predajú profil rýchlejšie než dlhý text.",
-      body:
-        "Stránka má pripravené miesta pre hlavné videá: herectvo, hlas, hudbu a eventy.",
+      body: "Stránka má pripravené miesta pre hlavné videá: herectvo, hlas, hudbu a eventy.",
       items: [
         ["Herecký showreel", "60-90 sekúnd z filmu, scény, seriálu a reklamy."],
         ["Voice reel", "Reklama, rozprávanie, charakter a dramatické ukážky vo viacerých jazykoch."],
@@ -277,16 +275,13 @@ export const translations = {
     acting: {
       eyebrow: "Herectvo",
       title: "Film, scéna, seriály a reklama.",
-      body:
-        "Viacjazyčná herečka a performerka so skúsenosťou v divadle, filme, seriáloch, reklame, dabingu a moderovaní. Pracuje po slovensky, poľsky, taliansky, ukrajinsky, rusky a anglicky.",
-      placeholder:
-        "Sem patrí 60-90 sekundový showreel s výberom z divadla, filmu, seriálu a reklamy."
+      body: "Viacjazyčná herečka a performerka so skúsenosťou v divadle, filme, seriáloch, reklame, dabingu a moderovaní. Pracuje po slovensky, poľsky, taliansky, ukrajinsky, rusky a anglicky.",
+      placeholder: "Sem patrí 60-90 sekundový showreel s výberom z divadla, filmu, seriálu a reklamy."
     },
     voice: {
       eyebrow: "Hlas & dabing",
       title: "Viacjazyčný hlas s hereckým základom.",
-      body:
-        "Hlas je komerčne silný smer: dabing, reklama, narration, charakterové polohy a jazykové ukážky.",
+      body: "Hlas je komerčne silný smer: dabing, reklama, narration, charakterové polohy a jazykové ukážky.",
       sampleSet:
         "Sem patrí krátky rovnaký text nahraný v slovenčine, poľštine, taliančine, ukrajinčine, ruštine a angličtine."
     },
@@ -298,7 +293,10 @@ export const translations = {
       eyebrow: "Lokálny akcent",
       title: "Pre slovenský trh je dôležitá Bratislava, škola a TV kontext.",
       cards: [
-        ["Bratislava", "Základňa v Bratislave zjednodušuje komunikáciu s lokálnym castingom, divadlom a event agentúrami."],
+        [
+          "Bratislava",
+          "Základňa v Bratislave zjednodušuje komunikáciu s lokálnym castingom, divadlom a event agentúrami."
+        ],
         ["VŠMU", "The Academy of Performing Arts in Bratislava je silný signál profesionálneho hereckého zázemia."],
         ["TV JOJ / Nemocnica", "Slovenský screen reference pomáha rýchlo zaradiť profil pre televíziu a reklamu."]
       ]
@@ -306,23 +304,19 @@ export const translations = {
     canvas: {
       eyebrow: "Jazyková scéna",
       title: "Jeden profil, viac pracovných dverí.",
-      body:
-        "Jazyky sú tu rozdelené podľa použitia: herectvo, hlas, moderovanie, spev a preklad."
+      body: "Jazyky sú tu rozdelené podľa použitia: herectvo, hlas, moderovanie, spev a preklad."
     },
     music: {
       eyebrow: "Hudba",
       title: "Vokál, klavír a live performance.",
-      body:
-        "Hudba rozširuje profil pre scénu, kameru, charakterové roly, live formáty a reklamu.",
+      body: "Hudba rozširuje profil pre scénu, kameru, charakterové roly, live formáty a reklamu.",
       piano: "Sem patrí 30-90 sekundová ukážka klavíra s čistým zvukom."
     },
     hosting: {
       eyebrow: "Moderovanie & eventy",
       title: "Moderátorka pre kultúrne, firemné a umelecké formáty.",
-      body:
-        "Moderovanie je oddelené od herectva, pretože oslovuje event agentúry, festivaly, firmy a kultúrne projekty.",
-      placeholder:
-        "Sem patria ukážky z eventov s rečou, kontaktom s publikom a viacjazyčným vedením."
+      body: "Moderovanie je oddelené od herectva, pretože oslovuje event agentúry, festivaly, firmy a kultúrne projekty.",
+      placeholder: "Sem patria ukážky z eventov s rečou, kontaktom s publikom a viacjazyčným vedením."
     },
     skills: {
       eyebrow: "Skills",
@@ -331,8 +325,7 @@ export const translations = {
     plan: {
       eyebrow: "Obsah pred spustením",
       title: "Chýbajúce médiá sú označené priamo na stránke.",
-      body:
-        "Instagram dáva prvé dôkazy, ale finálna verzia potrebuje samostatné castingové, hlasové, hudobné a press materiály."
+      body: "Instagram dáva prvé dôkazy, ale finálna verzia potrebuje samostatné castingové, hlasové, hudobné a press materiály."
     },
     contact: {
       eyebrow: "Kontakt",
@@ -341,8 +334,7 @@ export const translations = {
     },
     casting: {
       title: "Casting Profil — Taisija Boyko",
-      description:
-        "Casting profil Taisije Boyko: showreel, jazyky, herecké skúsenosti, skills, CV a kontakt.",
+      description: "Casting profil Taisije Boyko: showreel, jazyky, herecké skúsenosti, skills, CV a kontakt.",
       eyebrow: "Casting profil",
       intro:
         "Dostupná pre film, televíziu, divadlo, reklamu, hlasovú prácu a vybrané live eventy. Plynulo pracuje po slovensky, poľsky, taliansky, ukrajinsky, rusky a anglicky.",
@@ -423,14 +415,12 @@ export const translations = {
     selected: {
       eyebrow: "Wybrane materiały",
       title: "Publiczne przykłady pracy z Instagramu.",
-      body:
-        "Materiały z profilu są ułożone tak, żeby casting, studio głosu lub klient eventowy szybko zrozumiał zakres pracy."
+      body: "Materiały z profilu są ułożone tak, żeby casting, studio głosu lub klient eventowy szybko zrozumiał zakres pracy."
     },
     reels: {
       eyebrow: "Biblioteka reel",
       title: "Cztery krótkie reele sprzedają profil szybciej niż długa biografia.",
-      body:
-        "Strona ma przygotowane miejsca na najważniejsze wideo: aktorstwo, głos, muzykę i wydarzenia.",
+      body: "Strona ma przygotowane miejsca na najważniejsze wideo: aktorstwo, głos, muzykę i wydarzenia.",
       items: [
         ["Showreel aktorski", "60-90 sekund: ekran, scena, seriale i reklama."],
         ["Voice reel", "Reklama, narracja, postać i dramat w kilku językach."],
@@ -441,16 +431,13 @@ export const translations = {
     acting: {
       eyebrow: "Aktorstwo",
       title: "Ekran, scena, seriale i reklama.",
-      body:
-        "Wielojęzyczna aktorka i performerka z doświadczeniem w teatrze, filmie, serialach, reklamie, dubbingu i prowadzeniu wydarzeń. Pracuje po słowacku, polsku, włosku, ukraińsku, rosyjsku i angielsku.",
-      placeholder:
-        "Tu powinien znaleźć się showreel 60-90 sekund z teatru, filmu, serialu i reklamy."
+      body: "Wielojęzyczna aktorka i performerka z doświadczeniem w teatrze, filmie, serialach, reklamie, dubbingu i prowadzeniu wydarzeń. Pracuje po słowacku, polsku, włosku, ukraińsku, rosyjsku i angielsku.",
+      placeholder: "Tu powinien znaleźć się showreel 60-90 sekund z teatru, filmu, serialu i reklamy."
     },
     voice: {
       eyebrow: "Głos & dubbing",
       title: "Wielojęzyczny głos z aktorskim zapleczem.",
-      body:
-        "Głos jest silnym kierunkiem komercyjnym: dubbing, reklama, narracja, postać i próbki językowe.",
+      body: "Głos jest silnym kierunkiem komercyjnym: dubbing, reklama, narracja, postać i próbki językowe.",
       sampleSet:
         "Tu powinien znaleźć się ten sam krótki tekst nagrany po słowacku, polsku, włosku, ukraińsku, rosyjsku i angielsku."
     },
@@ -462,7 +449,10 @@ export const translations = {
       eyebrow: "Akcent rynkowy",
       title: "Dla Polski ważny jest most między rynkami Europy Środkowej.",
       cards: [
-        ["Polski język", "Płynny polski otwiera drogę do castingów, voice-over i eventów, gdzie potrzebna jest naturalna komunikacja."],
+        [
+          "Polski język",
+          "Płynny polski otwiera drogę do castingów, voice-over i eventów, gdzie potrzebna jest naturalna komunikacja."
+        ],
         ["Bliskość regionu", "Baza w Bratysławie pozwala pracować między Słowacją, Polską, Czechami i Ukrainą."],
         ["Reklama i głos", "Polski rynek dobrze łączy aktorstwo, voice i wielojęzyczne kampanie."]
       ]
@@ -470,23 +460,19 @@ export const translations = {
     canvas: {
       eyebrow: "Scena językowa",
       title: "Jeden profil, kilka drzwi castingowych.",
-      body:
-        "Zakres językowy jest rozdzielony według zastosowania: aktorstwo, głos, prowadzenie, śpiew i tłumaczenie."
+      body: "Zakres językowy jest rozdzielony według zastosowania: aktorstwo, głos, prowadzenie, śpiew i tłumaczenie."
     },
     music: {
       eyebrow: "Muzyka",
       title: "Wokal, fortepian i live performance.",
-      body:
-        "Muzyka wzmacnia profil dla sceny, kamery, ról charakterystycznych, formatów live i reklamy.",
+      body: "Muzyka wzmacnia profil dla sceny, kamery, ról charakterystycznych, formatów live i reklamy.",
       piano: "Tu powinno pojawić się 30-90 sekund fortepianu z czystym dźwiękiem."
     },
     hosting: {
       eyebrow: "Prowadzenie & wydarzenia",
       title: "Prowadząca dla formatów kulturalnych, firmowych i artystycznych.",
-      body:
-        "Prowadzenie jest osobnym kierunkiem, bo trafia do agencji eventowych, festiwali, firm i projektów kulturalnych.",
-      placeholder:
-        "Tu powinny pojawić się fragmenty wydarzeń z kontaktem z publicznością i prowadzeniem w językach."
+      body: "Prowadzenie jest osobnym kierunkiem, bo trafia do agencji eventowych, festiwali, firm i projektów kulturalnych.",
+      placeholder: "Tu powinny pojawić się fragmenty wydarzeń z kontaktem z publicznością i prowadzeniem w językach."
     },
     skills: {
       eyebrow: "Umiejętności",
@@ -495,8 +481,7 @@ export const translations = {
     plan: {
       eyebrow: "Materiały przed publikacją",
       title: "Brakujące media są jasno oznaczone.",
-      body:
-        "Instagram daje pierwsze dowody, ale finalna strona potrzebuje osobnych materiałów castingowych, głosowych, muzycznych i press kit."
+      body: "Instagram daje pierwsze dowody, ale finalna strona potrzebuje osobnych materiałów castingowych, głosowych, muzycznych i press kit."
     },
     contact: {
       eyebrow: "Kontakt",
@@ -587,14 +572,12 @@ export const translations = {
     selected: {
       eyebrow: "Materiali selezionati",
       title: "Riferimenti pubblici dal profilo Instagram.",
-      body:
-        "I materiali del profilo sono ordinati in modo utile per casting, voice studio e clienti di eventi."
+      body: "I materiali del profilo sono ordinati in modo utile per casting, voice studio e clienti di eventi."
     },
     reels: {
       eyebrow: "Reel library",
       title: "Quattro reel brevi comunicano il profilo meglio di una pagina lunga.",
-      body:
-        "Il sito ha spazi chiari per i video principali: recitazione, voce, musica ed eventi.",
+      body: "Il sito ha spazi chiari per i video principali: recitazione, voce, musica ed eventi.",
       items: [
         ["Acting showreel", "60-90 secondi da schermo, scena, serie e pubblicità."],
         ["Voice reel", "Commercial, narration, character e dramatic samples in più lingue."],
@@ -605,18 +588,14 @@ export const translations = {
     acting: {
       eyebrow: "Recitazione",
       title: "Schermo, scena, serie e pubblicità.",
-      body:
-        "Attrice e performer multilingue con esperienza in teatro, cinema, serie, pubblicità, doppiaggio e conduzione eventi. Lavora in slovacco, polacco, italiano, ucraino, russo e inglese.",
-      placeholder:
-        "Qui serve uno showreel di 60-90 secondi con teatro, cinema, serie e pubblicità."
+      body: "Attrice e performer multilingue con esperienza in teatro, cinema, serie, pubblicità, doppiaggio e conduzione eventi. Lavora in slovacco, polacco, italiano, ucraino, russo e inglese.",
+      placeholder: "Qui serve uno showreel di 60-90 secondi con teatro, cinema, serie e pubblicità."
     },
     voice: {
       eyebrow: "Voce & doppiaggio",
       title: "Voce multilingue con base attoriale.",
-      body:
-        "La voce è un punto forte commerciale: doppiaggio, pubblicità, narrazione, character e sample linguistici.",
-      sampleSet:
-        "Qui serve lo stesso breve testo registrato in slovacco, polacco, italiano, ucraino, russo e inglese."
+      body: "La voce è un punto forte commerciale: doppiaggio, pubblicità, narrazione, character e sample linguistici.",
+      sampleSet: "Qui serve lo stesso breve testo registrato in slovacco, polacco, italiano, ucraino, russo e inglese."
     },
     languages: {
       eyebrow: "Lingue",
@@ -634,23 +613,19 @@ export const translations = {
     canvas: {
       eyebrow: "Palco delle lingue",
       title: "Un profilo, più porte di casting.",
-      body:
-        "Le lingue sono separate per uso: recitazione, voce, conduzione, canto e traduzione."
+      body: "Le lingue sono separate per uso: recitazione, voce, conduzione, canto e traduzione."
     },
     music: {
       eyebrow: "Musica",
       title: "Voce, pianoforte e live performance.",
-      body:
-        "La musica amplia il profilo per scena, camera, ruoli di carattere, formati live e pubblicità.",
+      body: "La musica amplia il profilo per scena, camera, ruoli di carattere, formati live e pubblicità.",
       piano: "Qui serve un sample di pianoforte di 30-90 secondi con audio pulito."
     },
     hosting: {
       eyebrow: "Eventi & conduzione",
       title: "Presentatrice per formati culturali, corporate e artistici.",
-      body:
-        "La conduzione è separata dalla recitazione perché parla ad agenzie eventi, festival, aziende e progetti culturali.",
-      placeholder:
-        "Qui servono frammenti di eventi con parlato, pubblico e gestione multilingue."
+      body: "La conduzione è separata dalla recitazione perché parla ad agenzie eventi, festival, aziende e progetti culturali.",
+      placeholder: "Qui servono frammenti di eventi con parlato, pubblico e gestione multilingue."
     },
     skills: {
       eyebrow: "Skills",
@@ -659,8 +634,7 @@ export const translations = {
     plan: {
       eyebrow: "Materiali da aggiungere",
       title: "Gli slot mancanti sono segnati chiaramente.",
-      body:
-        "Instagram dà primi riferimenti, ma la versione finale ha bisogno di materiali casting, voice, music e press dedicati."
+      body: "Instagram dà primi riferimenti, ma la versione finale ha bisogno di materiali casting, voice, music e press dedicati."
     },
     contact: {
       eyebrow: "Contatto",
@@ -669,8 +643,7 @@ export const translations = {
     },
     casting: {
       title: "Profilo Casting — Taisija Boyko",
-      description:
-        "Profilo casting di Taisija Boyko: showreel, lingue, esperienza attoriale, skills, CV e contatti.",
+      description: "Profilo casting di Taisija Boyko: showreel, lingue, esperienza attoriale, skills, CV e contatti.",
       eyebrow: "Profilo casting",
       intro:
         "Disponibile per film, televisione, teatro, pubblicità, voce ed eventi live selezionati. Lavora fluentemente in slovacco, polacco, italiano, ucraino, russo e inglese.",
@@ -738,8 +711,7 @@ export const translations = {
     hero: {
       eyebrow: "Кіно- та театральна акторка · Братислава / Центральна Європа",
       headline: "Мультимовна акторка і performer для кіно, сцени, голосу та live-подій.",
-      subheadline:
-        "Досвід у театрі, кіно, серіалах, рекламі, дубляжі, веденні подій, музиці та live performance.",
+      subheadline: "Досвід у театрі, кіно, серіалах, рекламі, дубляжі, веденні подій, музиці та live performance.",
       showreel: "Showreel",
       voice: "Голосові samples",
       casting: "Casting profile",
@@ -751,14 +723,12 @@ export const translations = {
     selected: {
       eyebrow: "Вибрані матеріали",
       title: "Публічні приклади роботи з Instagram.",
-      body:
-        "Матеріали з профілю структуровані так, щоб кастинг, voice studio або event-клієнт швидко зрозумів професійний діапазон."
+      body: "Матеріали з профілю структуровані так, щоб кастинг, voice studio або event-клієнт швидко зрозумів професійний діапазон."
     },
     reels: {
       eyebrow: "Reel library",
       title: "Чотири короткі reels продають профіль швидше, ніж довга біографія.",
-      body:
-        "На сайті підготовлені місця для ключових відео: акторство, голос, музика та події.",
+      body: "На сайті підготовлені місця для ключових відео: акторство, голос, музика та події.",
       items: [
         ["Акторський showreel", "60-90 секунд: екран, сцена, серіали та реклама."],
         ["Voice reel", "Реклама, narration, character і dramatic samples кількома мовами."],
@@ -769,16 +739,13 @@ export const translations = {
     acting: {
       eyebrow: "Акторство",
       title: "Екран, сцена, серіали та реклама.",
-      body:
-        "Мультимовна акторка і performer з досвідом у театрі, кіно, серіалах, рекламі, дубляжі та веденні подій. Працює словацькою, польською, італійською, українською, російською та англійською.",
-      placeholder:
-        "Тут має бути showreel на 60-90 секунд з театру, кіно, серіалів і реклами."
+      body: "Мультимовна акторка і performer з досвідом у театрі, кіно, серіалах, рекламі, дубляжі та веденні подій. Працює словацькою, польською, італійською, українською, російською та англійською.",
+      placeholder: "Тут має бути showreel на 60-90 секунд з театру, кіно, серіалів і реклами."
     },
     voice: {
       eyebrow: "Голос & дубляж",
       title: "Мультимовний голос з акторською основою.",
-      body:
-        "Голос — сильний комерційний напрям: дубляж, реклама, narration, персонажні samples і мовні записи.",
+      body: "Голос — сильний комерційний напрям: дубляж, реклама, narration, персонажні samples і мовні записи.",
       sampleSet:
         "Тут потрібен один короткий текст, записаний словацькою, польською, італійською, українською, російською та англійською."
     },
@@ -798,23 +765,19 @@ export const translations = {
     canvas: {
       eyebrow: "Мовна сцена",
       title: "Один профіль, кілька кастингових входів.",
-      body:
-        "Мови показані за практичним використанням: акторство, голос, ведення, спів і переклад."
+      body: "Мови показані за практичним використанням: акторство, голос, ведення, спів і переклад."
     },
     music: {
       eyebrow: "Музика",
       title: "Вокал, фортепіано та live performance.",
-      body:
-        "Музика підсилює профіль для сцени, камери, характерних ролей, live-форматів і реклами.",
+      body: "Музика підсилює профіль для сцени, камери, характерних ролей, live-форматів і реклами.",
       piano: "Тут потрібен фрагмент фортепіано на 30-90 секунд з чистим звуком."
     },
     hosting: {
       eyebrow: "Ведення & live events",
       title: "Ведуча для культурних, корпоративних і мистецьких форматів.",
-      body:
-        "Ведення винесене окремо, бо це інша аудиторія: event-агенції, фестивалі, компанії та культурні проєкти.",
-      placeholder:
-        "Тут потрібні фрагменти подій з мовленням, контактом з аудиторією та багатомовним веденням."
+      body: "Ведення винесене окремо, бо це інша аудиторія: event-агенції, фестивалі, компанії та культурні проєкти.",
+      placeholder: "Тут потрібні фрагменти подій з мовленням, контактом з аудиторією та багатомовним веденням."
     },
     skills: {
       eyebrow: "Навички",
@@ -823,8 +786,7 @@ export const translations = {
     plan: {
       eyebrow: "Контент перед запуском",
       title: "Заплановані матеріали позначені прямо на сайті.",
-      body:
-        "Instagram дає перші докази, але фінальна версія потребує окремих casting, voice, music і press materials."
+      body: "Instagram дає перші докази, але фінальна версія потребує окремих casting, voice, music і press materials."
     },
     contact: {
       eyebrow: "Контакт",
@@ -833,8 +795,7 @@ export const translations = {
     },
     casting: {
       title: "Casting Profile — Taisija Boyko",
-      description:
-        "Casting profile Taisija Boyko: showreel, мови, акторський досвід, special skills, CV і контакти.",
+      description: "Casting profile Taisija Boyko: showreel, мови, акторський досвід, special skills, CV і контакти.",
       eyebrow: "Casting profile",
       intro:
         "Доступна для кіно, телебачення, театру, реклами, voice work і вибраних live-подій. Вільно працює словацькою, польською, італійською, українською, російською та англійською.",
@@ -902,8 +863,7 @@ export const translations = {
     hero: {
       eyebrow: "Актриса кино и театра · Братислава / Центральная Европа",
       headline: "Мультиязычная актриса и performer для кино, сцены, голоса и live-мероприятий.",
-      subheadline:
-        "Опыт в театре, кино, сериалах, рекламе, дубляже, ведении мероприятий, музыке и live performance.",
+      subheadline: "Опыт в театре, кино, сериалах, рекламе, дубляже, ведении мероприятий, музыке и live performance.",
       showreel: "Showreel",
       voice: "Послушать голос",
       casting: "Casting profile",
@@ -915,14 +875,12 @@ export const translations = {
     selected: {
       eyebrow: "Выбранные материалы",
       title: "Публичные примеры работы из Instagram.",
-      body:
-        "Материалы из профиля собраны в структуру, понятную кастингу, voice-студии и event-клиенту."
+      body: "Материалы из профиля собраны в структуру, понятную кастингу, voice-студии и event-клиенту."
     },
     reels: {
       eyebrow: "Reel library",
       title: "Четыре коротких reels продают профиль быстрее, чем длинная биография.",
-      body:
-        "На сайте есть места под ключевые видео: актёрство, голос, музыку и мероприятия.",
+      body: "На сайте есть места под ключевые видео: актёрство, голос, музыку и мероприятия.",
       items: [
         ["Актёрский showreel", "60-90 секунд: экран, сцена, сериалы и реклама."],
         ["Voice reel", "Реклама, narration, character и dramatic samples на разных языках."],
@@ -933,16 +891,13 @@ export const translations = {
     acting: {
       eyebrow: "Актёрство",
       title: "Экран, сцена, сериалы и реклама.",
-      body:
-        "Мультиязычная актриса и performer с опытом в театре, кино, сериалах, рекламе, дубляже и ведении мероприятий. Работает на словацком, польском, итальянском, украинском, русском и английском языках.",
-      placeholder:
-        "Здесь должен быть showreel на 60-90 секунд с театром, кино, сериалами и рекламой."
+      body: "Мультиязычная актриса и performer с опытом в театре, кино, сериалах, рекламе, дубляже и ведении мероприятий. Работает на словацком, польском, итальянском, украинском, русском и английском языках.",
+      placeholder: "Здесь должен быть showreel на 60-90 секунд с театром, кино, сериалами и рекламой."
     },
     voice: {
       eyebrow: "Голос & дубляж",
       title: "Мультиязычный голос с актёрской базой.",
-      body:
-        "Голос — коммерчески сильное направление: дубляж, реклама, narration, персонажи и языковые samples.",
+      body: "Голос — коммерчески сильное направление: дубляж, реклама, narration, персонажи и языковые samples.",
       sampleSet:
         "Здесь нужен один короткий текст, записанный на словацком, польском, итальянском, украинском, русском и английском."
     },
@@ -954,7 +909,10 @@ export const translations = {
       eyebrow: "Локальный акцент",
       title: "Для русскоязычного направления важны голос, дубляж и event-коммуникация.",
       cards: [
-        ["Русский язык", "Русский можно использовать для voice, дубляжа, мероприятий, рекламы и международных проектов."],
+        [
+          "Русский язык",
+          "Русский можно использовать для voice, дубляжа, мероприятий, рекламы и международных проектов."
+        ],
         ["Актёрская база", "Сильная актёрская основа делает голосовые samples живыми, а не просто дикторскими."],
         ["Мультиязычность", "Русский не стоит отдельно: он усиливает общий набор языков для Центральной Европы."]
       ]
@@ -962,23 +920,19 @@ export const translations = {
     canvas: {
       eyebrow: "Языковая сцена",
       title: "Один профиль, несколько кастинговых входов.",
-      body:
-        "Языки показаны по практическому применению: актёрство, голос, ведение, пение и перевод."
+      body: "Языки показаны по практическому применению: актёрство, голос, ведение, пение и перевод."
     },
     music: {
       eyebrow: "Музыка",
       title: "Вокал, фортепиано и live performance.",
-      body:
-        "Музыка усиливает профиль для сцены, камеры, характерных ролей, live-форматов и рекламы.",
+      body: "Музыка усиливает профиль для сцены, камеры, характерных ролей, live-форматов и рекламы.",
       piano: "Здесь нужен фрагмент фортепиано на 30-90 секунд с чистым звуком."
     },
     hosting: {
       eyebrow: "Ведущая & live events",
       title: "Ведущая для культурных, корпоративных и артистических форматов.",
-      body:
-        "Ведение вынесено отдельно, потому что это другая аудитория: event-агентства, фестивали, компании и культурные проекты.",
-      placeholder:
-        "Здесь нужны фрагменты мероприятий с речью, контактом с аудиторией и мультиязычным ведением."
+      body: "Ведение вынесено отдельно, потому что это другая аудитория: event-агентства, фестивали, компании и культурные проекты.",
+      placeholder: "Здесь нужны фрагменты мероприятий с речью, контактом с аудиторией и мультиязычным ведением."
     },
     skills: {
       eyebrow: "Навыки",
@@ -987,8 +941,7 @@ export const translations = {
     plan: {
       eyebrow: "Контент перед запуском",
       title: "Запланированные материалы отмечены прямо на сайте.",
-      body:
-        "Instagram даёт первые доказательства, но финальному сайту нужны отдельные casting, voice, music и press materials."
+      body: "Instagram даёт первые доказательства, но финальному сайту нужны отдельные casting, voice, music и press materials."
     },
     contact: {
       eyebrow: "Контакт",
@@ -997,8 +950,7 @@ export const translations = {
     },
     casting: {
       title: "Casting Profile — Taisija Boyko",
-      description:
-        "Casting profile Taisija Boyko: showreel, языки, актёрский опыт, special skills, CV и контакты.",
+      description: "Casting profile Taisija Boyko: showreel, языки, актёрский опыт, special skills, CV и контакты.",
       eyebrow: "Casting profile",
       intro:
         "Доступна для кино, телевидения, театра, рекламы, voice work и selected live events. Свободно работает на словацком, польском, итальянском, украинском, русском и английском.",

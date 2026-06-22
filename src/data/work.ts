@@ -13,8 +13,7 @@ export const campaignCopy = {
   en: {
     eyebrow: "Official hub",
     title: "Current campaign: Screen · Voice · Stage · Live Events",
-    body:
-      "This block works like an artist-site campaign slot: it can promote the newest showreel, voice demo, premiere, event booking push or press kit.",
+    body: "This block works like an artist-site campaign slot: it can promote the newest showreel, voice demo, premiere, event booking push or press kit.",
     primary: "Selected work",
     secondary: "Stage mode",
     tertiary: "Casting mode",
@@ -27,8 +26,7 @@ export const campaignCopy = {
   sk: {
     eyebrow: "Oficiálny hub",
     title: "Aktuálna kampaň: Screen · Voice · Stage · Live Events",
-    body:
-      "Tento blok funguje ako kampaňový priestor: nový showreel, voice demo, premiéra, event booking alebo press kit.",
+    body: "Tento blok funguje ako kampaňový priestor: nový showreel, voice demo, premiéra, event booking alebo press kit.",
     primary: "Vybraná práca",
     secondary: "Stage mode",
     tertiary: "Casting mode",
@@ -41,8 +39,7 @@ export const campaignCopy = {
   pl: {
     eyebrow: "Oficjalny hub",
     title: "Aktualna kampania: Screen · Voice · Stage · Live Events",
-    body:
-      "Ten blok działa jak kampania artystyczna: nowy showreel, voice demo, premiera, booking eventów albo press kit.",
+    body: "Ten blok działa jak kampania artystyczna: nowy showreel, voice demo, premiera, booking eventów albo press kit.",
     primary: "Wybrane prace",
     secondary: "Stage mode",
     tertiary: "Casting mode",
@@ -55,8 +52,7 @@ export const campaignCopy = {
   it: {
     eyebrow: "Official hub",
     title: "Campagna attuale: Screen · Voice · Stage · Live Events",
-    body:
-      "Questo blocco funziona come spazio campagna: nuovo showreel, voice demo, premiere, event booking o press kit.",
+    body: "Questo blocco funziona come spazio campagna: nuovo showreel, voice demo, premiere, event booking o press kit.",
     primary: "Lavori selezionati",
     secondary: "Stage mode",
     tertiary: "Casting mode",
@@ -69,8 +65,7 @@ export const campaignCopy = {
   uk: {
     eyebrow: "Official hub",
     title: "Актуальна кампанія: Screen · Voice · Stage · Live Events",
-    body:
-      "Цей блок працює як campaign slot: новий showreel, voice demo, прем'єра, event booking або press kit.",
+    body: "Цей блок працює як campaign slot: новий showreel, voice demo, прем'єра, event booking або press kit.",
     primary: "Вибрані роботи",
     secondary: "Stage mode",
     tertiary: "Casting mode",
@@ -83,8 +78,7 @@ export const campaignCopy = {
   ru: {
     eyebrow: "Официальный хаб",
     title: "Актуальная кампания: Screen · Voice · Stage · Live Events",
-    body:
-      "Этот блок работает как сменяемый фокус артистического сайта: новый showreel, voice demo, премьера, event booking или press kit.",
+    body: "Этот блок работает как сменяемый фокус артистического сайта: новый showreel, voice demo, премьера, event booking или press kit.",
     primary: "Работы",
     secondary: "Stage mode",
     tertiary: "Casting mode",
@@ -102,8 +96,7 @@ export const workPageCopy = {
     description: "Selected work index for Taisija Boyko: acting, voice, music, hosting, languages and planned media.",
     eyebrow: "Selected work",
     heading: "A clear work index for casting, voice, music and events.",
-    body:
-      "Inspired by cinematic portfolio structures: fewer random posts, more curated work categories and direct next actions.",
+    body: "Inspired by cinematic portfolio structures: fewer random posts, more curated work categories and direct next actions.",
     contact: "Contact",
     casting: "Casting profile"
   },
@@ -112,8 +105,7 @@ export const workPageCopy = {
     description: "Prehľad práce Taisije Boyko: herectvo, hlas, hudba, moderovanie, jazyky a plánované médiá.",
     eyebrow: "Vybraná práca",
     heading: "Čistý prehľad práce pre casting, hlas, hudbu a eventy.",
-    body:
-      "Inšpirované filmovým portfóliom: menej náhodných postov, viac kurátorovaných kategórií a jasné ďalšie kroky.",
+    body: "Inšpirované filmovým portfóliom: menej náhodných postov, viac kurátorovaných kategórií a jasné ďalšie kroky.",
     contact: "Kontakt",
     casting: "Casting profil"
   },
@@ -122,8 +114,7 @@ export const workPageCopy = {
     description: "Indeks prac Taisiji Boyko: aktorstwo, głos, muzyka, prowadzenie, języki i planowane media.",
     eyebrow: "Wybrane prace",
     heading: "Czytelny indeks pracy dla castingu, głosu, muzyki i wydarzeń.",
-    body:
-      "Inspiracja filmowym portfolio: mniej przypadkowych postów, więcej wybranych kategorii i jasne działania.",
+    body: "Inspiracja filmowym portfolio: mniej przypadkowych postów, więcej wybranych kategorii i jasne działania.",
     contact: "Kontakt",
     casting: "Profil castingowy"
   },
@@ -132,8 +123,7 @@ export const workPageCopy = {
     description: "Indice lavori di Taisija Boyko: recitazione, voce, musica, eventi, lingue e media pianificati.",
     eyebrow: "Lavori selezionati",
     heading: "Un indice chiaro per casting, voce, musica ed eventi.",
-    body:
-      "Ispirato ai portfolio cinematografici: meno post casuali, più categorie curate e azioni dirette.",
+    body: "Ispirato ai portfolio cinematografici: meno post casuali, più categorie curate e azioni dirette.",
     contact: "Contatto",
     casting: "Profilo casting"
   },
@@ -142,8 +132,7 @@ export const workPageCopy = {
     description: "Індекс робіт Taisija Boyko: акторство, голос, музика, ведення, мови та заплановані media.",
     eyebrow: "Вибрані роботи",
     heading: "Чіткий work index для кастингу, голосу, музики та подій.",
-    body:
-      "Натхнено кіношними portfolio: менше випадкових постів, більше curated categories і прямі дії.",
+    body: "Натхнено кіношними portfolio: менше випадкових постів, більше curated categories і прямі дії.",
     contact: "Контакт",
     casting: "Casting profile"
   },
@@ -152,8 +141,7 @@ export const workPageCopy = {
     description: "Индекс работ Taisija Boyko: актёрство, голос, музыка, ведущая, языки и запланированные материалы.",
     eyebrow: "Работы",
     heading: "Чёткий каталог работ для кастинга, голоса, музыки и мероприятий.",
-    body:
-      "Идея взята из кинематографичных портфолио: меньше случайной ленты, больше выбранных категорий и быстрых действий.",
+    body: "Идея взята из кинематографичных портфолио: меньше случайной ленты, больше выбранных категорий и быстрых действий.",
     contact: "Контакт",
     casting: "Кастинг-профиль"
   }

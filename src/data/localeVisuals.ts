@@ -15,8 +15,7 @@ export const localeVisuals: Record<
     theme: "constellation",
     eyebrow: "International visual idea",
     title: "Language constellation for international casting.",
-    body:
-      "The English version should feel like the central international portal: clean, cinematic, easy to send to agents, studios and cross-border productions.",
+    body: "The English version should feel like the central international portal: clean, cinematic, easy to send to agents, studios and cross-border productions.",
     backdrop: "A wide cinematic portrait or short slow-motion video with neutral stage light.",
     media: [
       "Hero portrait with clean international casting look.",
@@ -29,9 +28,9 @@ export const localeVisuals: Record<
     theme: "mountains",
     eyebrow: "Slovenský vizuálny smer",
     title: "Bratislavský základ a scénická atmosféra s mierkou hôr.",
-    body:
-      "Slovenská verzia má pôsobiť lokálne: VŠMU, Bratislava, televízny kontext a stredoeurópska krajina namiesto generickej divadelnej dekorácie.",
-    backdrop: "Veľká filmová fotka alebo video pri slovenských horách, hrade, divadle alebo v dramatickej stredoeurópskej krajine.",
+    body: "Slovenská verzia má pôsobiť lokálne: VŠMU, Bratislava, televízny kontext a stredoeurópska krajina namiesto generickej divadelnej dekorácie.",
+    backdrop:
+      "Veľká filmová fotka alebo video pri slovenských horách, hrade, divadle alebo v dramatickej stredoeurópskej krajine.",
     media: [
       "Epická slovenská hero fotka: hory / Bratislava / divadelná architektúra.",
       "Slovenská hlasová ukážka pre herectvo alebo narration.",
@@ -43,9 +42,9 @@ export const localeVisuals: Record<
     theme: "amber",
     eyebrow: "Polski kierunek wizualny",
     title: "Bursztynowe światło teatru i środkowoeuropejska elegancja.",
-    body:
-      "Polska wersja może mieć cieplejszy, plakatowy rytm: bursztynowe światło, cień sceny, literacki teatr i most między Polską, Słowacją i Ukrainą.",
-    backdrop: "Ciepły bursztynowy portret, korytarz teatralny, stare światło kinowe albo minimalistyczny obraz plakatowy.",
+    body: "Polska wersja może mieć cieplejszy, plakatowy rytm: bursztynowe światło, cień sceny, literacki teatr i most między Polską, Słowacją i Ukrainą.",
+    backdrop:
+      "Ciepły bursztynowy portret, korytarz teatralny, stare światło kinowe albo minimalistyczny obraz plakatowy.",
     media: [
       "Polska próbka głosu albo sceny aktorskiej.",
       "Portret w ciepłym bursztynowym / teatralnym świetle.",
@@ -57,9 +56,9 @@ export const localeVisuals: Record<
     theme: "opera",
     eyebrow: "Direzione visiva italiana",
     title: "Spot da opera, volto cinematografico e musicalità.",
-    body:
-      "La versione italiana dovrebbe valorizzare voce, orecchio musicale, gesto e presenza cinematografica. Il linguaggio visivo può essere più scultoreo: spotlight, arco, rosso, nero e oro.",
-    backdrop: "Ritratto elegante in spotlight, immagine ispirata al teatro d'opera, still al piano/voce o close-up cinematografico.",
+    body: "La versione italiana dovrebbe valorizzare voce, orecchio musicale, gesto e presenza cinematografica. Il linguaggio visivo può essere più scultoreo: spotlight, arco, rosso, nero e oro.",
+    backdrop:
+      "Ritratto elegante in spotlight, immagine ispirata al teatro d'opera, still al piano/voce o close-up cinematografico.",
     media: [
       "Sample parlato in italiano: commercial, character o breve monologo.",
       "Canzone italiana o frammento vocale, se disponibile.",
@@ -71,9 +70,9 @@ export const localeVisuals: Record<
     theme: "sunflower",
     eyebrow: "Український візуальний напрям",
     title: "Поезія, театр і синьо-золота сценічна пам'ять.",
-    body:
-      "Українська версія може бути найемоційнішою: поезія, театр, голос, культурна пам'ять і тепло. Вона має звучати живо, не фольклорно.",
-    backdrop: "Синьо-золотий театральний портрет, still з поетичного виступу, sunflower-light образ або момент репетиції.",
+    body: "Українська версія може бути найемоційнішою: поезія, театр, голос, культурна пам'ять і тепло. Вона має звучати живо, не фольклорно.",
+    backdrop:
+      "Синьо-золотий театральний портрет, still з поетичного виступу, sunflower-light образ або момент репетиції.",
     media: [
       "Українська поезія або драматичний монолог.",
       "Український вокальний фрагмент.",
@@ -85,9 +84,9 @@ export const localeVisuals: Record<
     theme: "velvet",
     eyebrow: "Русская визуальная идея",
     title: "Голос, дубляж и напряжение красной бархатной сцены.",
-    body:
-      "Русская версия должна сильнее опираться на голос, дубляж, narration и театральную интенсивность: тёмный бархат, сильное лицо, близкий микрофон, контролируемая драма.",
-    backdrop: "Портрет в красном бархате / тёмном театре, крупный план у микрофона, voice booth still или драматичный студийный свет.",
+    body: "Русская версия должна сильнее опираться на голос, дубляж, narration и театральную интенсивность: тёмный бархат, сильное лицо, близкий микрофон, контролируемая драма.",
+    backdrop:
+      "Портрет в красном бархате / тёмном театре, крупный план у микрофона, voice booth still или драматичный студийный свет.",
     media: [
       "Русский voice sample: narration, character или dubbing.",
       "Фрагмент драматического монолога.",

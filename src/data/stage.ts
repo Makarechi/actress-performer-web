@@ -16,15 +16,13 @@ export const stageCopy = {
       "An immersive stage mode for Taisija Boyko: multilingual acting, voice, music, live performance and casting access.",
     eyebrow: "Stage mode",
     headline: "A cinematic multilingual performer platform.",
-    body:
-      "A visual entrance into screen, stage, voice, language, music and live events, with a direct path back to the fast casting profile.",
+    body: "A visual entrance into screen, stage, voice, language, music and live events, with a direct path back to the fast casting profile.",
     enterCasting: "Casting mode",
     backToHub: "Official hub",
     current: {
       eyebrow: "Current focus",
       title: "Screen · Voice · Stage · Live Performance",
-      body:
-        "This section can change with the current professional goal: new showreel, voice demo, premiere, event hosting or press kit."
+      body: "This section can change with the current professional goal: new showreel, voice demo, premiere, event hosting or press kit."
     },
     modes: [
       ["Stage Mode", "Cinematic entry: image, language, voice and motion."],
@@ -44,15 +42,13 @@ export const stageCopy = {
       "Immersive stage mode pre Taisiju Boyko: viacjazyčné herectvo, hlas, hudba, live performance a rýchly casting.",
     eyebrow: "Stage mode",
     headline: "Cinematická platforma viacjazyčnej performerky.",
-    body:
-      "Vizuálny vstup do herectva, hlasu, jazykov, hudby a live eventov, s priamou cestou do rýchleho casting profilu.",
+    body: "Vizuálny vstup do herectva, hlasu, jazykov, hudby a live eventov, s priamou cestou do rýchleho casting profilu.",
     enterCasting: "Casting mode",
     backToHub: "Oficiálny hub",
     current: {
       eyebrow: "Aktuálny fokus",
       title: "Screen · Voice · Stage · Live Performance",
-      body:
-        "Tento blok sa môže meniť podľa aktuálneho cieľa: nový showreel, voice demo, premiéra, event hosting alebo press kit."
+      body: "Tento blok sa môže meniť podľa aktuálneho cieľa: nový showreel, voice demo, premiéra, event hosting alebo press kit."
     },
     modes: [
       ["Stage Mode", "Cinematický vstup: obraz, jazyky, hlas a pohyb."],
@@ -72,15 +68,13 @@ export const stageCopy = {
       "Immersyjny stage mode dla Taisiji Boyko: wielojęzyczne aktorstwo, głos, muzyka, live performance i szybki casting.",
     eyebrow: "Stage mode",
     headline: "Filmowa platforma wielojęzycznej performerki.",
-    body:
-      "Wizualne wejście w aktorstwo, głos, języki, muzykę i wydarzenia live, z prostą drogą do szybkiego profilu castingowego.",
+    body: "Wizualne wejście w aktorstwo, głos, języki, muzykę i wydarzenia live, z prostą drogą do szybkiego profilu castingowego.",
     enterCasting: "Casting mode",
     backToHub: "Oficjalny hub",
     current: {
       eyebrow: "Aktualny fokus",
       title: "Screen · Voice · Stage · Live Performance",
-      body:
-        "Ten blok może zmieniać się razem z celem: nowy showreel, voice demo, premiera, hosting eventów albo press kit."
+      body: "Ten blok może zmieniać się razem z celem: nowy showreel, voice demo, premiera, hosting eventów albo press kit."
     },
     modes: [
       ["Stage Mode", "Filmowe wejście: obraz, języki, głos i ruch."],
@@ -100,15 +94,13 @@ export const stageCopy = {
       "Stage mode immersiva per Taisija Boyko: recitazione multilingue, voce, musica, live performance e casting rapido.",
     eyebrow: "Stage mode",
     headline: "Una piattaforma cinematica per una performer multilingue.",
-    body:
-      "Un ingresso visivo in schermo, scena, voce, lingue, musica ed eventi live, con accesso diretto al profilo casting.",
+    body: "Un ingresso visivo in schermo, scena, voce, lingue, musica ed eventi live, con accesso diretto al profilo casting.",
     enterCasting: "Casting mode",
     backToHub: "Official hub",
     current: {
       eyebrow: "Focus attuale",
       title: "Screen · Voice · Stage · Live Performance",
-      body:
-        "Questo blocco può cambiare con l'obiettivo professionale: nuovo showreel, voice demo, premiere, event hosting o press kit."
+      body: "Questo blocco può cambiare con l'obiettivo professionale: nuovo showreel, voice demo, premiere, event hosting o press kit."
     },
     modes: [
       ["Stage Mode", "Ingresso cinematico: immagine, lingue, voce e movimento."],
@@ -128,15 +120,13 @@ export const stageCopy = {
       "Імерсивний stage mode для Taisija Boyko: мультимовне акторство, голос, музика, live performance і швидкий кастинг.",
     eyebrow: "Stage mode",
     headline: "Кінематографічна платформа мультимовної performer.",
-    body:
-      "Візуальний вхід у кіно, сцену, голос, мови, музику та live-події, з прямим шляхом до швидкого casting profile.",
+    body: "Візуальний вхід у кіно, сцену, голос, мови, музику та live-події, з прямим шляхом до швидкого casting profile.",
     enterCasting: "Casting mode",
     backToHub: "Official hub",
     current: {
       eyebrow: "Актуальний фокус",
       title: "Screen · Voice · Stage · Live Performance",
-      body:
-        "Цей блок може змінюватися під поточну мету: новий showreel, voice demo, прем'єра, event hosting або press kit."
+      body: "Цей блок може змінюватися під поточну мету: новий showreel, voice demo, прем'єра, event hosting або press kit."
     },
     modes: [
       ["Stage Mode", "Кінематографічний вхід: образ, мови, голос і рух."],
@@ -156,15 +146,13 @@ export const stageCopy = {
       "Иммерсивный stage mode для Taisija Boyko: мультиязычное актёрство, голос, музыка, live performance и быстрый кастинг.",
     eyebrow: "Stage mode",
     headline: "Кинематографичная платформа мультиязычной performer.",
-    body:
-      "Визуальный вход в кино, сцену, голос, языки, музыку и live-мероприятия, с прямым переходом в быстрый casting profile.",
+    body: "Визуальный вход в кино, сцену, голос, языки, музыку и live-мероприятия, с прямым переходом в быстрый casting profile.",
     enterCasting: "Casting mode",
     backToHub: "Official hub",
     current: {
       eyebrow: "Актуальный фокус",
       title: "Screen · Voice · Stage · Live Performance",
-      body:
-        "Этот блок можно менять под текущую профессиональную цель: новый showreel, voice demo, премьеру, event hosting или press kit."
+      body: "Этот блок можно менять под текущую профессиональную цель: новый showreel, voice demo, премьеру, event hosting или press kit."
     },
     modes: [
       ["Stage Mode", "Кинематографичный вход: образ, языки, голос и движение."],

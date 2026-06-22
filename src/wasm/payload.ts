@@ -1,12 +1,5 @@
 import { heroBackdrops } from "@data/heroBackdrops";
-import {
-  getLocalizedInstagramPosts,
-  localeNames,
-  locales,
-  localizedPath,
-  translations,
-  type Locale
-} from "@data/i18n";
+import { getLocalizedInstagramPosts, type Locale, localeNames, locales, localizedPath, translations } from "@data/i18n";
 import { localeVisuals } from "@data/localeVisuals";
 import { withBase } from "@data/paths";
 import { contentPlan, profile } from "@data/profile";
@@ -41,48 +34,42 @@ const aerialCopy: Record<
   en: {
     eyebrow: "Special skill",
     title: "Aerial gymnastics as camera-ready movement.",
-    body:
-      "A dedicated aerial silks clip now supports casting for physical theatre, commercials, fantasy, music videos and roles that need disciplined body control.",
+    body: "A dedicated aerial silks clip now supports casting for physical theatre, commercials, fantasy, music videos and roles that need disciplined body control.",
     meta: "42-second highlight from the original training video.",
     full: "Open full 4-minute version"
   },
   sk: {
     eyebrow: "Špeciálna schopnosť",
     title: "Vzdušná gymnastika ako pohyb pripravený pre kameru.",
-    body:
-      "Ukážka na šáloch dopĺňa casting pre fyzické divadlo, reklamu, klipy, fantasy projekty a roly, kde je dôležitá kontrola tela.",
+    body: "Ukážka na šáloch dopĺňa casting pre fyzické divadlo, reklamu, klipy, fantasy projekty a roly, kde je dôležitá kontrola tela.",
     meta: "42-sekundový highlight z pôvodného tréningového videa.",
     full: "Otvoriť plnú 4-minútovú verziu"
   },
   pl: {
     eyebrow: "Umiejętność specjalna",
     title: "Gimnastyka powietrzna jako ruch gotowy do kamery.",
-    body:
-      "Krótki materiał na szarfach wzmacnia casting do teatru fizycznego, reklamy, klipów muzycznych, fantasy i ról wymagających kontroli ciała.",
+    body: "Krótki materiał na szarfach wzmacnia casting do teatru fizycznego, reklamy, klipów muzycznych, fantasy i ról wymagających kontroli ciała.",
     meta: "42-sekundowy highlight z oryginalnego nagrania treningowego.",
     full: "Otwórz pełną 4-minutową wersję"
   },
   it: {
     eyebrow: "Skill speciale",
     title: "Danza aerea come movimento pronto per la camera.",
-    body:
-      "La clip sui tessuti aerei supporta casting per teatro fisico, pubblicità, videoclip, fantasy e ruoli che richiedono controllo corporeo.",
+    body: "La clip sui tessuti aerei supporta casting per teatro fisico, pubblicità, videoclip, fantasy e ruoli che richiedono controllo corporeo.",
     meta: "Highlight di 42 secondi dal video originale di training.",
     full: "Apri la versione completa di 4 minuti"
   },
   uk: {
     eyebrow: "Спеціальна навичка",
     title: "Повітряна гімнастика як рух, готовий для камери.",
-    body:
-      "Короткий фрагмент на полотнах підсилює casting для physical theatre, реклами, кліпів, fantasy-проєктів і ролей, де важливий контроль тіла.",
+    body: "Короткий фрагмент на полотнах підсилює casting для physical theatre, реклами, кліпів, fantasy-проєктів і ролей, де важливий контроль тіла.",
     meta: "42-секундний highlight з оригінального тренувального відео.",
     full: "Відкрити повну 4-хвилинну версію"
   },
   ru: {
     eyebrow: "Специальный навык",
     title: "Воздушная гимнастика как движение, готовое для камеры.",
-    body:
-      "Короткий фрагмент на полотнах усиливает кастинг для physical theatre, рекламы, клипов, fantasy-проектов и ролей, где важны линия, контроль тела и пластика.",
+    body: "Короткий фрагмент на полотнах усиливает кастинг для physical theatre, рекламы, клипов, fantasy-проектов и ролей, где важны линия, контроль тела и пластика.",
     meta: "42-секундный highlight из оригинального тренировочного видео.",
     full: "Открыть полную 4-минутную версию"
   }
@@ -165,8 +152,7 @@ const vocalPerformanceCopy: Partial<
   uk: {
     eyebrow: "Вокальний performance",
     title: "«Вишивана дівчина»: вокал, бандура, фортепіано.",
-    body:
-      "Живий український вокальний фрагмент: Таїсія виконує «Вишивану дівчину» разом із відомою бандуристкою, а на фортепіано акомпанує концертмейстерка з Харкова.",
+    body: "Живий український вокальний фрагмент: Таїсія виконує «Вишивану дівчину» разом із відомою бандуристкою, а на фортепіано акомпанує концертмейстерка з Харкова.",
     meta: "45 секунд · live vocal performance"
   }
 };
@@ -183,43 +169,37 @@ const packetCopy: Record<
   en: {
     eyebrow: "Press / booking packet",
     title: "A practical package for agents, producers and event clients.",
-    body:
-      "This area is planned for the downloadable materials that make the site work like an official artist hub.",
+    body: "This area is planned for the downloadable materials that make the site work like an official artist hub.",
     items: ["Updated CV PDF", "Press kit with approved photos", "Showreel links", "Voice and music samples"]
   },
   sk: {
     eyebrow: "Press / booking packet",
     title: "Praktický balík pre agentúry, producentov a event klientov.",
-    body:
-      "Tento priestor je pripravený pre materiály, aby stránka fungovala ako oficiálny artist hub.",
+    body: "Tento priestor je pripravený pre materiály, aby stránka fungovala ako oficiálny artist hub.",
     items: ["Aktuálne CV PDF", "Press kit so schválenými fotkami", "Showreel linky", "Hlasové a hudobné ukážky"]
   },
   pl: {
     eyebrow: "Press / booking packet",
     title: "Praktyczny pakiet dla agentów, producentów i klientów eventowych.",
-    body:
-      "To miejsce jest zaplanowane na materiały, które zamienią stronę w oficjalny hub artystki.",
+    body: "To miejsce jest zaplanowane na materiały, które zamienią stronę w oficjalny hub artystki.",
     items: ["Aktualne CV PDF", "Press kit ze zdjęciami", "Linki do showreel", "Próbki głosu i muzyki"]
   },
   it: {
     eyebrow: "Press / booking packet",
     title: "Un pacchetto pratico per agenti, produzioni e clienti eventi.",
-    body:
-      "Questo spazio è pensato per i materiali scaricabili che fanno funzionare il sito come official artist hub.",
+    body: "Questo spazio è pensato per i materiali scaricabili che fanno funzionare il sito come official artist hub.",
     items: ["CV PDF aggiornato", "Press kit con foto approvate", "Link showreel", "Sample voce e musica"]
   },
   uk: {
     eyebrow: "Press / booking packet",
     title: "Практичний пакет для агентів, продюсерів і event-клієнтів.",
-    body:
-      "Цей блок запланований для матеріалів, які перетворюють сайт на офіційний artist hub.",
+    body: "Цей блок запланований для матеріалів, які перетворюють сайт на офіційний artist hub.",
     items: ["Оновлений CV PDF", "Press kit з approved photos", "Showreel links", "Voice and music samples"]
   },
   ru: {
     eyebrow: "Press / booking packet",
     title: "Практический пакет для агентов, продюсеров и event-клиентов.",
-    body:
-      "Этот блок запланирован под материалы, которые превращают сайт в официальный артистический хаб.",
+    body: "Этот блок запланирован под материалы, которые превращают сайт в официальный артистический хаб.",
     items: ["Актуальный CV PDF", "Press kit с утверждёнными фото", "Ссылки на showreel", "Voice и music samples"]
   }
 };
@@ -233,7 +213,10 @@ const signatureLabels: Record<Locale, { backdrop: string; content: string }> = {
   ru: { backdrop: "Фон первого экрана", content: "Контент для подготовки" }
 };
 
-const stageStaticLabels: Record<Locale, { heroBackdrop: string; creativePlan: string; sceneChapters: string; voiceMusic: string }> = {
+const stageStaticLabels: Record<
+  Locale,
+  { heroBackdrop: string; creativePlan: string; sceneChapters: string; voiceMusic: string }
+> = {
   en: {
     heroBackdrop: "Hero backdrop",
     creativePlan: "Creative tech plan",
@@ -314,13 +297,11 @@ const masterclassCopy: Record<
     nav: "Masterclasses",
     eyebrow: "Masterclasses",
     title: "Individual coaching and group workshops with different rhythms.",
-    body:
-      "One-to-one work is built around a specific personal goal. Group workshops work like announced events with a date, theme and registration window.",
+    body: "One-to-one work is built around a specific personal goal. Group workshops work like announced events with a date, theme and registration window.",
     individual: {
       eyebrow: "Individual",
       title: "One-to-one acting, voice and stage presence work.",
-      body:
-        "For audition prep, monologues, camera confidence, voice, speech, music-facing performance or a concrete role.",
+      body: "For audition prep, monologues, camera confidence, voice, speech, music-facing performance or a concrete role.",
       name: "Name",
       contact: "Contact",
       focus: "Focus",
@@ -336,13 +317,17 @@ const masterclassCopy: Record<
     group: {
       eyebrow: "Group",
       title: "Group masterclass for a forming group.",
-      body:
-        "A practical group format: you leave a request, then the date, place and details are agreed once the group is formed.",
+      body: "A practical group format: you leave a request, then the date, place and details are agreed once the group is formed.",
       status: "Group forming",
       eventTitle: "Acting and voice presence",
       dateLabel: "Group start",
       dateText: "Date agreed with participants",
-      details: ["Small group", "Practical exercises", "Voice, movement and attention", "Bratislava / online by agreement"],
+      details: [
+        "Small group",
+        "Practical exercises",
+        "Voice, movement and attention",
+        "Bratislava / online by agreement"
+      ],
       cta: "Join the group",
       subject: "Group masterclass registration",
       emailBody: "I would like to join the group masterclass. Please send me the date options, format and price."
@@ -352,13 +337,11 @@ const masterclassCopy: Record<
     nav: "Masterclassy",
     eyebrow: "Masterclassy",
     title: "Individuálne hodiny a skupinové workshopy s odlišným rytmom.",
-    body:
-      "Individuálny formát ide podľa konkrétneho cieľa človeka. Skupinový workshop funguje ako oznámené podujatie s dátumom, témou a registráciou.",
+    body: "Individuálny formát ide podľa konkrétneho cieľa človeka. Skupinový workshop funguje ako oznámené podujatie s dátumom, témou a registráciou.",
     individual: {
       eyebrow: "Individuálne",
       title: "Herectvo, hlas a javisková prítomnosť jeden na jedného.",
-      body:
-        "Na prípravu castingu, monológu, kamery, hlasu, reči, hudobného vystúpenia alebo konkrétnej roly.",
+      body: "Na prípravu castingu, monológu, kamery, hlasu, reči, hudobného vystúpenia alebo konkrétnej roly.",
       name: "Meno",
       contact: "Kontakt",
       focus: "Zameranie",
@@ -374,8 +357,7 @@ const masterclassCopy: Record<
     group: {
       eyebrow: "Skupina",
       title: "Skupinový masterclass ako samostatné podujatie.",
-      body:
-        "Praktický skupinový formát: pošlete záujem a po vytvorení skupiny sa dohodne dátum, miesto a detaily.",
+      body: "Praktický skupinový formát: pošlete záujem a po vytvorení skupiny sa dohodne dátum, miesto a detaily.",
       status: "Skupina sa tvorí",
       eventTitle: "Herecká a hlasová prítomnosť",
       dateLabel: "Štart skupiny",
@@ -390,13 +372,11 @@ const masterclassCopy: Record<
     nav: "Masterclassy",
     eyebrow: "Masterclassy",
     title: "Praca indywidualna i grupowe warsztaty jako dwa różne formaty.",
-    body:
-      "Format indywidualny idzie za konkretnym celem osoby. Grupowy warsztat działa jak wydarzenie z datą, tematem i zapisami.",
+    body: "Format indywidualny idzie za konkretnym celem osoby. Grupowy warsztat działa jak wydarzenie z datą, tematem i zapisami.",
     individual: {
       eyebrow: "Indywidualnie",
       title: "Aktorstwo, głos i obecność sceniczna jeden na jeden.",
-      body:
-        "Do przygotowania castingu, monologu, pracy z kamerą, głosu, mowy, występu muzycznego albo konkretnej roli.",
+      body: "Do przygotowania castingu, monologu, pracy z kamerą, głosu, mowy, występu muzycznego albo konkretnej roli.",
       name: "Imię",
       contact: "Kontakt",
       focus: "Temat",
@@ -412,8 +392,7 @@ const masterclassCopy: Record<
     group: {
       eyebrow: "Grupa",
       title: "Grupowy masterclass jako osobne wydarzenie.",
-      body:
-        "Praktyczny format grupowy: zostawiasz zgłoszenie, a po zebraniu grupy ustalany jest termin, miejsce i szczegóły.",
+      body: "Praktyczny format grupowy: zostawiasz zgłoszenie, a po zebraniu grupy ustalany jest termin, miejsce i szczegóły.",
       status: "Grupa się tworzy",
       eventTitle: "Obecność aktorska i głosowa",
       dateLabel: "Start grupy",
@@ -428,13 +407,11 @@ const masterclassCopy: Record<
     nav: "Masterclass",
     eyebrow: "Masterclass",
     title: "Coaching individuale e workshop di gruppo con due ritmi diversi.",
-    body:
-      "Il lavoro individuale segue un obiettivo personale concreto. Il gruppo funziona come evento annunciato con data, tema e iscrizione.",
+    body: "Il lavoro individuale segue un obiettivo personale concreto. Il gruppo funziona come evento annunciato con data, tema e iscrizione.",
     individual: {
       eyebrow: "Individuale",
       title: "Recitazione, voce e presenza scenica uno a uno.",
-      body:
-        "Per casting, monologhi, camera confidence, voce, dizione, performance musicale o un ruolo concreto.",
+      body: "Per casting, monologhi, camera confidence, voce, dizione, performance musicale o un ruolo concreto.",
       name: "Nome",
       contact: "Contatto",
       focus: "Focus",
@@ -450,8 +427,7 @@ const masterclassCopy: Record<
     group: {
       eyebrow: "Gruppo",
       title: "Masterclass di gruppo come evento programmato.",
-      body:
-        "Un formato di gruppo pratico: invii la richiesta e, quando il gruppo è formato, si concordano data, luogo e dettagli.",
+      body: "Un formato di gruppo pratico: invii la richiesta e, quando il gruppo è formato, si concordano data, luogo e dettagli.",
       status: "Gruppo in formazione",
       eventTitle: "Presenza attoriale e vocale",
       dateLabel: "Avvio gruppo",
@@ -466,13 +442,11 @@ const masterclassCopy: Record<
     nav: "Майстер-класи",
     eyebrow: "Майстер-класи",
     title: "Індивідуальна робота і групові зустрічі — два різні формати.",
-    body:
-      "Індивідуальний формат будується навколо конкретної мети людини. Груповий майстер-клас працює як подія з датою, темою і набором учасників.",
+    body: "Індивідуальний формат будується навколо конкретної мети людини. Груповий майстер-клас працює як подія з датою, темою і набором учасників.",
     individual: {
       eyebrow: "Індивідуально",
       title: "Акторство, голос і сценічна присутність один на один.",
-      body:
-        "Для підготовки до кастингу, монологу, камери, голосу, мовлення, музичного виступу або конкретної ролі.",
+      body: "Для підготовки до кастингу, монологу, камери, голосу, мовлення, музичного виступу або конкретної ролі.",
       name: "Ім'я",
       contact: "Контакт",
       focus: "Фокус",
@@ -488,8 +462,7 @@ const masterclassCopy: Record<
     group: {
       eyebrow: "Група",
       title: "Груповий майстер-клас як окрема подія.",
-      body:
-        "Практичний груповий формат: ви залишаєте заявку, а після формування групи узгоджуються дата, місце і деталі.",
+      body: "Практичний груповий формат: ви залишаєте заявку, а після формування групи узгоджуються дата, місце і деталі.",
       status: "Група формується",
       eventTitle: "Акторська і голосова присутність",
       dateLabel: "Старт групи",
@@ -504,13 +477,11 @@ const masterclassCopy: Record<
     nav: "Мастер-классы",
     eyebrow: "Мастер-классы",
     title: "Индивидуальная работа и групповые встречи — два разных формата.",
-    body:
-      "Индивидуальный формат строится вокруг конкретной цели человека. Групповой мастер-класс работает как событие с датой, темой и набором участников.",
+    body: "Индивидуальный формат строится вокруг конкретной цели человека. Групповой мастер-класс работает как событие с датой, темой и набором участников.",
     individual: {
       eyebrow: "Индивидуально",
       title: "Актерство, голос и сценическое присутствие один на один.",
-      body:
-        "Для подготовки к кастингу, монологу, камере, голосу, речи, музыкальному выступлению или конкретной роли.",
+      body: "Для подготовки к кастингу, монологу, камере, голосу, речи, музыкальному выступлению или конкретной роли.",
       name: "Имя",
       contact: "Контакт",
       focus: "Что хочется разобрать",
@@ -526,13 +497,17 @@ const masterclassCopy: Record<
     group: {
       eyebrow: "Группа",
       title: "Групповой мастер-класс как отдельное событие.",
-      body:
-        "Это рабочий групповой формат: вы оставляете заявку, а после набора группы согласуются дата, место и детали.",
+      body: "Это рабочий групповой формат: вы оставляете заявку, а после набора группы согласуются дата, место и детали.",
       status: "Формируется группа",
       eventTitle: "Актерское и голосовое присутствие",
       dateLabel: "Старт группы",
       dateText: "Дата согласуется с участниками",
-      details: ["Небольшая группа", "Практические упражнения", "Голос, движение и внимание", "Братислава / онлайн по договоренности"],
+      details: [
+        "Небольшая группа",
+        "Практические упражнения",
+        "Голос, движение и внимание",
+        "Братислава / онлайн по договоренности"
+      ],
       cta: "Записаться в группу",
       subject: "Запись на групповой мастер-класс",
       emailBody: "Хочу записаться на групповой мастер-класс. Пришлите, пожалуйста, варианты даты, формат и стоимость."
@@ -541,7 +516,14 @@ const masterclassCopy: Record<
 };
 
 const postIds = {
-  featured: ["nemocnica-tvjoj", "theatre-day", "vocal-concert", "hosting-st-nicholas", "voice-training", "little-women-stage"],
+  featured: [
+    "nemocnica-tvjoj",
+    "theatre-day",
+    "vocal-concert",
+    "hosting-st-nicholas",
+    "voice-training",
+    "little-women-stage"
+  ],
   acting: ["nemocnica-tvjoj", "theatre-day", "acting-emotions", "little-women-stage"],
   music: ["vocal-concert"],
   hosting: ["hosting-st-nicholas"],

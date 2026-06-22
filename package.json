@@ -9,13 +9,26 @@
     "dev": "astro dev",
     "prebuild": "npm run wasm",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "format": "biome format --write src/data src/wasm tests playwright.config.ts astro.config.mjs lighthouserc.cjs package.json tsconfig.json",
+    "test:biome": "biome ci src/data src/wasm tests playwright.config.ts astro.config.mjs lighthouserc.cjs package.json tsconfig.json",
+    "test:e2e": "npm run build && playwright test",
+    "test:e2e:run": "playwright test",
+    "test:axe": "npm run build && playwright test tests/axe.spec.ts",
+    "test:layout": "npm run build && playwright test tests/layout-overflow.spec.ts",
+    "test:lighthouse": "npm run build && lhci autorun --config=./lighthouserc.cjs",
+    "test:lighthouse:run": "lhci autorun --config=./lighthouserc.cjs",
+    "test:qa": "npm run test:biome && npm run build && npm run test:e2e:run && npm run test:lighthouse:run"
   },
   "dependencies": {
     "astro": "^6.3.3",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@biomejs/biome": "^2.5.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.61.0",
     "wasm-pack": "^0.15.0"
   }
 }
