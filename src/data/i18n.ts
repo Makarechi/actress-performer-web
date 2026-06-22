@@ -4,7 +4,7 @@ import { withBase } from "./paths";
 export const locales = ["en", "sk", "pl", "it", "uk", "ru"] as const;
 export type Locale = (typeof locales)[number];
 
-export const publicLocales = ["en", "sk"] as const satisfies readonly Locale[];
+export const publicLocales = ["en", "sk", "pl", "it", "uk", "ru"] as const satisfies readonly Locale[];
 export type PublicLocale = (typeof publicLocales)[number];
 
 export const localeNames: Record<Locale, string> = {
